@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_centerHorizontal="true"
+        android:layout_width="400px"
+        android:layout_height="400px"
+        android:id="@+id/rose"
+        android:src="@drawable/rose"
+        android:paddingTop="100px"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rose"
+        android:layout_alignLeft="@+id/rose"
+        android:id="@+id/Log"
+        android:text="@string/Login"
+        android:paddingTop="100px"/>
+
+    <EditText
+        android:id="@+id/LogInput"
+        android:layout_width="500px"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Log"
+        android:layout_centerHorizontal="true"
+        android:singleLine="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Pw"
+        android:text="@string/Password"
+        android:layout_below="@+id/LogInput"
+        android:layout_alignLeft="@+id/rose"/>
+
+    <EditText
+        android:id="@+id/PwInput"
+        android:layout_width="500px"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Pw"
+        android:layout_centerHorizontal="true"
+        android:singleLine="true"/>
+
+</RelativeLayout>
