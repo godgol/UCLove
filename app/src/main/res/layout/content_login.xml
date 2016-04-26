@@ -56,6 +56,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/LoginButton"
         android:layout_centerHorizontal="true"
-        android:text="Login Status:"/>
+        android:text="Login Status"/>
 
 </RelativeLayout>
