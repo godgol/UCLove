@@ -15,51 +15,43 @@ import android.widget.ArrayAdapter;
 import android.content.Intent;
 
 public class MyListActivity extends AppCompatActivity {
-//    public static final String CHOSEN_TEXT = "texteChoisi";
-//    List<String> someStrings = Arrays.asList("java", "scala", "prolog", "smalltalk");
-//    String chosenString;
     public TextView profile;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_menu);
-
-        profile = (TextView)findViewById(R.id.T1);
-        profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MyListActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
-
 //    @Override
-//    public void onCreate(Bundle savedInstanceState) {
+//    public void onCreate(Bundle savedInstanceState){
 //        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.content_menu);
 //
-//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-//                android.R.layout.simple_list_item_1, someStrings);
-//        setListAdapter(adapter);
-//        getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//        profile = (TextView)findViewById(R.id.T1);
+//        profile.setOnClickListener(new View.OnClickListener() {
 //            @Override
-//            public void onItemClick (AdapterView<?> parent, View view, int position, long id) {
-//                chosenString = someStrings.get(position);
-//                Toast.makeText(MyListActivity.this, "Vous avez choisi : " + chosenString,
-//                        Toast.LENGTH_SHORT).show();
+//            public void onClick(View view) {
+//                profile.setBackgroundColor(getResources().getColor(R.color.grey));
+//                Intent intent = new Intent(MyListActivity.this, LoginActivity.class);
+//                startActivity(intent);
 //            }
 //        });
 //    }
 //
-//    @Override
-//    public void finish() {
-//        if(chosenString != null) {
-//            Intent data = new Intent();
-//            data.putExtra(CHOSEN_TEXT, chosenString);
-//            setResult(RESULT_OK, data);
-//        }
-//        super.finish();
-//    }
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.content_menu);
+
+        profile = (TextView) findViewById(R.id.T1);
+        profile.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    Intent intent = new Intent(MyListActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    return true;
+                } else {
+                    profile.setBackgroundColor(getResources().getColor(R.color.lightred));
+                }
+                return false;
+            }
+        });
+    }
 }
 
