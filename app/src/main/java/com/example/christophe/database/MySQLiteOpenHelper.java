@@ -58,11 +58,11 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper{
         //Résultats de la requête sont mis dans un cursor
         Cursor c = db.query("\"languages\"",
                 new String[]{"\"l_id\"", "\"l_name\""},
-                null,
-                null,
-                null,
-                null,
-                null
+                null, //Colonnes pour la clause WHERE
+                null, //Valeurs pour la clause WHERE
+                null, //GROUP BY
+                null, //ne pas filtrer par groupe de ligne
+                null  //pas d'ordre
         );
         if(c.moveToFirst()){
             for(int i = 0; i < c.getCount(); i++){
