@@ -6,14 +6,14 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * Created by Christophe on 26.04.2016.
  */
 public class MySQLiteOpenHelper extends SQLiteOpenHelper{
 
     //Nom du fichier de la BDD
-    private static final String DATABASE_NAME = "database.sqlite";
-
+    private static final String DATABASE_NAME = "databse.sqlite";
     private static final int DATABASE_VERSION = 1;
     private static Context context;
     private int i;
@@ -26,14 +26,25 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper{
     //Méthode d'initialisation qui cree les tables de la BDD
     @Override
     public void onCreate(SQLiteDatabase db){
-        db.execSQL("DROP TABLE IF EXISTS \"languages\";");
-        db.execSQL("CREATE TABLE \"languages\" (\"l_id\" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL , \"l_name\" TEXT);");
+        db.execSQL("DROP TABLE IF EXISTS \"Profil\";");
+        db.execSQL("CREATE TABLE \"Profil\"(\"Login\" TEXT PRIMARY KEY AUTOINCREMENT NOT NULL , \"Password\" TEXT);");
+
+        db.execSQL("INSERT INTO \"Profil\" VALUES ('PaulDuChateau','azerty')");
+        db.execSQL("INSERT INTO \"Profil\" VALUES ('Jojelavida','azerty54')");
+        db.execSQL("INSERT INTO \"Profil\" VALUES ('vladimirkorsacof','mdpsupergénial')");
+        db.execSQL("INSERT INTO \"Profil\" VALUES ('katesmith','onetwothreefourfive')");
+        db.execSQL("INSERT INTO \"Profil\" VALUES ('athenazeus','onetwothreefourfivesixseveneight')");
+        db.execSQL("INSERT INTO \"Profil\" VALUES ('loladu93','sevenhatenine')");
+        db.execSQL("INSERT INTO \"Profil\" VALUES ('sisterlover','imissmyhand')");
+        db.execSQL("INSERT INTO \"Profil\" VALUES ('obamanation','michellemabelle')");
+        db.execSQL("INSERT INTO \"Profil\" VALUES ('beth','QueenForLifeMotafaqua')");
+        db.execSQL("INSERT INTO \"Profil\" VALUES ('foreverrebel','DieFatherDie')");
     }
 
     //Ouvre la base de données
     public boolean open() {
         try{
-            getWritableDatabase();
+            getReadableDatabase();
             return true;
         } catch(Throwable t){
             return false;
@@ -42,7 +53,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper{
 
     //Supprime la table
     private void deleteDatabase(SQLiteDatabase db){
-        db.execSQL("DROP TABLE IF EXISTS \"languages\";");
+        db.execSQL("DROP TABLE IF EXISTS \"Profil\";");
     }
 
     //Méthode de mise à jour
@@ -51,28 +62,25 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper{
         onCreate(db);
     }
 
-    //Méthode pour renvoyer le string des languages
-    public List<String> getLanguages() {
-        List<String> languages = new ArrayList<String>();
+
+    //Méthode pour recevoir Password
+    public String getPassword(String login){
+        String pw = null;
         SQLiteDatabase db = getReadableDatabase();
-        //Résultats de la requête sont mis dans un cursor
-        Cursor c = db.query("\"languages\"",
-                new String[]{"\"l_id\"", "\"l_name\""},
-                null, //Colonnes pour la clause WHERE
-                null, //Valeurs pour la clause WHERE
-                null, //GROUP BY
-                null, //ne pas filtrer par groupe de ligne
-                null  //pas d'ordre
-        );
-        if(c.moveToFirst()){
-            for(int i = 0; i < c.getCount(); i++){
-                String s = c.getString(c.getColumnIndexOrThrow("l_name"));
-                languages.add(s);
-                c.moveToNext();
-            }
-        }
-        c.close();
-        return languages;
+        String whereClause = "Login =" + login;
+        String[] tableColumns = new String[] {"Login", "Password"};
+
+        Cursor c = db.query("\"Profil\"",
+                tableColumns,
+                whereClause,
+                null,
+                null,
+                null,
+                null);
+
+        pw= c.getString(c.getColumnIndexOrThrow("Password"));
+
+        return pw;
     }
 }
 
