@@ -24,6 +24,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper{
     }
 
     //Méthode d'initialisation qui cree les tables de la BDD
+    // Comm intuile
     @Override
     public void onCreate(SQLiteDatabase db){
         db.execSQL("DROP TABLE IF EXISTS \"Profil\";");
