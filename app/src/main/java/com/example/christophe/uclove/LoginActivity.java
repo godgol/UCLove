@@ -58,10 +58,6 @@ public class LoginActivity extends AppCompatActivity {
 //                db.createProfile(new Profile(login, password));
 //                login_status.setText(password);
 
-//                else {
-//                    Intent i = new Intent(LoginActivity.this, MyListActivity.class);
-//                    startActivity(i);
-//                }
             }
         });
     }
