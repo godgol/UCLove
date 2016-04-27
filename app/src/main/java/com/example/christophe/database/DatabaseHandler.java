@@ -1,9 +1,12 @@
 package com.example.christophe.database;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.provider.ContactsContract;
+import com.example.christophe.database.Profile;
 
 /**
  * Created by Christophe on 27.04.2016.
@@ -11,7 +14,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHandler extends SQLiteOpenHelper{
     // Logcat tag
-    private static final String LOG = "DatabaseHelper";
+    private static final String LOG = "DatabaseHandler";
 
     // Database Version
     private static final int DATABASE_VERSION = 1;
@@ -139,5 +142,20 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 
         // create new tables
         onCreate(db);
+    }
+
+    /*
+    * Creating a Profile
+    */
+    public void createProfile(Profile profile) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_LOGIN, profile.getLogin());
+        values.put(KEY_PASSWORD, profile.getPassword());
+
+        // insert row
+        db.insert(TABLE_PROFILE, null, values);
+        db.close();
     }
 }
