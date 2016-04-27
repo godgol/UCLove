@@ -23,23 +23,15 @@ public class LoginActivity extends AppCompatActivity {
     public Button loginButton;
     private TextView login_status;
     public String login;
-    public String password;
+    public String password = "None";
     public EditText login_edit;
     public EditText pw_edit;
+    public Profile useracc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_login);
-        final DatabaseHandler db = new DatabaseHandler(this);
-
-//        if(db.open()){
-//            password = db.getPassword("PaulD  uChateau");
-//            db.close();
-//        }
-//        else{
-//            throw new Error("Impossible to open database");
-//        }
 
         login_status = (TextView) findViewById(R.id.login_status);
         login_edit = (EditText) findViewById(R.id.LogInput);
@@ -49,15 +41,29 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-
                 login = login_edit.getText().toString();
                 password = pw_edit.getText().toString();
+                DatabaseHandler db = new DatabaseHandler(LoginActivity.this);
 
-                db.createProfile(new Profile(login, password));
-                login_status.setText("Did it");
-//                Intent i = new Intent(LoginActivity.this, MyListActivity.class);
-//                startActivity(i);
+                useracc = db.getProfile(login);
+
+                if(useracc.getPassword()==password){
+                    Intent i = new Intent(LoginActivity.this, MyListActivity.class);
+                    startActivity(i);
+                }
+                else{
+                    login_status.setText("Wrong Password");
+                }
+
+//                db.createProfile(new Profile(login, password));
+//                login_status.setText(password);
+
+//                else {
+//                    Intent i = new Intent(LoginActivity.this, MyListActivity.class);
+//                    startActivity(i);
+//                }
             }
         });
     }
 }
+

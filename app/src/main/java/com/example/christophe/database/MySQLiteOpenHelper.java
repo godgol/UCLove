@@ -10,6 +10,15 @@ import java.util.List;
 /**
  * Created by Christophe on 26.04.2016.
  */
+
+
+//////////////////////////////////////////////////////////////////////////
+//                                                                      //
+//                              NOT USED                                //
+//                                                                      //
+//////////////////////////////////////////////////////////////////////////
+
+
 public class MySQLiteOpenHelper extends SQLiteOpenHelper{
 
     //Nom du fichier de la BDD

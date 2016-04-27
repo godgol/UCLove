@@ -1,7 +1,5 @@
 package com.example.christophe.database;
 
-import android.provider.ContactsContract;
-
 /**
  * Created by Christophe on 27.04.2016.
  */

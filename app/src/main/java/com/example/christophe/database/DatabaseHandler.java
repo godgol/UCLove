@@ -5,8 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.provider.ContactsContract;
-import com.example.christophe.database.Profile;
+import android.util.Log;
 
 /**
  * Created by Christophe on 27.04.2016.
@@ -117,7 +116,6 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
         // creating required tables
         db.execSQL(CREATE_TABLE_PROFILE);
         db.execSQL(CREATE_TABLE_RENDEZVOUS);
@@ -126,6 +124,10 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         db.execSQL(CREATE_TABLE_CHAT);
         db.execSQL(CREATE_TABLE_GALLERY);
         db.execSQL(CREATE_TABLE_CALENDAR);
+
+        //Populating tables
+        db.execSQL("INSERT INTO" + TABLE_PROFILE + "VALUES('Jojelavida','Joje','Lavida',24," +
+                "'Male','Black','Blue','Madrid','Hetero','azerty54',''Spanish)");
 
     }
 
@@ -157,5 +159,26 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         // insert row
         db.insert(TABLE_PROFILE, null, values);
         db.close();
+    }
+
+    //Get Profile
+    public Profile getProfile(String login) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String selectQuery = "SELECT * FROM " + TABLE_PROFILE + " WHERE "
+                + KEY_LOGIN + " = " + login;
+
+        Log.e(LOG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+        Profile pro = new Profile();
+        pro.setLogin(c.getString(c.getColumnIndex(KEY_LOGIN)));
+        pro.setPassword((c.getString(c.getColumnIndex(KEY_PASSWORD))));
+
+        return pro;
     }
 }

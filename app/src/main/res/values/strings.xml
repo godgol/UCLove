@@ -9,4 +9,5 @@
     <string name="login_activity">Login</string>
     <string name="Login">Login:</string>
     <string name="Password">Password:</string>
+    <string name="Login_status">Login Status</string>
 </resources>
