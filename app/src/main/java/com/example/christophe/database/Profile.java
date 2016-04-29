@@ -1,22 +1,24 @@
 package com.example.christophe.database;
 
+import java.security.PrivateKey;
+
 /**
  * Created by Christophe on 27.04.2016.
  */
 public class Profile {
 
     //private variables
-    String Login;
-    String FamilyName;
-    String Name;
-    int Age;
-    String Gender;
-    String Hair;
-    String Eyes;
-    String Location;
-    String Preferences;
-    String Password;
-    String Languages;
+    Private String Login;
+    Private String FamilyName;
+    Private String Name;
+    Private int Age;
+    Private String Gender;
+    Private String Hair;
+    Private String Eyes;
+    Private String Location;
+    Private String Preferences;
+    Private String Password;
+    Private String Languages;
 
     // Empty constructor
     public Profile() {
