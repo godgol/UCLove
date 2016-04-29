@@ -76,7 +76,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
             + " TEXT," + KEY_NAME + " TEXT," + KEY_AGE + " INTEGER," + KEY_GENDER
             + " TEXT," + KEY_HAIR + " TEXT," + KEY_EYES + " TEXT," + KEY_LOCATION
             + " TEXT," + KEY_PREFERENCES + " TEXT," + KEY_PASSWORD + " TEXT,"
-            + KEY_LANGUAGE + " TEXT," + ")";
+            + KEY_LANGUAGE + " TEXT," + ");";
 
     // REQUESTLIST table create statement
     private static final String CREATE_TABLE_REQUESTLIST = "CREATE TABLE "
@@ -120,37 +120,37 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         System.out.println("On Create String First");
 
         // creating required tables
-        db.execSQL("CREATE TABLE Profile (Login TEXT, FamilyName TEXT, Name TEXT, Age INTEGER, Gender TEXT, Hair TEXT, Eyes TEXT, Location TEXT, Preferences TEXT, Password TEXT, Languages TEXT)");
+        db.execSQL("CREATE TABLE Profile (Login TEXT, FamilyName TEXT, Name TEXT, Age INTEGER, Gender TEXT, Hair TEXT, Eyes TEXT, Location TEXT, Preferences TEXT, Password TEXT, Languages TEXT);");
         System.out.println("On Create String1");
-        db.execSQL(CREATE_TABLE_RENDEZVOUS);
-        System.out.println("On Create String2");
-        db.execSQL(CREATE_TABLE_REQUESTLIST);
-        System.out.println("On Create String3");
-        db.execSQL(CREATE_TABLE_FRIENDLIST);
-        System.out.println("On Create String4");
-        db.execSQL(CREATE_TABLE_CHAT);
-        System.out.println("On Create String5");
-        db.execSQL(CREATE_TABLE_GALLERY);
-        System.out.println("On Create String6");
-        db.execSQL(CREATE_TABLE_CALENDAR);
+//        db.execSQL(CREATE_TABLE_RENDEZVOUS);
+//        System.out.println("On Create String2");
+//        db.execSQL(CREATE_TABLE_REQUESTLIST);
+//        System.out.println("On Create String3");
+//        db.execSQL(CREATE_TABLE_FRIENDLIST);
+//        System.out.println("On Create String4");
+//        db.execSQL(CREATE_TABLE_CHAT);
+//        System.out.println("On Create String5");
+//        db.execSQL(CREATE_TABLE_GALLERY);
+//        System.out.println("On Create String6");
+//        db.execSQL(CREATE_TABLE_CALENDAR);
 
         System.out.println("On Create String7");
         //Populating tables
         db.execSQL("INSERT INTO" + TABLE_PROFILE + "VALUES('Jojelavida','Joje','Lavida',24," +
-                "'Male','Black','Blue','Madrid','Hetero','azerty54',''Spanish)");
+                "'Male','Black','Blue','Madrid','Hetero','azerty54',''Spanish);");
         System.out.println("On Create String 8");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // on upgrade drop older tables
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_PROFILE);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_REQUESTLIST);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_FRIENDLIST);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CHAT);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_GALLERY);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CALENDAR);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_RENDEZVOUS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_PROFILE + ";");
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_REQUESTLIST + ";");
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_FRIENDLIST + ";");
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CHAT + ";");
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_GALLERY + ";");
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CALENDAR + ";");
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_RENDEZVOUS + ";");
 
         // create new tables
         onCreate(db);
@@ -176,9 +176,9 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getReadableDatabase();
 
         String selectQuery = "SELECT * FROM " + TABLE_PROFILE + " WHERE "
-                + KEY_LOGIN + " = " + login;
+                + KEY_LOGIN + " = " + login + ";";
 
-        Log.e(LOG, selectQuery);
+//        Log.e(LOG, selectQuery);
 
         Cursor c = db.rawQuery(selectQuery, null);
 
@@ -188,6 +188,8 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         Profile pro = new Profile();
         pro.setLogin(c.getString(c.getColumnIndex(KEY_LOGIN)));
         pro.setPassword((c.getString(c.getColumnIndex(KEY_PASSWORD))));
+
+        db.close();
 
         return pro;
     }

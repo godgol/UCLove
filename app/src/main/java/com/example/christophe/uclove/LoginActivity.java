@@ -47,17 +47,17 @@ public class LoginActivity extends AppCompatActivity {
                 DatabaseHandler db = new DatabaseHandler(LoginActivity.this);
 
                 System.out.println("I'm here after");
-//                useracc = db.getProfile(login);
-//                System.out.println("I'm here");
-//                if(useracc.getPassword()==password){
-//                    System.out.println("I'm here 2");
-//                    Intent i = new Intent(LoginActivity.this, MyListActivity.class);
-//                    startActivity(i);
-//                }
-//                else{
-//                    login_status.setText("Wrong Password");
-//                    System.out.println("I'm here 3");
-//                }
+                useracc = db.getProfile(login);
+                System.out.println("I'm here");
+                if(useracc.getPassword()==password){
+                    System.out.println("I'm here 2");
+                    Intent i = new Intent(LoginActivity.this, MyListActivity.class);
+                    startActivity(i);
+                }
+                else{
+                    login_status.setText("Wrong Password");
+                    System.out.println("I'm here 3");
+                }
 
 //                db.createProfile(new Profile(login, password));
 //                login_status.setText(password);

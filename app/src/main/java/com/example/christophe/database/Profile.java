@@ -1,6 +1,7 @@
 package com.example.christophe.database;
 
 import java.security.PrivateKey;
+import java.util.jar.Attributes;
 
 /**
  * Created by Christophe on 27.04.2016.
@@ -8,17 +9,17 @@ import java.security.PrivateKey;
 public class Profile {
 
     //private variables
-    Private String Login;
-    Private String FamilyName;
-    Private String Name;
-    Private int Age;
-    Private String Gender;
-    Private String Hair;
-    Private String Eyes;
-    Private String Location;
-    Private String Preferences;
-    Private String Password;
-    Private String Languages;
+    private String Login;
+    private String FamilyName;
+    private String Name;
+    private int Age;
+    private String Gender;
+    private String Hair;
+    private String Eyes;
+    private String Location;
+    private String Preferences;
+    private String Password;
+    private String Languages;
 
     // Empty constructor
     public Profile() {
