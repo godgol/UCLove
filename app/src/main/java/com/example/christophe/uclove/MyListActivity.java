@@ -14,7 +14,7 @@ import android.widget.Toast;
 import android.widget.ArrayAdapter;
 import android.content.Intent;
 
-public class MyListActivity extends AppCompatActivity {
+public class MyListActivity  extends AppCompatActivity {
     public TextView profile;
 
 //    @Override
@@ -26,13 +26,13 @@ public class MyListActivity extends AppCompatActivity {
 //        profile.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
-//                profile.setBackgroundColor(getResources().getColor(R.color.grey));
+//                profile.setBackgroundColor(getResources().getColor(R.color.lightred));
 //                Intent intent = new Intent(MyListActivity.this, LoginActivity.class);
 //                startActivity(intent);
 //            }
 //        });
 //    }
-//
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
