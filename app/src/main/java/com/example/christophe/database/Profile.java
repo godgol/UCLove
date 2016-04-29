@@ -77,4 +77,54 @@ public class Profile {
     public void setPassword(String pw) {
         this.Password = pw;
     }
+
+    // getting Name
+    public String getName() { return this.Name; }
+
+    // setting Name
+    public void setName(String name) { this.Name = name; }
+
+    // getting Hair
+    public String getHair() { return this.Hair; }
+
+    //setting Hair
+    public void setHair(String hair) { this.Hair = hair; }
+
+    //getting Eyes
+    public String getEyes() { return this.Hair; }
+
+    //setting Eyes
+    public void setEyes(String eyes) { this.Eyes = eyes; }
+
+    //getting Age
+    public int getAge() { return this.Age; }
+
+    //setting Age
+    public void setAge(int age) { this.Age = age; }
+
+    //getting Gender
+    public String getGender() { return this.Gender; }
+
+    //setting Gender
+    public void setGender(String gender) { this.Gender = gender; }
+
+    //getting Languages
+    public String getLanguages() { return this.Languages; }
+
+    //setting Languages
+    public void setLanguages(String languages) { this.Languages = languages; }
+
+    //getting Preferences
+    public String getPreferences() { return this.Preferences; }
+
+    //setting Preferences
+    public void setPreferences(String preferences) { this.Preferences = preferences; }
+
+    //getting Location
+    public String getLocation() { return this.Location; }
+
+    //setting Location
+    public void setLocation(String location) { this.Location = location; }
+
+
 }
