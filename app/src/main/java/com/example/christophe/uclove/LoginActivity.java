@@ -43,17 +43,21 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View arg0) {
                 login = login_edit.getText().toString();
                 password = pw_edit.getText().toString();
+                System.out.println("I'm here before");
                 DatabaseHandler db = new DatabaseHandler(LoginActivity.this);
 
-                useracc = db.getProfile(login);
-
-                if(useracc.getPassword()==password){
-                    Intent i = new Intent(LoginActivity.this, MyListActivity.class);
-                    startActivity(i);
-                }
-                else{
-                    login_status.setText("Wrong Password");
-                }
+                System.out.println("I'm here after");
+//                useracc = db.getProfile(login);
+//                System.out.println("I'm here");
+//                if(useracc.getPassword()==password){
+//                    System.out.println("I'm here 2");
+//                    Intent i = new Intent(LoginActivity.this, MyListActivity.class);
+//                    startActivity(i);
+//                }
+//                else{
+//                    login_status.setText("Wrong Password");
+//                    System.out.println("I'm here 3");
+//                }
 
 //                db.createProfile(new Profile(login, password));
 //                login_status.setText(password);

@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         selectItemButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View arg0) {
+                Log.d("coucou", "main");
+                System.out.println("AGFDSDFGEWRREEREGHRETHREWTEWTETWTZRERZREZ");
                 Intent i = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(i);
             }

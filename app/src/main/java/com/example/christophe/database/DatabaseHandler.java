@@ -19,12 +19,12 @@ public class DatabaseHandler extends SQLiteOpenHelper{
     private static final int DATABASE_VERSION = 1;
 
     // Database Name
-    private static final String DATABASE_NAME = "UCLove Database";
+    private static final String DATABASE_NAME = "database.sqlite";
 
     // Table Names
     private static final String TABLE_PROFILE= "Profile";
-    private static final String TABLE_REQUESTLIST = "Request_List";
-    private static final String TABLE_FRIENDLIST= "Friend_List";
+    private static final String TABLE_REQUESTLIST = "RequestList";
+    private static final String TABLE_FRIENDLIST= "FriendList";
     private static final String TABLE_GALLERY= "Gallery";
     private static final String TABLE_CHAT= "Chat";
     private static final String TABLE_CALENDAR= "Calendar";
@@ -33,7 +33,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
     // COMMON column names
     private static final String KEY_LOGIN= "Login";
 
-    // PROFILE Table - column nmaes
+    // PROFILE Table - column names
     private static final String KEY_FAMILYNAME = "FamilyName";
     private static final String KEY_NAME = "Name";
     private static final String KEY_AGE = "Age";
@@ -81,12 +81,12 @@ public class DatabaseHandler extends SQLiteOpenHelper{
     // REQUESTLIST table create statement
     private static final String CREATE_TABLE_REQUESTLIST = "CREATE TABLE "
             + TABLE_REQUESTLIST + "(" + KEY_LOGIN + " TEXT PRIMARY KEY," + KEY_REQUESTLOGIN
-            + " TEXT," + KEY_ANSWER + "BOOLEAN" + ")";
+            + " TEXT," + KEY_ANSWER + " TEXT" + ")";
 
     // FRIENDLIST table create statement
     private static final String CREATE_TABLE_FRIENDLIST = "CREATE TABLE "
             + TABLE_FRIENDLIST + "(" + KEY_LOGIN + " TEXT PRIMARY KEY," + KEY_FRIENDLOGIN
-            + " TEXT," + ")";
+            + " TEXT" + ")";
 
     // GALLERY table create statement
     private static final String CREATE_TABLE_GALLERY = "CREATE TABLE "
@@ -112,23 +112,33 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        System.out.println("In constr");
     }
-
+//
     @Override
     public void onCreate(SQLiteDatabase db) {
+        System.out.println("On Create String First");
+
         // creating required tables
-        db.execSQL(CREATE_TABLE_PROFILE);
+        db.execSQL("CREATE TABLE Profile (Login TEXT, FamilyName TEXT, Name TEXT, Age INTEGER, Gender TEXT, Hair TEXT, Eyes TEXT, Location TEXT, Preferences TEXT, Password TEXT, Languages TEXT)");
+        System.out.println("On Create String1");
         db.execSQL(CREATE_TABLE_RENDEZVOUS);
+        System.out.println("On Create String2");
         db.execSQL(CREATE_TABLE_REQUESTLIST);
+        System.out.println("On Create String3");
         db.execSQL(CREATE_TABLE_FRIENDLIST);
+        System.out.println("On Create String4");
         db.execSQL(CREATE_TABLE_CHAT);
+        System.out.println("On Create String5");
         db.execSQL(CREATE_TABLE_GALLERY);
+        System.out.println("On Create String6");
         db.execSQL(CREATE_TABLE_CALENDAR);
 
+        System.out.println("On Create String7");
         //Populating tables
         db.execSQL("INSERT INTO" + TABLE_PROFILE + "VALUES('Jojelavida','Joje','Lavida',24," +
                 "'Male','Black','Blue','Madrid','Hetero','azerty54',''Spanish)");
-
+        System.out.println("On Create String 8");
     }
 
     @Override
