@@ -134,7 +134,7 @@ public class Profile {
     public void setLocation(String location) { this.Location = location; }
 
     //Add picture to ArrayList
-    public void addPic(Picture pic) {this.AlPictures.add(pic);}
+   // public void addPic(Picture pic) {this.AlPictures.add(pic);} TODO Décommenter quand la classe Picture existera
 
     //Remove picture i from ArrayList
     public void remPic(int i) {this.AlPictures.remove(i);}
