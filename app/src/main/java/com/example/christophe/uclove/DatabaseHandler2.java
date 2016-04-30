@@ -1,17 +1,16 @@
-package com.example.christophe.database;
+package com.example.christophe.uclove;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 /**
  * Created by Christophe on 27.04.2016.
  */
 
-public class DatabaseHandler extends SQLiteOpenHelper{
+public class DatabaseHandler2 extends SQLiteOpenHelper{
     // Logcat tag
     private static final String LOG = "DatabaseHandler";
 
@@ -80,37 +79,37 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 
     // REQUESTLIST table create statement
     private static final String CREATE_TABLE_REQUESTLIST = "CREATE TABLE "
-            + TABLE_REQUESTLIST + "(" + KEY_LOGIN + " TEXT PRIMARY KEY," + KEY_REQUESTLOGIN
-            + " TEXT," + KEY_ANSWER + " TEXT" + ")";
+            + TABLE_REQUESTLIST + "(" + KEY_LOGIN + " TEXT PRIMARY KEY, " + KEY_REQUESTLOGIN
+            + " TEXT, " + KEY_ANSWER + " TEXT" + ");";
 
     // FRIENDLIST table create statement
     private static final String CREATE_TABLE_FRIENDLIST = "CREATE TABLE "
             + TABLE_FRIENDLIST + "(" + KEY_LOGIN + " TEXT PRIMARY KEY," + KEY_FRIENDLOGIN
-            + " TEXT" + ")";
+            + " TEXT" + ");";
 
     // GALLERY table create statement
     private static final String CREATE_TABLE_GALLERY = "CREATE TABLE "
-            + TABLE_REQUESTLIST + "(" + KEY_LOGIN + " TEXT PRIMARY KEY," + KEY_PICTUREID
-            + " INTEGER," + KEY_PROFILEBINARY + " BOOLEAN" + ")";
+            + TABLE_GALLERY + "(" + KEY_LOGIN + " TEXT PRIMARY KEY," + KEY_PICTUREID
+            + " INTEGER," + KEY_PROFILEBINARY + " BOOLEAN" + ");";
 
     // CHAT table create statement
     private static final String CREATE_TABLE_CHAT = "CREATE TABLE "
-            + TABLE_REQUESTLIST + "(" + KEY_LOGIN + " TEXT PRIMARY KEY," + KEY_FRIENDLOGIN
-            + " TEXT," + KEY_MESSAGE + " TEXT" + KEY_DATE + " DATETIME" + ")";
+            + TABLE_CHAT+ "(" + KEY_LOGIN + " TEXT PRIMARY KEY," + KEY_FRIENDLOGIN
+            + " TEXT," + KEY_MESSAGE + " TEXT" + KEY_DATE + " DATETIME" + ");";
 
     // CALENDAR table create statement
     private static final String CREATE_TABLE_CALENDAR = "CREATE TABLE "
-            + TABLE_REQUESTLIST + "(" + KEY_LOGIN + " TEXT PRIMARY KEY," + KEY_DATE
-            + "DATETIME" + ")";
+            + TABLE_CALENDAR + "(" + KEY_LOGIN + " TEXT PRIMARY KEY," + KEY_DATE
+            + "DATETIME" + ");";
 
     // RENDEZVOUS table create statement
     private static final String CREATE_TABLE_RENDEZVOUS= "CREATE TABLE "
-            + TABLE_REQUESTLIST + "(" + KEY_LOGIN + " TEXT PRIMARY KEY," + KEY_FRIENDLOGIN
+            + TABLE_RENDEZVOUS + "(" + KEY_LOGIN + " TEXT PRIMARY KEY," + KEY_FRIENDLOGIN
             + " TEXT," + KEY_DATE + " DATETIME" + KEY_LOCATION + " TEXT" + KEY_ANSWER
-            + " BOOLEAN" + ")";
+            + " BOOLEAN" + ");";
 
 
-    public DatabaseHandler(Context context) {
+    public DatabaseHandler2(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         System.out.println("In constr");
     }
@@ -119,39 +118,40 @@ public class DatabaseHandler extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase db) {
         System.out.println("On Create String First");
 
+        // Turning on foreign keys
+        db.execSQL("PRAGMA foreign_keys = ON;");
         // creating required tables
-        db.execSQL("CREATE TABLE Profile (Login TEXT, FamilyName TEXT, Name TEXT, Age INTEGER, Gender TEXT, Hair TEXT, Eyes TEXT, Location TEXT, Preferences TEXT, Password TEXT, Languages TEXT);");
+        db.execSQL("CREATE TABLE Profile (Login TEXT PRIMARY KEY, FamilyName TEXT, Name TEXT, Age INTEGER, Gender TEXT, Hair TEXT, Eyes TEXT, Location TEXT, Preferences TEXT, Password TEXT, Languages TEXT);");
         System.out.println("On Create String1");
-//        db.execSQL(CREATE_TABLE_RENDEZVOUS);
-//        System.out.println("On Create String2");
-//        db.execSQL(CREATE_TABLE_REQUESTLIST);
-//        System.out.println("On Create String3");
-//        db.execSQL(CREATE_TABLE_FRIENDLIST);
-//        System.out.println("On Create String4");
-//        db.execSQL(CREATE_TABLE_CHAT);
-//        System.out.println("On Create String5");
-//        db.execSQL(CREATE_TABLE_GALLERY);
-//        System.out.println("On Create String6");
-//        db.execSQL(CREATE_TABLE_CALENDAR);
+        db.execSQL(CREATE_TABLE_RENDEZVOUS);
+        System.out.println("On Create String2");
+        db.execSQL("CREATE TABLE RequestList2(Login TEXT PRIMARY KEY, RequestLogin TEXT, Answer TEXT, FOREIGN KEY(Login) REFERENCES Profile(Login));");
+        System.out.println("On Create String3");
+        db.execSQL(CREATE_TABLE_FRIENDLIST);
+        System.out.println("On Create String4");
+        db.execSQL(CREATE_TABLE_CHAT);
+        System.out.println("On Create String5");
+        db.execSQL(CREATE_TABLE_GALLERY);
+        System.out.println("On Create String6");
+        db.execSQL(CREATE_TABLE_CALENDAR);
 
         System.out.println("On Create String7");
         //Populating tables
-        db.execSQL("INSERT INTO" + TABLE_PROFILE + "VALUES('Jojelavida','Joje','Lavida',24," +
-                "'Male','Black','Blue','Madrid','Hetero','azerty54',''Spanish);");
-        System.out.println("On Create String 8");
+        db.execSQL("INSERT INTO Profile VALUES('Jojelavida','Joje','Lavida',24,'Male','Black','Blue','Madrid','Hetero','azerty54','Spanish');");
+        System.out.println("On Create String8");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // on upgrade drop older tables
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_PROFILE + ";");
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_REQUESTLIST + ";");
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_FRIENDLIST + ";");
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CHAT + ";");
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_GALLERY + ";");
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CALENDAR + ";");
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_RENDEZVOUS + ";");
-
+        db.execSQL("DROP TABLE IF EXISTS Profile;");
+        db.execSQL("DROP TABLE IF EXISTS RequestList;");
+        db.execSQL("DROP TABLE IF EXISTS FriendList;");
+        db.execSQL("DROP TABLE IF EXISTS Chat;");
+        db.execSQL("DROP TABLE IF EXISTS Gallery;");
+        db.execSQL("DROP TABLE IF EXISTS Calendar;");
+        db.execSQL("DROP TABLE IF EXISTS Rendezvous;");
+        System.out.println("On Create String onUpgrade");
         // create new tables
         onCreate(db);
     }
@@ -162,35 +162,59 @@ public class DatabaseHandler extends SQLiteOpenHelper{
     public void createProfile(Profile profile) {
         SQLiteDatabase db = this.getWritableDatabase();
 
+        System.out.println("On Create String create Profile");
+
         ContentValues values = new ContentValues();
         values.put(KEY_LOGIN, profile.getLogin());
         values.put(KEY_PASSWORD, profile.getPassword());
+        values.put(KEY_FAMILYNAME, "N/A");
+        values.put(KEY_NAME, "N/A");
+        values.put(KEY_AGE, "N/A");
+        values.put(KEY_GENDER, "N/A");
+        values.put(KEY_HAIR, "N/A");
+        values.put(KEY_EYES, "N/A");
+        values.put(KEY_LOCATION, "N/A");
+        values.put(KEY_PREFERENCES, "N/A");
+        values.put(KEY_PASSWORD, "N/A");
+        values.put(KEY_LANGUAGE, "N/A");
 
         // insert row
         db.insert(TABLE_PROFILE, null, values);
         db.close();
     }
 
+    public void closeDB() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        if (db != null && db.isOpen())
+            db.close();
+    }
+
     //Get Profile
     public Profile getProfile(String login) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String selectQuery = "SELECT * FROM " + TABLE_PROFILE + " WHERE "
-                + KEY_LOGIN + " = " + login + ";";
+        System.out.println("On Create String Get Profile 1");
 
-//        Log.e(LOG, selectQuery);
+//        String selectQuery = "SELECT * FROM Profile WHERE Login = " + login + ";";
 
-        Cursor c = db.rawQuery(selectQuery, null);
+        System.out.println("On Create String Get Profile 2");
+
+        Cursor c = db.query("Profile", new String[] {"Login","Password"},"Login=?",new String[] {login},null, null, null, null);
+//        Cursor c = db.rawQuery(selectQuery, null);
+
+        System.out.println("On Create String Get Profile 3");
 
         if (c != null)
             c.moveToFirst();
 
-        Profile pro = new Profile();
-        pro.setLogin(c.getString(c.getColumnIndex(KEY_LOGIN)));
-        pro.setPassword((c.getString(c.getColumnIndex(KEY_PASSWORD))));
+        System.out.println("On Create String Get Profile 4");
 
+        Profile pro = new Profile(c.getString(c.getColumnIndex("Login")),c.getString(c.getColumnIndex("Password")));
+
+        c.close();
         db.close();
 
+        System.out.println("On Create String Get Profile 8");
         return pro;
     }
 }

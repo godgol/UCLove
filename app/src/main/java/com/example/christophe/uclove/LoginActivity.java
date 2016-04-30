@@ -1,20 +1,12 @@
 package com.example.christophe.uclove;
 
-import android.app.ListActivity;
-import java.util.List;
-import java.util.Arrays;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.ArrayAdapter;
 import android.content.Intent;
-import com.example.christophe.database.DatabaseHandler;
-import com.example.christophe.database.Profile;
 
 /**
  * Created by Christophe on 26.04.2016.
@@ -44,12 +36,16 @@ public class LoginActivity extends AppCompatActivity {
                 login = login_edit.getText().toString();
                 password = pw_edit.getText().toString();
                 System.out.println("I'm here before");
-                DatabaseHandler db = new DatabaseHandler(LoginActivity.this);
+
+
+                DatabaseHandler2 db = new DatabaseHandler2(LoginActivity.this);
 
                 System.out.println("I'm here after");
+
                 useracc = db.getProfile(login);
+                db.closeDB();
                 System.out.println("I'm here");
-                if(useracc.getPassword()==password){
+                if(useracc.getPassword().equals(password)){
                     System.out.println("I'm here 2");
                     Intent i = new Intent(LoginActivity.this, MyListActivity.class);
                     startActivity(i);
