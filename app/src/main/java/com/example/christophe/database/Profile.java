@@ -13,19 +13,19 @@ import java.util.ListIterator;
  */
 public class Profile {
 
-    //private variables
-    private String Login;
-    private String FamilyName;
-    private String Name;
-    private int Age;
-    private String Gender;
-    private String Hair;
-    private String Eyes;
-    private String Location;
-    private String Preferences;
-    private String Password;
-    private String Languages;
-    private ArrayList AlPictures;
+    //protected variables
+    protected String Login;
+    protected String FamilyName;
+    protected String Name;
+    protected int Age;
+    protected String Gender;
+    protected String Hair;
+    protected String Eyes;
+    protected String Location;
+    protected String Preferences;
+    protected String Password;
+    protected String Languages;
+    protected ArrayList AlPictures;
 
     // Empty constructor
     public Profile() {
@@ -134,13 +134,13 @@ public class Profile {
     public void setLocation(String location) { this.Location = location; }
 
     //Add picture to ArrayList
-   // public void addPic(Picture pic) {this.AlPictures.add(pic);} TODO Décommenter quand la classe Picture existera
+   // public void addPic(Picture pic, int i) {this.AlPictures.add(i, pic);} TODO Décommenter quand la classe Picture existera
 
     //Remove picture i from ArrayList
     public void remPic(int i) {this.AlPictures.remove(i);}
 
     //Get picture i from ArrayList
-    public void getPic(int i) {this.AlPictures.get(i);}
+   // public Picture getPic(int i) {this.AlPictures.get(i);} TODO Décommenter quand la classe existera
 
 }
 
