@@ -1,9 +1,14 @@
 package com.example.christophe.database;
 
+import android.graphics.Picture;
+
 import java.security.PrivateKey;
 import java.util.jar.Attributes;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
 
-/**
+/*
  * Created by Christophe on 27.04.2016.
  */
 public class Profile {
@@ -20,6 +25,7 @@ public class Profile {
     private String Preferences;
     private String Password;
     private String Languages;
+    private ArrayList AlPictures;
 
     // Empty constructor
     public Profile() {
@@ -46,6 +52,7 @@ public class Profile {
         this.Preferences = preferences;
         this.Password = pw;
         this.Languages = languages;
+        this.AlPictures = new ArrayList();
     }
 
     // getting Login
@@ -91,7 +98,7 @@ public class Profile {
     public void setHair(String hair) { this.Hair = hair; }
 
     //getting Eyes
-    public String getEyes() { return this.Hair; }
+    public String getEyes() { return this.Eyes; }
 
     //setting Eyes
     public void setEyes(String eyes) { this.Eyes = eyes; }
@@ -126,5 +133,16 @@ public class Profile {
     //setting Location
     public void setLocation(String location) { this.Location = location; }
 
+    //Add picture to ArrayList
+    public void addPic(Picture pic) {this.AlPictures.add(pic);}
+
+    //Remove picture i from ArrayList
+    public void remPic(int i) {this.AlPictures.remove(i);}
+
+    //Get picture i from ArrayList
+    public void getPic(int i) {this.AlPictures.get(i);}
 
 }
+
+
+
