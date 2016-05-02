@@ -1,4 +1,4 @@
-package com.example.christophe.database;
+package com.example.christophe.uclove;
 
 public class Friend_Request {
     public String sender;

@@ -1,4 +1,4 @@
-package com.example.christophe.database;
+package com.example.christophe.uclove;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -74,14 +74,14 @@ public class My_User extends Profile{
     //Get User_Friend from ArrayList
    // public User_Friend (int i) {this.AlUser_Friend.get(i);} TODO Décommenter quand la classe existera
 
-    //Add User_Lambda to ArrayList
-    // public void addUser_Lambda(User_Lambda lambda, int i) {this.AlUser_Lambda.add(i, lambda);} TODO Décommenter quand la classe existera
+    //Add com.example.christophe.uclove.User_Lambda to ArrayList
+    // public void addUser_Lambda(com.example.christophe.uclove.User_Lambda lambda, int i) {this.AlUser_Lambda.add(i, lambda);} TODO Décommenter quand la classe existera
 
-    //Remove User_Lambda from ArrayList
+    //Remove com.example.christophe.uclove.User_Lambda from ArrayList
     public void remUser_Lambda(int i) {this.AlUser_Lambda.remove(i);}
 
-    //Get User_Lambda from ArrayList
-    // public User_Lambda (int i) {this.AlUser_Lambda.get(i);} TODO Décommenter quand la classe existera
+    //Get com.example.christophe.uclove.User_Lambda from ArrayList
+    // public com.example.christophe.uclove.User_Lambda (int i) {this.AlUser_Lambda.get(i);} TODO Décommenter quand la classe existera
 
 
 }

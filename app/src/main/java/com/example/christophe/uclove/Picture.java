@@ -1,4 +1,4 @@
-package com.example.christophe.database;
+package com.example.christophe.uclove;
 
 /*
  * Created by antoine on 02/05/16.
