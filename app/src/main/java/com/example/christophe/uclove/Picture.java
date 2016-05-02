@@ -13,7 +13,7 @@ public class Picture {
 
         this.I_D= I_D;
         this.File = File;
-        this.Profile = Profile
+        this.Profile = Profile;
     }
     public String getI_D(){return this.I_D;}
 

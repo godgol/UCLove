@@ -14,7 +14,7 @@ import android.app.ListActivity;
         import android.widget.ArrayAdapter;
         import android.content.Intent;
 
-        import com.example.christophe.database.Profile;
+        import com.example.christophe.uclove.Profile;
 
         /**
  * Created by Guillaume on 29-04-16.
