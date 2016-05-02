@@ -170,7 +170,4 @@
         android:src="@drawable/rose"
         android:layout_centerHorizontal="true"
         android:paddingTop="60px"/>
-
-
-
 </RelativeLayout>

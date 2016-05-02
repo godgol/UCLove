@@ -84,10 +84,4 @@ public class My_User extends Profile{
     // public User_Lambda (int i) {this.AlUser_Lambda.get(i);} TODO Décommenter quand la classe existera
 
 
-
-
-
-
-
-
 }
