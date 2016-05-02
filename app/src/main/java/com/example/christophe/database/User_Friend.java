@@ -40,7 +40,7 @@ public class User_Friend extends Profile {
     }
 
     public void Add_Message(String message, My_User myuser) {
-        messagerie.add(new Message(ZoneDateTime.now(),message,this, myuser) )
+        messagerie.add(new Message(ZoneDateTime.now(),message,this, myuser) );
     }
 
 }

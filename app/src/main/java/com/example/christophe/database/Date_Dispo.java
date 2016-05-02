@@ -2,7 +2,8 @@ package com.example.christophe.database;
 
 import java.security.Timestamp;
 
-package java.sql;
+//package java.sql;
+
 public class Date_Dispo {
     public Timestamp date;
     public String user;
@@ -10,10 +11,11 @@ public class Date_Dispo {
         this.date = date;
         this.user = user;
     }
+
     public Timestamp getDate(){
         return this.date;
     }
-    public Timestamp getUser(){
+    public String getUser(){
         return this.user;
     }
     public void setDate(Timestamp date) {
