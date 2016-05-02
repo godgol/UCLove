@@ -1,3 +1,5 @@
+package com.example.christophe.database;
+
 import android.app.ListActivity;
 
 import java.util.ArrayList;
@@ -14,9 +16,9 @@ import android.widget.Toast;
 import android.widget.ArrayAdapter;
 import android.content.Intent;
 import java.util.Date;
+import java.lang.Object;
 
 
-package com.example.christophe.database;
 import com.example.christophe.database.My_User;
 import com.example.christophe.database.Profile;
 
@@ -38,7 +40,7 @@ public class User_Friend extends Profile {
     }
 
     public void Add_Message(String message, My_User myuser) {
-        messagerie.add(new message(getTime(),message,this) )
+        messagerie.add(new Message(ZoneDateTime.now(),message,this, myuser) )
     }
 
 }

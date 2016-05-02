@@ -9,13 +9,13 @@ public class Message {
 
     public Timestamp time;
     public String message;
-    public Profile sender;
-    public Profile receiver;
+    public My_User sender;
+    public User_Friend receiver;
 
-    public message(Timestamp time,String message,Profile receiver){//constructeur
+    public Message(Timestamp time,String message,User_Friend receiver, My_User sender){//constructeur
         this.time=time;
         this.message=message;
-       // this.sender=sender;
+        this.sender=sender;
         this.receiver=receiver;
 
     }
