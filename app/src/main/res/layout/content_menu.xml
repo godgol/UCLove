@@ -43,7 +43,8 @@
             android:textSize="22dp"
             android:clickable="true"
             android:paddingLeft="15px"
-            android:paddingRight="15px"/>
+            android:paddingRight="15px"
+            android:id="@+id/T2"/>
     </LinearLayout>
 
     <LinearLayout

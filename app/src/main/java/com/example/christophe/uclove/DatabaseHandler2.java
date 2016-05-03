@@ -75,17 +75,17 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
             + " TEXT," + KEY_NAME + " TEXT," + KEY_AGE + " INTEGER," + KEY_GENDER
             + " TEXT," + KEY_HAIR + " TEXT," + KEY_EYES + " TEXT," + KEY_LOCATION
             + " TEXT," + KEY_PREFERENCES + " TEXT," + KEY_PASSWORD + " TEXT,"
-            + KEY_LANGUAGE + " TEXT," + ");";
+            + KEY_LANGUAGE + " TEXT" + ");";
 
     // REQUESTLIST table create statement
     private static final String CREATE_TABLE_REQUESTLIST = "CREATE TABLE "
-            + TABLE_REQUESTLIST + "(" + KEY_LOGIN + " TEXT PRIMARY KEY, " + KEY_REQUESTLOGIN
-            + " TEXT, " + KEY_ANSWER + " TEXT" + ");";
+            + TABLE_REQUESTLIST + "(" + KEY_LOGIN + " TEXT, " + KEY_REQUESTLOGIN
+            + " TEXT, " + KEY_ANSWER + " TEXT," + " FOREIGN KEY(Login) REFERENCES Profile(Login));";
 
     // FRIENDLIST table create statement
     private static final String CREATE_TABLE_FRIENDLIST = "CREATE TABLE "
-            + TABLE_FRIENDLIST + "(" + KEY_LOGIN + " TEXT PRIMARY KEY," + KEY_FRIENDLOGIN
-            + " TEXT" + ");";
+            + TABLE_FRIENDLIST + "(" + KEY_LOGIN + " TEXT," + KEY_FRIENDLOGIN
+            + " TEXT," + " FOREIGN KEY(Login) REFERENCES Profile(Login));";
 
     // GALLERY table create statement
     private static final String CREATE_TABLE_GALLERY = "CREATE TABLE "
@@ -121,23 +121,51 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         // Turning on foreign keys
         db.execSQL("PRAGMA foreign_keys = ON;");
         // creating required tables
-        db.execSQL("CREATE TABLE Profile (Login TEXT PRIMARY KEY, FamilyName TEXT, Name TEXT, Age INTEGER, Gender TEXT, Hair TEXT, Eyes TEXT, Location TEXT, Preferences TEXT, Password TEXT, Languages TEXT);");
-        System.out.println("On Create String1");
+        db.execSQL(CREATE_TABLE_PROFILE);
         db.execSQL(CREATE_TABLE_RENDEZVOUS);
-        System.out.println("On Create String2");
-        db.execSQL("CREATE TABLE RequestList2(Login TEXT PRIMARY KEY, RequestLogin TEXT, Answer TEXT, FOREIGN KEY(Login) REFERENCES Profile(Login));");
-        System.out.println("On Create String3");
+        //db.execSQL("CREATE TABLE RequestList(Login TEXT, RequestLogin TEXT, Answer TEXT, FOREIGN KEY(Login) REFERENCES Profile(Login));");
+        db.execSQL(CREATE_TABLE_REQUESTLIST);
         db.execSQL(CREATE_TABLE_FRIENDLIST);
-        System.out.println("On Create String4");
         db.execSQL(CREATE_TABLE_CHAT);
-        System.out.println("On Create String5");
         db.execSQL(CREATE_TABLE_GALLERY);
-        System.out.println("On Create String6");
         db.execSQL(CREATE_TABLE_CALENDAR);
 
-        System.out.println("On Create String7");
-        //Populating tables
-        db.execSQL("INSERT INTO Profile VALUES('Jojelavida','Joje','Lavida',24,'Male','Black','Blue','Madrid','Hetero','azerty54','Spanish');");
+        //Populating Profile table
+        db.execSQL("INSERT INTO Profile VALUES(\"Jojelavida\",\"Joje\",\"Lavida\",\"24\",\"Male\",\"Black\",\"\",\"Madrid\",\"Hetero\",\"azerty54\",\"Spanish\");");
+        db.execSQL("INSERT INTO Profile VALUES(\"PaulDuChateu\",\"DuChateau\",\"Paul\",\"32\",\"Male\",\"Brown\",\"Blue\",\"Berlin\",\"Hetero\",\"azerty\",\"German\");");
+        db.execSQL("INSERT INTO Profile VALUES(\"vladimirkorsacof\",\"Vladimir\",\"Korsacof\",\"52\",\"Male\",\"Gray\",\"Brown\",\"\",\"Homo\",\"mdpsupergénial\",\"Russian\");");
+        db.execSQL("INSERT INTO Profile VALUES(\"katesmith\",\"Kate\",\"Smith\",\"25\",\"Female\",\"Blonde\",\"Blue\",\"London\",\"Hetero\",\"onetwothreefourfive\",\"English\");");
+        db.execSQL("INSERT INTO Profile VALUES(\"athenazeus\",\"Zeus\",\"Athena\",\"62\",\"Female\",\"Black\",\"Brown\",\"Athena\",\"Hetero\",\"onetwothreefourfivesixseveneight\",\"English\");");
+        db.execSQL("INSERT INTO Profile VALUES(\"loladu93\",\"Alpharo\",\"Lola\",22,\"Female\",\"Black\",\"Brown\",\"Lisbonne\",\"Bi\",\"sevenhatenine\",\"English\");");
+        db.execSQL("INSERT INTO Profile VALUES(\"sisterlover\",\"Lannister\",\"Jamie\",27,\"Male\",\"Blonde\",\"Brown\",\"Dubrovnik\",\"Hetero\",\"imissmyhand\",\"English\");");
+        db.execSQL("INSERT INTO Profile VALUES(\"obamanation\",\"Obama\",\"Barrack\",\"56\",\"Male\",\"Gray\",\"Brown\",\"Washington\",\"Hetero\",\"michellemabelle\",\"English\");");
+        db.execSQL("INSERT INTO Profile VALUES(\"beth\",\"Mary\",\"Elizabeth\",\"89\",\"Female\",\"White\",\"Green\",\"London\",\"Hetero\",\"QueenForLifeMotafaqua\",\"English\");");
+        db.execSQL("INSERT INTO Profile VALUES(\"foreverrebel\",\"Organa\",\"Leia\",\"25\",\"Female\",\"Brown\",\"Brown\",\"Casablanca\",\"Hetero\",\"DIeFatherDie\",\"English\");");
+
+        //Populating the FriendList Table
+        db.execSQL("INSERT INTO FriendList VALUES (\"PaulDuChateu\",\"beth\");");
+        db.execSQL("INSERT INTO FriendList VALUES (\"Jojelavida\",\"foreverrebel\");");
+        db.execSQL("INSERT INTO FriendLIst VALUES (\"loladu93\",\"Jojelavida\");");
+        db.execSQL("INSERT INTO FriendList VALUES (\"katesmith\",\"sisterlover\");");
+        db.execSQL("INSERT INTO FriendList VALUES (\"beth\",\"obamanation\");");
+        db.execSQL("INSERT INTO FriendList VALUES (\"athenazeus\",\"sisterlover\");");
+        db.execSQL("INSERT INTO FriendList VALUES (\"Jojelavida\",\"katesmith\");");
+
+        //Populating the RequestList Table
+        db.execSQL("INSERT INTO RequestList VALUES (\"PaulDuChateu\",\"beth\",\"True\");");
+        db.execSQL("INSERT INTO RequestList VALUES (\"PaulDuChateu\",\"obamanation\",\"False\");");
+        db.execSQL("INSERT INTO RequestList VALUES (\"Jojelavida\",\"beth\",\"False\");");
+        db.execSQL("INSERT INTO RequestList VALUES (\"Jojelavida\",\"foreverrebel\",\"True\");");
+        db.execSQL("INSERT INTO RequestList VALUES (\"katesmith\",\"PaulDuChateu\",\"False\");");
+        db.execSQL("INSERT INTO RequestList VALUES (\"loladu93\",\"Jojelavida\",\"True\");");
+        db.execSQL("INSERT INTO RequestList VALUES (\"beth\",\"obamanation\",\"True\");");
+        db.execSQL("INSERT INTO RequestList VALUES (\"athenazeus\",\"sisterlover\",\"True\");");
+        db.execSQL("INSERT INTO RequestList VALUES (\"Jojelavida\",\"katesmith\",\"True\");");
+        db.execSQL("INSERT INTO RequestList VALUES (\"PaulDuChateu\",\"vladimirkorsacof\",\"False\");");
+        db.execSQL("INSERT INTO RequestList VALUES (\"beth\",\"vladimirkorsacof\",\"False\");");
+        db.execSQL("INSERT INTO RequestList VALUES (\"loladu93\",\"vladimirkorsacof\",\"False\");");
+
+
         System.out.println("On Create String8");
     }
 
@@ -193,28 +221,32 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
     public Profile getProfile(String login) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        System.out.println("On Create String Get Profile 1");
-
 //        String selectQuery = "SELECT * FROM Profile WHERE Login = " + login + ";";
-
-        System.out.println("On Create String Get Profile 2");
 
         Cursor c = db.query("Profile", new String[] {"Login","Password"},"Login=?",new String[] {login},null, null, null, null);
 //        Cursor c = db.rawQuery(selectQuery, null);
 
-        System.out.println("On Create String Get Profile 3");
 
         if (c != null)
             c.moveToFirst();
 
-        System.out.println("On Create String Get Profile 4");
 
         Profile pro = new Profile(c.getString(c.getColumnIndex("Login")),c.getString(c.getColumnIndex("Password")));
 
         c.close();
         db.close();
 
-        System.out.println("On Create String Get Profile 8");
         return pro;
+    }
+
+    public boolean updateLogin(String login, String newLogin){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_LOGIN, newLogin);
+
+        return db.update(TABLE_PROFILE, values, KEY_LOGIN + "=" + login, null) > 0;
+
     }
 }

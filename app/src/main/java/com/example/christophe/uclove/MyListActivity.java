@@ -14,8 +14,11 @@ import android.widget.Toast;
 import android.widget.ArrayAdapter;
 import android.content.Intent;
 
+import org.w3c.dom.Text;
+
 public class MyListActivity  extends AppCompatActivity {
     public TextView profile;
+    public TextView preferences;
 
 //    @Override
 //    public void onCreate(Bundle savedInstanceState){
@@ -39,6 +42,8 @@ public class MyListActivity  extends AppCompatActivity {
         setContentView(R.layout.content_menu);
 
         profile = (TextView) findViewById(R.id.T1);
+        preferences = (TextView) findViewById(R.id.T2);
+
         profile.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -52,6 +57,27 @@ public class MyListActivity  extends AppCompatActivity {
                 return false;
             }
         });
+
+        /*preferences.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                DatabaseHandler2 db = new DatabaseHandler2(MyListActivity.this);
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    if(db.updateLogin("PaulduChateu","PaulDuChateau")) {
+                        System.out.println("lol3");
+                        Intent intent2 = new Intent(MyListActivity.this, LoginActivity.class);
+                        startActivity(intent2);
+                        System.out.println("lol4");
+                    }
+                    System.out.println("lol5");
+                    return true;
+                } else {
+                    preferences.setBackgroundColor(getResources().getColor(R.color.lightred));
+                }
+                return false;
+            }
+        });*/
+
     }
 }
 
