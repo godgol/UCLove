@@ -1,3 +1,4 @@
+package com.example.christophe.uclove;
 import android.view.View.OnTouchListener;
 import android.view.View.OnClickListener;
 import android.app.Activity;
@@ -5,7 +6,9 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
+import android.widget.RadioGroup;
+import android.view.KeyEvent;
+import android.widget.EditText;
 public class ProfileActivity extends Activity {
     private RadioGroup groupGender = null;
     private EditText age;
@@ -19,7 +22,7 @@ public class ProfileActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.profile_content);
         location = (EditText)findViewById(R.id.location);
         groupGender = (RadioGroup) findViewById(R.id.groupGender);
         groupHairs = (RadioGroup) findViewById(R.id.groupHairs);
@@ -97,8 +100,8 @@ public class ProfileActivity extends Activity {
         ageOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                String str = location.getText().toString();
-                int userAge = Integer.parseInt(str);
+                String str = age.getText().toString();
+                int ageUser = Integer.parseInt(str);
             }
         });
         gallery.setOnClickListener(new View.OnClickListener() {
