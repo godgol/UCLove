@@ -44,12 +44,18 @@
         >
         <EditText
             android:id="@+id/age"
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:hint="Age :"
             android:inputType="numberDecimal"
             android:paddingLeft="20px"
             android:paddingTop="20px"
+        />
+        <Button
+            android:id="@+id/ageOk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_centent"
+            android:text="Ok"
         />
     </LinearLayout>
     <LinearLayout
@@ -157,7 +163,12 @@
             android:inputType="text"
             android:paddingLeft="20px"
             android:paddingTop="20px"
-            />
+        />
+        <Button
+            android:id="@+id/locationOk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ok"
     </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
@@ -203,7 +214,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingLeft="20px"
         android:paddingTop="20px"
         >
         <Button
