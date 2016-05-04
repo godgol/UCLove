@@ -2,13 +2,14 @@ package com.example.christophe.uclove;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-import android.graphics.Picture;
 
 import java.security.PrivateKey;
 import java.util.jar.Attributes;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
+
+import com.example.christophe.uclove.Picture;
 
 /*
  * Created by antoine on 30/04/16.
@@ -21,6 +22,7 @@ public class My_User extends Profile{
     private ArrayList AlFriend_Request;
     private ArrayList AlRDV;
     private ArrayList AlDate_Dispo;
+    private ArrayList AllPictures;
 
     //TODO Ajouter un attribut Int index à tous les objets se trouvant dans une ArrayList pour les manipuler plus facielement
     //Constructeur
@@ -35,6 +37,47 @@ public class My_User extends Profile{
         this.AlUser_Friend=new ArrayList();
         this.AlUser_Lambda=new ArrayList();
     }
+
+    public ArrayList getAlFriend_Request(){return this.AlFriend_Request;}
+
+    public void Change_Profile_Picture(String I_D)//je teste mon commit avec un comment
+    {
+        for(int i = 0; i< this.AllPictures.size(); i++)
+        {
+            Picture iPic = (Picture)this.AllPictures.get(i);
+
+            if(iPic.getProfile()){iPic.setProfile(false);
+                this.AllPictures.set(i,iPic);}
+
+            if(iPic.getI_D() == I_D){iPic.setProfile(true);
+                this.AllPictures.set(i,iPic);
+            }
+        }
+    }
+
+    public void Change_Login(){}
+
+    public void Change_Password(){}
+
+    public void Change_Family_Name(){}
+
+    public void Change_Name(){}
+
+    public void Accept_Friend(){}
+
+    public void Remove_Friend(){}
+
+    public void Add_Photo(){}
+
+    public void Add_RDV(){}
+
+    public void Accept_RDV(){}
+
+    public void Add_Dispo(){}
+
+    public void Check_ID(){}
+
+    public void Search_User_Lambda(){}
 
     //Fonction de manipulation des ArrayList
 

@@ -49,10 +49,11 @@ public class LoginActivity extends AppCompatActivity {
                     System.out.println("I'm here 2");
                     Intent i = new Intent(LoginActivity.this, MyListActivity.class);
                     startActivity(i);
+                    System.out.println("I'm here 3");
                 }
                 else{
                     login_status.setText("Wrong Password");
-                    System.out.println("I'm here 3");
+                    System.out.println("I'm here 4");
                 }
 
 //                db.createProfile(new Profile(login, password));
