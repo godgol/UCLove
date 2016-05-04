@@ -4,6 +4,7 @@ public class Friend_Request {
     public String sender;
     public String receiver;
     public String etat;
+
     public Friend_Request(String sender, String receiver, String etat){
         this.sender = sender;
         this.receiver = receiver;
@@ -32,5 +33,9 @@ public class Friend_Request {
 
     public String getSender() {
         return sender;
+    }
+
+    public String toString(){
+    return (this.getSender()+"invited"+this.getReceiver()+"and is"+this.getEtat());
     }
 }

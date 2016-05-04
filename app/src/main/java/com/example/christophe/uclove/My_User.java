@@ -38,6 +38,8 @@ public class My_User extends Profile{
         this.AlUser_Lambda=new ArrayList();
     }
 
+    public ArrayList getAlFriend_Request(){return this.AlFriend_Request;}
+
     public void Change_Profile_Picture(String I_D)//je teste mon commit avec un comment
     {
         for(int i = 0; i< this.AllPictures.size(); i++)

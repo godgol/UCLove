@@ -18,8 +18,9 @@ import org.w3c.dom.Text;
 
 public class MyListActivity  extends AppCompatActivity {
     public TextView profile;
+    Profile update = new Profile();
     public TextView preferences;
-    public TextView friends;
+    String login ;
 
 //    @Override
 //    public void onCreate(Bundle savedInstanceState){
@@ -42,54 +43,49 @@ public class MyListActivity  extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_menu);
 
+        System.out.println("TestList1");
         profile = (TextView) findViewById(R.id.T1);
         preferences = (TextView) findViewById(R.id.T2);
-        friends = (TextView) findViewById(R.id.T4);
 
         profile.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_UP) {
+                    System.out.println("TestList2");
                     Intent intent = new Intent(MyListActivity.this, LoginActivity.class);
                     startActivity(intent);
+                    System.out.println("TestList3");
                     return true;
                 } else {
                     profile.setBackgroundColor(getResources().getColor(R.color.lightred));
+                    System.out.println("TestList4");
                 }
                 return false;
             }
         });
 
-        friends.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MyListActivity.this, FriendsActivity.class);
-                startActivity(i);
-            }
-        });
-
-
-
-        /*preferences.setOnTouchListener(new View.OnTouchListener() {
+        preferences.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                DatabaseHandler2 db = new DatabaseHandler2(MyListActivity.this);
+                DatabaseHandler2 db2 = new DatabaseHandler2(MyListActivity.this);
                 if (event.getAction() == MotionEvent.ACTION_UP) {
-                    if(db.updateLogin("PaulduChateu","PaulDuChateau")) {
-                        System.out.println("lol3");
-                        Intent intent2 = new Intent(MyListActivity.this, LoginActivity.class);
-                        startActivity(intent2);
-                        System.out.println("lol4");
-                    }
-                    System.out.println("lol5");
+                    db2.updateLogin("PaulduChateu","PaulDuChateau");
+                    //update = db2.getProfile("PaulDuChateau");
+                    //login = update.getLogin();
+                    //if(login.equals("PaulDuChateau")) {
+                        //System.out.println("lol3");
+                        // Intent intent2 = new Intent(MyListActivity.this, LoginActivity.class);
+                        //startActivity(intent2);
+                        // System.out.println("lol4");
+                    //}
+                    //System.out.println("lol5");
                     return true;
                 } else {
                     preferences.setBackgroundColor(getResources().getColor(R.color.lightred));
                 }
                 return false;
             }
-        });*/
-
+        });
     }
 }
 
