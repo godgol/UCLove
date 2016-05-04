@@ -169,19 +169,19 @@
             android:orientation="horizontal"
             >
             <RadioButton
-                android:id="@+id/brownEye"
+                android:id="@+id/hetero"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Hetero"
                 />
             <RadioButton
-                android:id="@+id/blueEye"
+                android:id="@+id/homo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Homo"
                 />
             <RadioButton
-                android:id="@+id/GreenEye"
+                android:id="@+id/bi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Bi"
