@@ -90,6 +90,16 @@ public class MyListActivity  extends AppCompatActivity {
                     // System.out.println("lol4");
                     //}
                     //System.out.println("lol5");
+                    db2.updateLogin("'PaulDuChateu'","'PaulDuChateau'");
+                    update = db2.getProfile("PaulDuChateau");
+                    login = update.getLogin();
+                    if(login.equals("PaulDuChateau")) {
+                        System.out.println("lol3");
+                        Intent intent2 = new Intent(MyListActivity.this, LoginActivity.class);
+                        startActivity(intent2);
+                        System.out.println("lol4");
+                    }
+                    System.out.println("lol5");
                     return true;
                 } else {
                     preferences.setBackgroundColor(getResources().getColor(R.color.lightred));
