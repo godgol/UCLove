@@ -19,6 +19,7 @@ import org.w3c.dom.Text;
 public class MyListActivity  extends AppCompatActivity {
     public TextView profile;
     public TextView preferences;
+    public TextView friends;
 
 //    @Override
 //    public void onCreate(Bundle savedInstanceState){
@@ -43,6 +44,7 @@ public class MyListActivity  extends AppCompatActivity {
 
         profile = (TextView) findViewById(R.id.T1);
         preferences = (TextView) findViewById(R.id.T2);
+        friends = (TextView) findViewById(R.id.T4);
 
         profile.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -57,6 +59,16 @@ public class MyListActivity  extends AppCompatActivity {
                 return false;
             }
         });
+
+        friends.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MyListActivity.this, FriendsActivity.class);
+                startActivity(i);
+            }
+        });
+
+
 
         /*preferences.setOnTouchListener(new View.OnTouchListener() {
             @Override
