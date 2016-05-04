@@ -10,4 +10,12 @@
     <string name="Login">Login:</string>
     <string name="Password">Password:</string>
     <string name="Login_status">Login Status</string>
+    <string name="friends">Amis</string>
+    <string name="friend">Amis</string>
+    <string name="gender">Genre</string>
+    <string name="age">Age</string>
+    <string name="hair">Cheveux</string>
+    <string name="eyes">Yeux</string>
+    <string name="location">Ville</string>
+    <string name="inclination">Préference</string>
 </resources>
