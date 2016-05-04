@@ -141,6 +141,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         db.execSQL("INSERT INTO Profile VALUES(\"obamanation\",\"Obama\",\"Barrack\",\"56\",\"Male\",\"Gray\",\"Brown\",\"Washington\",\"Hetero\",\"michellemabelle\",\"English\");");
         db.execSQL("INSERT INTO Profile VALUES(\"beth\",\"Mary\",\"Elizabeth\",\"89\",\"Female\",\"White\",\"Green\",\"London\",\"Hetero\",\"QueenForLifeMotafaqua\",\"English\");");
         db.execSQL("INSERT INTO Profile VALUES(\"foreverrebel\",\"Organa\",\"Leia\",\"25\",\"Female\",\"Brown\",\"Brown\",\"Casablanca\",\"Hetero\",\"DIeFatherDie\",\"English\");");
+        db.execSQL("INSERT INTO Profile VALUES(\"l\",\"Organa\",\"Leia\",\"25\",\"Female\",\"Brown\",\"Brown\",\"Casablanca\",\"Hetero\",\"l\",\"English\");");
 
         //Populating the FriendList Table
         db.execSQL("INSERT INTO FriendList VALUES (\"PaulDuChateu\",\"beth\");");
@@ -238,17 +239,107 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         return pro;
     }
 
+    //Updating Profile attributes
     public void updateLogin(String login, String newLogin){
-
         SQLiteDatabase db = this.getWritableDatabase();
-
-        //ContentValues values = new ContentValues();
-        //values.put(KEY_LOGIN, newLogin);
-        String strSQL = "UPDATE Profile SET Login = " + newLogin + " WHERE Login = "+ login + ";";
-
-        db.execSQL("UPDATE Profile SET Login = 'PaulDuChateau' WHERE Login = 'PaulDuChateu';");
-        //db.execSQL(strSQL);
-        //return db.update(TABLE_PROFILE, values, KEY_LOGIN + "=" + login, null) > 0;
-
+        db.execSQL("UPDATE Profile SET Login = " + newLogin + " WHERE Login = " + login + ";");
     }
+    public void updatePassword(String login, String newPassword){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("UPDATE Profile SET Password = " + newPassword + " WHERE Login = " + login + ";");
+    }
+    public void updateFamilyName(String login, String newFN){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("UPDATE Profile SET FamilyName = " + newFN + " WHERE Login = " + login + ";");
+    }
+    public void updateName(String login, String newName){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("UPDATE Profile SET Name = " + newName + " WHERE Login = " + login + ";");
+    }
+    public void updateAge(String login, int newAge){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("UPDATE Profile SET Age = " + newAge + " WHERE Login = " + login + ";");
+    }
+    public void updateGender(String login, String newGender){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("UPDATE Profile SET Gender = " + newGender + " WHERE Login = " + login + ";");
+    }
+    public void updateLocation(String login, String newLocation){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("UPDATE Profile SET Location = " + newLocation + " WHERE Login = " + login + ";");
+    }
+    public void updateHair(String login, String newHair){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("UPDATE Profile SET Hair = " + newHair + " WHERE Login = " + login + ";");
+    }
+    public void updateEyes(String login, String newEyes){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("UPDATE Profile SET Eyes = " + newEyes + " WHERE Login = " + login + ";");
+    }
+    public void updatePreferences(String login, String newPreferences){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("UPDATE Profile SET Preferences = " + newPreferences + " WHERE Login = " + login + ";");
+    }
+    public void updateLanguage(String login, String newLanguage){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("UPDATE Profile SET Language = " + newLanguage + " WHERE Login = " + login + ";");
+    }
+
+
+    //Reading Profile attributes
+    /*public String readPassword(String login){
+        private String res;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.query("Profile", new String[] {"Login","Password"},"Login=?",new String[] {login},null, null, null, null);
+
+        if (c != null)
+            c.moveToFirst();
+        Profile pro = new Profile(c.getString(c.getColumnIndex("Login")),c.getString(c.getColumnIndex("Password")));
+
+        c.close();
+        db.close();
+
+
+        return res;
+    }
+
+
+    public void updateFamilyName(String login, String newFN){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("UPDATE Profile SET FamilyName = " + newFN + " WHERE Login = " + login + ";");
+    }
+    public void updateName(String login, String newName){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("UPDATE Profile SET Name = " + newName + " WHERE Login = " + login + ";");
+    }
+    public void updateAge(String login, int newAge){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("UPDATE Profile SET Age = " + newAge + " WHERE Login = " + login + ";");
+    }
+    public void updateGender(String login, String newGender){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("UPDATE Profile SET Gender = " + newGender + " WHERE Login = " + login + ";");
+    }
+    public void updateLocation(String login, String newLocation){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("UPDATE Profile SET Location = " + newLocation + " WHERE Login = " + login + ";");
+    }
+    public void updateHair(String login, String newHair){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("UPDATE Profile SET Hair = " + newHair + " WHERE Login = " + login + ";");
+    }
+    public void updateEyes(String login, String newEyes){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("UPDATE Profile SET Eyes = " + newEyes + " WHERE Login = " + login + ";");
+    }
+    public void updatePreferences(String login, String newPreferences){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("UPDATE Profile SET Preferences = " + newPreferences + " WHERE Login = " + login + ";");
+    }
+    public void updateLanguage(String login, String newLanguage){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("UPDATE Profile SET Language = " + newLanguage + " WHERE Login = " + login + ";");
+    }
+*/
 }
