@@ -165,7 +165,6 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         db.execSQL("INSERT INTO RequestList VALUES (\"beth\",\"vladimirkorsacof\",\"False\");");
         db.execSQL("INSERT INTO RequestList VALUES (\"loladu93\",\"vladimirkorsacof\",\"False\");");
 
-
         System.out.println("On Create String8");
     }
 
@@ -239,14 +238,17 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         return pro;
     }
 
-    public boolean updateLogin(String login, String newLogin){
+    public void updateLogin(String login, String newLogin){
 
         SQLiteDatabase db = this.getWritableDatabase();
 
-        ContentValues values = new ContentValues();
-        values.put(KEY_LOGIN, newLogin);
+        //ContentValues values = new ContentValues();
+        //values.put(KEY_LOGIN, newLogin);
+        String strSQL = "UPDATE Profile SET Login = " + newLogin + " WHERE Login = "+ login + ";";
 
-        return db.update(TABLE_PROFILE, values, KEY_LOGIN + "=" + login, null) > 0;
+        db.execSQL("UPDATE Profile SET Login = 'PaulDuChateau' WHERE Login = 'PaulDuChateu';");
+        //db.execSQL(strSQL);
+        //return db.update(TABLE_PROFILE, values, KEY_LOGIN + "=" + login, null) > 0;
 
     }
 }
