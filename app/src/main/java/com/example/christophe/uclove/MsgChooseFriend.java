@@ -21,28 +21,27 @@ public class MsgChooseFriend extends Activity {
     ListView listView;
     ArrayAdapter<String> friendList;
     List<String> logins;
-    FriendDB frd;
+    DatabaseHandler2 frd;
+    User_Friend user_friend;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.friend); // TODO: 05/05/2016 consulter User_Friend
+        setContentView(R.layout.chat); // TODO: 05/05/2016 consulter User_Friend
 
-        listView = (ListView) findViewById(R.id.friendList); // TODO: 05/05/2016 Consulter FriendActivity
+        listView = (ListView) findViewById(R.id.friendlist); // TODO: 05/05/2016 Consulter FriendActivity
         logins = new ArrayList<String>();
 
-        frd = new User_Friend(this);
-        frd.open();
-        ArrayList<User_Friend> frdList = frd.Login; // TODO: 05/05/2016 Faire une liste d'ami
-        frd.close();
+        frd = new DatabaseHandler2(this);
+        List<String> frdList = frd.getFriendList(CurrentUser.current_user); // TODO: 05/05/2016 Faire une liste d'ami
 
 
         for(int i = 0; i<frdList.size(); i++){
 
-            User_Friend user_friend = frdList.get(i);
-            String sender = user_friend.getLogin1();
-            String receiver = user_friend.getLogin2();
+            user_friend =  new User_Friend(frd.getProfile(frdList.get(i)));
+            String sender = CurrentUser.current_user;
+            String receiver = user_friend.getLogin();
             if (sender.equals(CurrentUser.current_user))
                 logins.add(receiver);
             else
