@@ -79,7 +79,7 @@ public class MyListActivity  extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_UP) {
                     System.out.println("TestList2");
-                    Intent intent = new Intent(MyListActivity.this, ChatActivity.class);
+                    Intent intent = new Intent(MyListActivity.this, MsgChooseFriend.class);
                     startActivity(intent);
                     System.out.println("TestList3");
                     return true;
