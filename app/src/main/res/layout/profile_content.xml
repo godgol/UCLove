@@ -83,25 +83,25 @@
             android:paddingTop="20px"
             >
             <RadioButton
-                android:id="@+id/brownHair"
+                android:id="@+id/brownHairs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Brown"
             />
             <RadioButton
-                android:id="@+id/blackHair"
+                android:id="@+id/blackHairs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Black"
             />
             <RadioButton
-                android:id="@+id/blondHair"
+                android:id="@+id/blondHairs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Blond"
             />
             <RadioButton
-                android:id="@+id/redHair"
+                android:id="@+id/redHairs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Red"
@@ -121,7 +121,7 @@
             android:paddingTop="20px"
         />
         <RadioGroup
-            android:id="@+id/groupEye"
+            android:id="@+id/groupEyes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checkedButton="@+id/brownEyes"
@@ -130,19 +130,19 @@
             android:paddingTop="20px"
                 >
             <RadioButton
-                android:id="@+id/brownEye"
+                android:id="@+id/brownEyes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Brown"
                 />
             <RadioButton
-                android:id="@+id/blueEye"
+                android:id="@+id/blueEyes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Blue"
                 />
             <RadioButton
-                android:id="@+id/greenEye"
+                android:id="@+id/greenEyes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Green"
