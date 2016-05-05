@@ -585,7 +585,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
 
         List<String> array = new ArrayList<>();
         while(c.moveToNext()){
-            String uname = c.getString(c.getColumnIndex("FriendLogin"));
+            String uname = c.getString(0);
             array.add(uname);
         }
 

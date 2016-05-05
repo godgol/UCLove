@@ -39,9 +39,9 @@ public class PeopleActivity extends AppCompatActivity {
         loc = (TextView) findViewById(R.id.location);
         ag = (TextView) findViewById(R.id.age);
         ey = (TextView) findViewById(R.id.eyes);
-        pre = (TextView) findViewById(R.id.preferences);
-        log = (TextView) findViewById(R.id.profile);
-        random = (ImageButton) findViewById(R.id.random);
+       // pre = (TextView) findViewById(R.id.preferences);
+       // log = (TextView) findViewById(R.id.profile);
+       // random = (ImageButton) findViewById(R.id.random);
 
         DatabaseHandler2 db = new DatabaseHandler2(PeopleActivity.this);
 

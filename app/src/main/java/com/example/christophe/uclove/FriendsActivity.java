@@ -43,15 +43,15 @@ public class FriendsActivity extends AppCompatActivity{
           exemple.add("Friend 3");
 
 
-        String[] addlist = {"No Friends"};
+        List<String> addlist = new ArrayList<String>();
         //String[] name = {};
-        DatabaseHandler2 db = new DatabaseHandler2(FriendsActivity.this);
+        DatabaseHandler2 db = new DatabaseHandler2(this);
+        addlist = db.getFriendList("'"+CurrentUser.current_user+"'");
 
-        addlist = db.getFriendList("'Jojelavida'");
 
-        for(int i=0; i<addlist.length; i++)
+        for(int i=0; i<addlist.size(); i++)
         {
-            exemple.add(addlist[i]);
+            exemple.add(addlist.get(i));
         }
 
 
@@ -82,8 +82,7 @@ public class FriendsActivity extends AppCompatActivity{
                     Intent i2 = new Intent(FriendsActivity.this, LoginActivity.class);
                     startActivity(i2);
                     return true;
-                }
-                else{
+                } else {
                     friends.setBackgroundColor(getResources().getColor(R.color.lightred));
                 }
                 return false;

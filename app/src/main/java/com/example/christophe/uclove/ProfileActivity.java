@@ -12,6 +12,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.content.Intent;
+import android.widget.Toast;
 
 
 public class ProfileActivity extends AppCompatActivity{
@@ -105,7 +106,7 @@ public class ProfileActivity extends AppCompatActivity{
                 String str = age.getText().toString();
                 int userAge = Integer.valueOf(str);
                 if(userAge<13){
-                    Toast.makeText(ProfileActivity.this,"You're too young for using this application !",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ProfileActivity.this,"You're too young for using this application !", Toast.LENGTH_SHORT).show();
                 }
             }
         });
