@@ -384,7 +384,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         if (c != null)
             c.moveToFirst();
 
-        int age = c.getInt(c.getColumnIndex("Name"));
+        int age = c.getInt(c.getColumnIndex("Age"));
 
         c.close();
         db.close();
@@ -515,14 +515,13 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
     }
 
     //Getting FriendList of a user
-    public List<String> getFriendList(String login) {
+    public String[] getFriendList(String login) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor c = db.query("FriendList", new String[]{"FriendLogin"}, "Login=?", new String[]{login}, null, null, null, null);
 
-        List<String> list = new ArrayList<String>();
-        //String array[] = new String[c.getCount()];
-        //int i = 0;
+        String array[] = new String[c.getCount()];
+        int i = 0;
 
         if (c != null)
             c.moveToFirst();
@@ -532,13 +531,14 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
             c.moveToNext();
         }*/
         while (c.moveToNext()) {
-            list.add(c.getString(c.getColumnIndex("FriendLogin")));
+            array[i] = c.getString(c.getColumnIndex("FriendLogin"));
+            i++;
         }
 
         c.close();
         db.close();
 
-        return list;
+        return array;
     }
 
 

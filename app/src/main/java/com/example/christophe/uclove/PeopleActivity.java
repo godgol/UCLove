@@ -2,6 +2,8 @@ package com.example.christophe.uclove;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 /**
@@ -9,7 +11,7 @@ import android.widget.TextView;
  */
 public class PeopleActivity extends AppCompatActivity {
 
-    public String login = "'Jojelavida'";
+    public String login = CurrentUser.current_user;
     /*public String gender;
     public String hair;
     public String location;
@@ -24,6 +26,7 @@ public class PeopleActivity extends AppCompatActivity {
     public TextView ag;
     public TextView ey;
     public TextView pre;
+    public ImageButton random;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,18 +34,32 @@ public class PeopleActivity extends AppCompatActivity {
         setContentView(R.layout.people_content);
 
         gen = (TextView) findViewById(R.id.gender);
+        h = (TextView) findViewById(R.id.hair);
+        loc = (TextView) findViewById(R.id.location);
+        ag = (TextView) findViewById(R.id.age);
+        ey = (TextView) findViewById(R.id.eyes);
+        pre = (TextView) findViewById(R.id.preferences);
+        log = (TextView) findViewById(R.id.profile);
+        random = (ImageButton) findViewById(R.id.random);
+
         DatabaseHandler2 db = new DatabaseHandler2(PeopleActivity.this);
 
-        //TODO Get Picture
-        //log.setText(login);
+        log.setText(login);
         gen.setText(db.readGender(login));
-        //h.setText(db.readHair(login));
-        //loc.setText(db.readLocation(login));
-        //ag.setText(db.readAge(login));
-        //ey.setText(db.readEyes(login));
-        //pre.setText(db.readPreferences(login));
+        h.setText(db.readHair(login));
+        loc.setText(db.readLocation(login));
+        ag.setText(String.valueOf(db.readAge(login)));
+        ey.setText(db.readEyes(login));
+        pre.setText(db.readPreferences(login));
 
         db.closeDB();
+
+        random.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+
+            }
+        });
 
     }
 }

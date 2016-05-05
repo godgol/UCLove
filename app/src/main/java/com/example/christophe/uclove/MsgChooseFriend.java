@@ -28,13 +28,13 @@ public class MsgChooseFriend extends Activity {
     public void onCreate(Bundle savedInstanceState){
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.chat); // TODO: 05/05/2016 consulter User_Friend
+        setContentView(R.layout.chat);
 
-        listView = (ListView) findViewById(R.id.friendlist); // TODO: 05/05/2016 Consulter FriendActivity
+        listView = (ListView) findViewById(R.id.friendList);
         logins = new ArrayList<String>();
 
         frd = new DatabaseHandler2(this);
-        List<String> frdList = frd.getFriendList(CurrentUser.current_user); // TODO: 05/05/2016 Faire une liste d'ami
+        List<String> frdList = frd.getFriendList(CurrentUser.current_user);
 
 
         for(int i = 0; i<frdList.size(); i++){
