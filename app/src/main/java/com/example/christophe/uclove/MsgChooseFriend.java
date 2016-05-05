@@ -19,13 +19,12 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 /**
- * Created by antoine on 03/05/16.
+ * Created by thomas on 03/05/16.
  */
 public class MsgChooseFriend extends AppCompatActivity{
-    ListView liste;
-    //private Button friendbutton;
-    List<String> addlist;
-    //TextView friends;
+    ListView liste = null;
+    public List<String> addlist;
+    TextView friends;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +71,7 @@ public class MsgChooseFriend extends AppCompatActivity{
             }
         });
 
-        /*
+
         friends = (TextView) findViewById(R.id.textView);
         friends.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -86,6 +85,6 @@ public class MsgChooseFriend extends AppCompatActivity{
                 }
                 return false;
             }
-        });*/
+        });
     }
 }
