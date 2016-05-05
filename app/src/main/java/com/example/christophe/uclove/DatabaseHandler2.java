@@ -591,10 +591,8 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
     public List<String> getFriendList(String login) {
         SQLiteDatabase db = this.getReadableDatabase();
 
+        //Get all friends you added
         Cursor c = db.query("FriendList", new String[]{"FriendLogin"}, "Login=?", new String[]{login}, null, null, null, null);
-
-        //String[] array = new String[c.getCount()];
-        //int i = 0;
 
         if (c != null)
             c.moveToFirst();
@@ -606,40 +604,59 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         }while(c.moveToNext());
 
         c.close();
+
+        //Get all friends that added you
+        Cursor c2 = db.query("FriendList", new String[]{"Login"}, "FriendLogin=?", new String[]{login}, null, null, null, null);
+
+        if (c2 != null)
+            c2.moveToFirst();
+
+        do{
+            String uname = c.getString(c.getColumnIndex("Login"));
+            array.add(uname);
+        }while(c2.moveToNext());
+
+        c2.close();
+
         db.close();
 
         return array;
     }
 
-    public String[] getNonFriendList(String login){
+    public List<String> getAllLogins(){
         SQLiteDatabase db = this.getReadableDatabase();
 
+        List<String> list = new ArrayList<>();
         Cursor c = db.query("Profile", new String[]{"Login"}, null, null, null, null, null, null); //Get all Logins
-        String[] allLogin = new String[c.getCount()];
-        String[] nonFriends = {};
 
         int i = 0;
-
         if (c != null)
             c.moveToFirst();
-        while (c.moveToNext()) {
-            allLogin[i] = c.getString(c.getColumnIndex("Login"));
+
+        do{
+            list.add(c.getString(c.getColumnIndex("Login")));
             i++;
-        }
+        }while (c.moveToNext());
         c.close();
+        db.close();
 
-       // String[] friends = getFriendList(login);
-
-/*
-       for(int j = 0; j<allLogin.length; j++){
-           if(!Arrays.asList(friends).contains(allLogin[j])){
-                //TODO Add to nonFriends Array
-           }
-        }
-*/
-        return nonFriends;
+        return list;
     }
 
+    public List<String> getNonFriendList(String login){
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        List<String> nonFriends = new ArrayList<>();
+        List<String> logs = getAllLogins();
+        List<String> friends = getFriendList(login);
+
+       for(int j = 0; j<logs.size(); j++){
+           if(!friends.contains(logs.get(j))){
+                nonFriends.add(logs.get(j));
+           }
+        }
+        return nonFriends;
+    }
 
     /*
     * Creating a Request
