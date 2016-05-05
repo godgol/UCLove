@@ -384,7 +384,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         if (c != null)
             c.moveToFirst();
 
-        int age = c.getInt(c.getColumnIndex("Name"));
+        int age = c.getInt(c.getColumnIndex("Age"));
 
         c.close();
         db.close();
