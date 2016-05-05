@@ -20,4 +20,6 @@
     <string name="eyes">Yeux</string>
     <string name="location">Ville</string>
     <string name="inclination">Préference</string>
+    <string name="profile_activity">Profile activity</string>
+    <string name="gallery_activity">Gallery Activité</string>
 </resources>

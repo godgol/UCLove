@@ -31,21 +31,27 @@ public class FriendsActivity extends AppCompatActivity{
 
         liste = (ListView) findViewById(R.id.friendlist);
 
-        List<String> exemple = new ArrayList<>();
+        List<String> exemple = new ArrayList<String>();
 
-        //exemple.add("Friend 1");
 
-        //exemple.add("Friend 2");
+          exemple.add("Friend 1");
 
-        //exemple.add("Friend 3");
+          exemple.add("Friend 2");
+
+          exemple.add("Friend 3");
 
 
         //String[] fn = {"No Friends"};
-        String[] name = {};
+        //String[] name = {};
+        String j= "Liste";
         DatabaseHandler2 db = new DatabaseHandler2(FriendsActivity.this);
 
-        exemple.addAll(db.getFriendList("'Jojelavida'"));
-        //exemple = db.getFriendList("'Jojelavida'");
+        List<String> addlist = db.getFriendList("'Jojelavida'");
+        exemple.add(String.valueOf(addlist.lastIndexOf(j)));
+       // for(int i=0; i<addlist.lastIndexOf(j); i++)
+       // {
+        //    exemple.add(addlist.get(0));
+      //  }
 
         /*for(int i = 0; i<exemple.length; i++){
             //fn[i] = db.readFamilyName(exemple[i]);

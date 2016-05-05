@@ -39,6 +39,15 @@
             android:name=".FriendPanelActivity"
             android:label="@string/friendpanel_activity">
         </activity>
+        <activity
+            android:name=".ProfileActivity"
+            android:label="@string/profile_activity">
+
+        </activity>
+        <activity
+            android:name=".GalleryActivity"
+            android:label="@string/gallery_activity">
+        </activity>
 
     </application>
 
