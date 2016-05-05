@@ -33,32 +33,30 @@ public class FriendsActivity extends AppCompatActivity{
 
         liste = (ListView) findViewById(R.id.friendlist);
 
-        List<String> exemple = new ArrayList<String>();
+        /*List<String> exemple = new ArrayList<String>();
 
 
           exemple.add("Friend 1");
 
           exemple.add("Friend 2");
 
-          exemple.add("Friend 3");
+          exemple.add("Friend 3");*/
 
 
-        List<String> addlist = new ArrayList<String>();
+        List<String> addlist = new ArrayList<>();
         //String[] name = {};
         DatabaseHandler2 db = new DatabaseHandler2(this);
-        addlist = db.getFriendList("'"+CurrentUser.current_user+"'");
+        addlist = db.getFriendList(CurrentUser.current_user);
 
 
-        for(int i=0; i<addlist.size(); i++)
+        /*for(int i=0; i<addlist.size(); i++)
         {
             exemple.add(addlist.get(i));
-        }
-
-
+        }*/
 
         db.closeDB();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, exemple);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, addlist);
         liste.setAdapter(adapter);
 
         liste.setOnItemClickListener(new AdapterView.OnItemClickListener() {

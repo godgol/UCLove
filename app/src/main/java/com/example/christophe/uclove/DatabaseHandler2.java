@@ -118,7 +118,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         System.out.println("In constr");
     }
-//
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         System.out.println("On Create String First");
@@ -264,7 +264,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
     public Profile getProfile(String login) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-//        String selectQuery = "SELECT * FROM Profile WHERE Login = " + login + ";";
+//      String selectQuery = "SELECT * FROM Profile WHERE Login = " + login + ";";
 
         Cursor c = db.query("Profile", new String[] {"Login","Password"},"Login=?",new String[] {login},null, null, null, null);
 //        Cursor c = db.rawQuery(selectQuery, null);
@@ -285,103 +285,119 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
     //Updating Profile attributes
     public void updateLogin(String login, String newLogin){
         SQLiteDatabase db = this.getWritableDatabase();
-        //db.execSQL("UPDATE Profile SET Login = " + newLogin + " WHERE Login = " + login + ";");
-        ContentValues newValues = new ContentValues();
-        newValues.put("Login", newLogin);
+        db.execSQL("UPDATE Profile SET Login = " + newLogin + " WHERE Login = " + login + ";");
 
-        String[] args = new String[]{login};
-        db.update("Profile", newValues, "name=?", args);
+        db.close();
     }
     public void updatePassword(String login, String newPassword){
         SQLiteDatabase db = this.getWritableDatabase();
-        //db.execSQL("UPDATE Profile SET Password = " + newPassword + " WHERE Login = " + login + ";");
-        ContentValues newValues = new ContentValues();
+        db.execSQL("UPDATE Profile SET Password = " + newPassword + " WHERE Login = " + login + ";");
+        /*ContentValues newValues = new ContentValues();
         newValues.put("Password", newPassword);
 
         String[] args = new String[]{login};
-        db.update("Profile", newValues, "name=?", args);
+        db.update("Profile", newValues, "name=?", args);*/
+
+        db.close();
     }
     public void updateFamilyName(String login, String newFN){
         SQLiteDatabase db = this.getWritableDatabase();
-        //db.execSQL("UPDATE Profile SET FamilyName = " + newFN + " WHERE Login = " + login + ";");
-        ContentValues newValues = new ContentValues();
+        db.execSQL("UPDATE Profile SET FamilyName = " + newFN + " WHERE Login = " + login + ";");
+        /*ContentValues newValues = new ContentValues();
         newValues.put("FamilyName", newFN);
 
         String[] args = new String[]{login};
-        db.update("Profile", newValues, "name=?", args);
+        db.update("Profile", newValues, "name=?", args);*/
+
+        db.close();
     }
     public void updateName(String login, String newName){
         SQLiteDatabase db = this.getWritableDatabase();
-        //db.execSQL("UPDATE Profile SET Name = " + newName + " WHERE Login = " + login + ";");
-        ContentValues newValues = new ContentValues();
+        db.execSQL("UPDATE Profile SET Name = " + newName + " WHERE Login = " + login + ";");
+        /*ContentValues newValues = new ContentValues();
         newValues.put("Name", newName);
 
         String[] args = new String[]{login};
-        db.update("Profile", newValues, "name=?", args);
+        db.update("Profile", newValues, "name=?", args);*/
+
+        db.close();
     }
     public void updateAge(String login, int newAge){
         SQLiteDatabase db = this.getWritableDatabase();
-        //db.execSQL("UPDATE Profile SET Age = " + newAge + " WHERE Login = " + login + ";");
-        ContentValues newValues = new ContentValues();
+        db.execSQL("UPDATE Profile SET Age = " + newAge + " WHERE Login = " + login + ";");
+        /*ContentValues newValues = new ContentValues();
         newValues.put("Age", newAge);
 
         String[] args = new String[]{login};
-        db.update("Profile", newValues, "name=?", args);
+        db.update("Profile", newValues, "name=?", args);*/
+
+        db.close();
     }
     public void updateGender(String login, String newGender){
         SQLiteDatabase db = this.getWritableDatabase();
-        //db.execSQL("UPDATE Profile SET Gender = " + newGender + " WHERE Login = " + login + ";");
-        ContentValues newValues = new ContentValues();
+        db.execSQL("UPDATE Profile SET Gender = " + newGender + " WHERE Login = " + login + ";");
+        /*ContentValues newValues = new ContentValues();
         newValues.put("Gender", newGender);
 
         String[] args = new String[]{login};
-        db.update("Profile", newValues, "name=?", args);
+        db.update("Profile", newValues, "name=?", args);*/
+        db.close();
 
     }
     public void updateLocation(String login, String newLocation){
         SQLiteDatabase db = this.getWritableDatabase();
-        //db.execSQL("UPDATE Profile SET Location = " + newLocation + " WHERE Login = " + login + ";");
-        ContentValues newValues = new ContentValues();
+        db.execSQL("UPDATE Profile SET Location = " + newLocation + " WHERE Login = " + login + ";");
+        /*ContentValues newValues = new ContentValues();
         newValues.put("Location", newLocation);
 
         String[] args = new String[]{login};
-        db.update("Profile", newValues, "name=?", args);
+        db.update("Profile", newValues, "name=?", args);*/
+
+        db.close();
     }
     public void updateHair(String login, String newHair){
         SQLiteDatabase db = this.getWritableDatabase();
-        //db.execSQL("UPDATE Profile SET Hair = " + newHair + " WHERE Login = " + login + ";");
-        ContentValues newValues = new ContentValues();
+        db.execSQL("UPDATE Profile SET Hair = " + newHair + " WHERE Login = " + login + ";");
+        /*ContentValues newValues = new ContentValues();
         newValues.put("Hair", newHair);
 
         String[] args = new String[]{login};
-        db.update("Profile", newValues, "name=?", args);
+        db.update("Profile", newValues, "name=?", args);*/
+
+        db.close();
     }
     public void updateEyes(String login, String newEyes){
         SQLiteDatabase db = this.getWritableDatabase();
-        //db.execSQL("UPDATE Profile SET Eyes = " + newEyes + " WHERE Login = " + login + ";");
-        ContentValues newValues = new ContentValues();
+        db.execSQL("UPDATE Profile SET Eyes = " + newEyes + " WHERE Login = " + login + ";");
+        /*ContentValues newValues = new ContentValues();
         newValues.put("Eyes", newEyes);
 
         String[] args = new String[]{login};
-        db.update("Profile", newValues, "name=?", args);
+        db.update("Profile", newValues, "name=?", args);*/
+
+        db.close();
     }
     public void updatePreferences(String login, String newPreferences){
         SQLiteDatabase db = this.getWritableDatabase();
-        //db.execSQL("UPDATE Profile SET Preferences = " + newPreferences + " WHERE Login = " + login + ";");
-        ContentValues newValues = new ContentValues();
+        db.execSQL("UPDATE Profile SET Preferences = " + newPreferences + " WHERE Login = " + login + ";");
+        /*ContentValues newValues = new ContentValues();
         newValues.put("Preferences", newPreferences);
 
         String[] args = new String[]{login};
-        db.update("Profile", newValues, "name=?", args);
+        db.update("Profile", newValues, "name=?", args);*/
+
+        db.close();
     }
     public void updateLanguage(String login, String newLanguage){
         SQLiteDatabase db = this.getWritableDatabase();
-        //db.execSQL("UPDATE Profile SET Language = " + newLanguage + " WHERE Login = " + login + ";");
-        ContentValues newValues = new ContentValues();
+        db.execSQL("UPDATE Profile SET Language = " + newLanguage + " WHERE Login = " + login + ";");
+        /*ContentValues newValues = new ContentValues();
         newValues.put("Language", newLanguage);
 
         String[] args = new String[]{login};
-        db.update("Profile", newValues, "name=?", args);
+        db.update("Profile", newValues, "name=?", args);*/
+
+        db.close();
     }
 
     //Reading Profile attributes
@@ -468,7 +484,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
     public String readLocation(String login) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor c = db.query("Profile", new String[]{"Location"}, "Login=?", new String[]{login}, null, null, null, null);
+        Cursor c = db.query("Profile", new String[] {"Location"}, "Login=?", new String[] {login}, null, null, null, null);
 
         if (c != null)
             c.moveToFirst();
@@ -585,7 +601,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
 
         List<String> array = new ArrayList<>();
         while(c.moveToNext()){
-            String uname = c.getString(0);
+            String uname = c.getString(c.getColumnIndex("FriendLogin"));
             array.add(uname);
         }
 
@@ -742,8 +758,8 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
     /* TODO Methods to write
     *
     // CHAT Table - column names
-    private static final String KEY_MESSAGE = "Message";
-    private static final String KEY_DATE = "Date";
+    KEY_MESSAGE = "Message";
+    KEY_DATE = "Date";
 
     //CALENDAR Table - column names
     //Uses Login and Date

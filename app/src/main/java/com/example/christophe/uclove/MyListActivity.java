@@ -126,8 +126,8 @@ public class MyListActivity  extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent  event) {
                 if (event.getAction() == MotionEvent.ACTION_UP) {
-                   // Intent i = new Intent(MyListActivity.this, ProfileActivity.class);
-                  //  startActivity(i);
+                    Intent i = new Intent(MyListActivity.this, ProfileActivity.class);
+                    startActivity(i);
                     return true;
                 }
                 else{
@@ -142,16 +142,8 @@ public class MyListActivity  extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 DatabaseHandler2 db2 = new DatabaseHandler2(MyListActivity.this);
                 if (event.getAction() == MotionEvent.ACTION_UP) {
-                    db2.updateLogin("PaulduChateu", "PaulDuChateau");
-                    //update = db2.getProfile("PaulDuChateau");
-                    //login = update.getLogin();
-                    //if(login.equals("PaulDuChateau")) {
-                    //System.out.println("lol3");
-                    // Intent intent2 = new Intent(MyListActivity.this, LoginActivity.class);
-                    //startActivity(intent2);
-                    // System.out.println("lol4");
-                    //}
-                    //System.out.println("lol5");
+                    //db2.updateLogin("PaulduChateu", "PaulDuChateau");
+                    preferences.setBackgroundColor(getResources().getColor(R.color.lightred));
                     db2.updateLogin("'PaulDuChateu'","'PaulDuChateau'");
                     update = db2.getProfile("PaulDuChateau");
                     login = update.getLogin();
