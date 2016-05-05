@@ -20,6 +20,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 /**
  * Created by thomas on 03/05/16.
+ * modified
  */
 public class MsgChooseFriend extends AppCompatActivity{
     ListView liste = null;
