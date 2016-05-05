@@ -64,8 +64,6 @@ public class ProfileActivity extends AppCompatActivity{
                         break;
                     case R.id.redHair:
                         break;
-                    case R.id.bald:
-                        break;
                 }
             }
         });
