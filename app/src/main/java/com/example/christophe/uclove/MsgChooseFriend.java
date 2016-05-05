@@ -34,12 +34,12 @@ public class MsgChooseFriend extends Activity {
         logins = new ArrayList<String>();
 
         frd = new DatabaseHandler2(this);
-        List<String> frdList = frd.getFriendList(CurrentUser.current_user);
+        String[] frdList = frd.getFriendList(CurrentUser.current_user);
 
 
-        for(int i = 0; i<frdList.size(); i++){
+        for(int i = 0; i<frdList.length; i++){
 
-            user_friend =  new User_Friend(frd.getProfile(frdList.get(i)));
+            user_friend =  new User_Friend(frd.getProfile(frdList[i]));
             String sender = CurrentUser.current_user;
             String receiver = user_friend.getLogin();
             if (sender.equals(CurrentUser.current_user))

@@ -2,7 +2,9 @@ package com.example.christophe.uclove;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.ListActivity;
 import android.os.Bundle;
+import android.provider.Contacts;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -41,22 +43,18 @@ public class FriendsActivity extends AppCompatActivity{
           exemple.add("Friend 3");
 
 
-        //String[] fn = {"No Friends"};
+        String[] addlist = {"No Friends"};
         //String[] name = {};
-        String j= "Liste";
         DatabaseHandler2 db = new DatabaseHandler2(FriendsActivity.this);
 
-        List<String> addlist = db.getFriendList("'Jojelavida'");
-        exemple.add(String.valueOf(addlist.lastIndexOf(j)));
-       // for(int i=0; i<addlist.lastIndexOf(j); i++)
-       // {
-        //    exemple.add(addlist.get(0));
-      //  }
+        addlist = db.getFriendList("'Jojelavida'");
 
-        /*for(int i = 0; i<exemple.length; i++){
-            //fn[i] = db.readFamilyName(exemple[i]);
-            name[i] = db.readName(exemple[i]);
-        }*/
+        for(int i=0; i<addlist.length; i++)
+        {
+            exemple.add(addlist[i]);
+        }
+
+
 
         db.closeDB();
 
@@ -69,7 +67,7 @@ public class FriendsActivity extends AppCompatActivity{
                                     View view,
                                     int position,
                                     long id) {
-                //Log.d("Click friends", "FriendsActivity");
+
                 Intent i = new Intent(FriendsActivity.this, FriendPanelActivity.class);
                 startActivity(i);
             }
@@ -93,3 +91,4 @@ public class FriendsActivity extends AppCompatActivity{
         });
     }
 }
+
