@@ -47,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
                 System.out.println("I'm here");
                 if(useracc.getPassword().equals(password)){
                     System.out.println("I'm here 2");
+                    CurrentUser.current_user = login;
                     Intent i = new Intent(LoginActivity.this, MyListActivity.class);
                     startActivity(i);
                     System.out.println("I'm here 3");
