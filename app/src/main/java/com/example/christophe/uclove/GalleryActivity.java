@@ -14,16 +14,7 @@ import android.widget.AdapterView.OnItemClickListener;
 
 public class GalleryActivity extends Activity {
     Integer[] pics = {
-            R.drawable.antartica1,
-            R.drawable.antartica2,
-            R.drawable.antartica3,
-            R.drawable.antartica4,
-            R.drawable.antartica5,
-            R.drawable.antartica6,
-            R.drawable.antartica7,
-            R.drawable.antartica8,
-            R.drawable.antartica9,
-            R.drawable.antartica10
+            R.drawable.firendpic,R.drawable.rose
     };
     ImageView profilePic;
     @Override
