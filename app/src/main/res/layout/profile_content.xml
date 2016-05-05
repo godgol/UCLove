@@ -12,7 +12,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gender : "
+            android:text="@string/gender"
             android:paddingLeft="20px"
             android:paddingTop="20px"
             />
@@ -29,13 +29,13 @@
                 android:id="@+id/male"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Male"
+                android:text="@string/male"
             />
             <RadioButton
                 android:id="@+id/female"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Female"
+                android:text="@string/female"
             />
         </RadioGroup>
     </LinearLayout>
@@ -56,7 +56,7 @@
             android:id="@+id/age"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="Age :"
+            android:hint="@string/age"
             android:inputType="numberDecimal"
             android:paddingTop="20px"
         />
@@ -69,7 +69,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hairs :"
+            android:text="@string/hair"
             android:paddingLeft="20px"
             android:paddingTop="20px"
             />
@@ -86,25 +86,25 @@
                 android:id="@+id/brownHair"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Brown"
+                android:text="@string/brown"
             />
             <RadioButton
                 android:id="@+id/blackHair"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Black"
+                android:text="@string/black"
             />
             <RadioButton
                 android:id="@+id/blondHair"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Blond"
+                android:text="@string/blond"
             />
             <RadioButton
                 android:id="@+id/redHair"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Red"
+                android:text="@string/red"
             />
         </RadioGroup>
     </LinearLayout>
@@ -116,7 +116,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Eyes :"
+            android:text="@string/eyes"
             android:paddingLeft="20px"
             android:paddingTop="20px"
         />
@@ -133,19 +133,19 @@
                 android:id="@+id/brownEye"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Brown"
+                android:text="@string/Brown"
                 />
             <RadioButton
                 android:id="@+id/blueEye"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Blue"
+                android:text="@string/blue"
                 />
             <RadioButton
                 android:id="@+id/greenEye"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Green"
+                android:text="@string/green"
                 />
         </RadioGroup>
     </LinearLayout>
@@ -166,7 +166,7 @@
             android:id="@+id/location"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="Location"
+            android:hint="@string/location"
             android:inputType="text"
             android:paddingTop="20px"
         />
@@ -179,7 +179,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Inclination :"
+            android:text="@string/inclination"
             android:paddingLeft="20px"
             android:paddingTop="20px"
             />
@@ -220,7 +220,7 @@
             android:id="@+id/gallery"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Gallery"
+            android:text="@string/gallery"
             android:paddingTop="20px"
         />
     </LinearLayout>

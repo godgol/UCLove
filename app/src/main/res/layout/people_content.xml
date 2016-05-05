@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Filter by:"
+            android:text="@string/filter_by"
             android:textSize="40px"
             android:paddingRight="20px"/>
         <EditText
@@ -22,11 +22,11 @@
             android:layout_height="wrap_content"
             android:id="@+id/editText"
             android:background="@color/lightred"
-            android:hint="value"/>
+            android:hint="@string/value"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="for"
+            android:text="@string/for_key"
             android:textSize="40px"
             android:paddingLeft="20px"
             android:paddingRight="20px"/>
@@ -36,7 +36,7 @@
             android:id="@+id/editText2"
             android:background="@color/lightred"
             android:paddingRight="20px"
-            android:hint="keyword" />
+            android:hint="@string/keyword" />
     </LinearLayout>
 
     <TextView
@@ -46,7 +46,7 @@
         android:layout_below="@id/lol"
         android:layout_centerHorizontal="true"
         android:paddingTop="100px"
-        android:text="Random Search :"
+        android:text="@string/random_Search"
         android:textSize="40px"
         android:paddingRight="20px"/>
 
@@ -80,7 +80,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Default Profil"
+            android:text="@string/default_Profil"
             android:textSize="60px"
             android:layout_gravity="center"/>
         <ImageView
@@ -111,18 +111,18 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gender"
+            android:text="@string/gender"
             android:textSize="40px"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hair"
+            android:text="@string/hair"
             android:textSize="40px"
             android:paddingTop="20px"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Location"
+            android:text="@string/location"
             android:textSize="40px"
             android:paddingTop="20px"/>
     </LinearLayout>
@@ -144,13 +144,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Eyes"
+            android:text="@string/eyes"
             android:textSize="40px"
             android:paddingTop="20px"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Preferences"
+            android:text="@string/preferences"
             android:textSize="40px"
             android:paddingTop="20px"/>
     </LinearLayout>
