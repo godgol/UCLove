@@ -23,6 +23,8 @@ public class MyListActivity  extends AppCompatActivity {
     String login ;
     public TextView friends;
     public TextView meet;
+    public TextView people;
+    public TextView messages;
 
 
 //    @Override
@@ -49,8 +51,10 @@ public class MyListActivity  extends AppCompatActivity {
         System.out.println("TestList1");
         profile = (TextView) findViewById(R.id.T1);
         preferences = (TextView) findViewById(R.id.T2);
+        people = (TextView) findViewById(R.id.T3);
         friends = (TextView) findViewById(R.id.T4);
         meet = (TextView) findViewById(R.id.T5);
+        messages = (TextView) findViewById(R.id.T6);
 
 
         profile.setOnTouchListener(new View.OnTouchListener() {
@@ -65,6 +69,39 @@ public class MyListActivity  extends AppCompatActivity {
                 } else {
                     profile.setBackgroundColor(getResources().getColor(R.color.lightred));
                     System.out.println("TestList4");
+                }
+                return false;
+            }
+        });
+
+        messages.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    System.out.println("TestList2");
+                    Intent intent = new Intent(MyListActivity.this, ChatActivity.class);
+                    startActivity(intent);
+                    System.out.println("TestList3");
+                    return true;
+                } else {
+                    messages.setBackgroundColor(getResources().getColor(R.color.lightred));
+                    System.out.println("TestList4");
+                }
+                return false;
+            }
+        });
+
+        people.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent  event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    people.setBackgroundColor(getResources().getColor(R.color.lightred));
+                    Intent i = new Intent(MyListActivity.this, PeopleActivity.class);
+                    startActivity(i);
+                    return true;
+                }
+                else{
+                    people.setBackgroundColor(getResources().getColor(R.color.lightred));
                 }
                 return false;
             }
