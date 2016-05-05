@@ -11,7 +11,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.content.Intent;
-import android.widget.Toast
+import android.widget.Toast;
 
 
 public class ProfileActivity extends Activity {

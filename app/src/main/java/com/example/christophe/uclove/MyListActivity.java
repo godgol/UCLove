@@ -89,7 +89,7 @@ public class MyListActivity  extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent  event) {
                 if (event.getAction() == MotionEvent.ACTION_UP) {
-                    Intent i = new Intent(MyListActivity.this, GalleryActivity.class);
+                    Intent i = new Intent(MyListActivity.this, ProfileActivity.class);
                     startActivity(i);
                     return true;
                 }
