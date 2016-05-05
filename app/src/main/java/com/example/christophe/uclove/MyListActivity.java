@@ -51,10 +51,10 @@ public class MyListActivity  extends AppCompatActivity {
         System.out.println("TestList1");
         profile = (TextView) findViewById(R.id.T1);
         preferences = (TextView) findViewById(R.id.T2);
-        people = (TextView) findViewById(R.id.T3);
+        //people = (TextView) findViewById(R.id.T3);
         friends = (TextView) findViewById(R.id.T4);
         meet = (TextView) findViewById(R.id.T5);
-        messages = (TextView) findViewById(R.id.T6);
+        //messages = (TextView) findViewById(R.id.T6);
 
 
         profile.setOnTouchListener(new View.OnTouchListener() {
