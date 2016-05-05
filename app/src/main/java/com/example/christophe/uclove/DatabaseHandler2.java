@@ -195,7 +195,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         db.execSQL("INSERT INTO Gallery VALUES (\"foreverrebel\",\"10-0001\",\"TRUE\");");
         db.execSQL("INSERT INTO Gallery VALUES (\"foreverrebel\",\"10-0002\",\"FALSE\");");
 
-        //Popluating the Chat Table
+        //Popluating the Chat Table*/
         db.execSQL("INSERT INTO Chat VALUES (\"PaulDuChateu\",\"beth\",\"Hey Beth! Montre tes fesses.\",\"2016-02-25 09:00:00\");");
         db.execSQL("INSERT INTO Chat VALUES (\"beth\",\"PaulDuChateau\",\"Hey Paul! Non...J'ai 86 ans.\",\"2016-02-25 09:30:00\");");
         db.execSQL("INSERT INTO Chat VALUES (\"Jojelavida\",\"foreverrebel\",\"HI\",\"2016-03-15 23:32:22\");");
@@ -203,7 +203,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         db.execSQL("INSERT INTO Chat VALUES (\"Jojelavida\",\"foreverrebel\",\"You there?\",\"2016-03-15 23:33:00\");");
         db.execSQL("INSERT INTO Chat VALUES (\"Jojelavida\",\"foreverrebel\",\"I like your Pix...\",\"2016-03-15 23:34:00\");");
         db.execSQL("INSERT INTO Chat VALUES (\"Jojelavida\",\"foreverrebel\",\"Boyfriend?\",\"2016-03-15 23:35:00\");");
-
+          /*
         //Populating the Rendezvous Table
         db.execSQL("INSERT INTO Rendezvous VALUES (\"PaulDuChateu\",\"beth\",\"2016-03-26\",\"Beerbar\",\"TRUE\");");
         db.execSQL("INSERT INTO Rendezvous VALUES (\"katesmith\",\"sisterlover\",\"2016-05-24\",\"Bravos Bank\",\"FALSE\");");
@@ -785,4 +785,48 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
     // Uses Login, FriendLogin, Date, Location, Answer
     *
     * */
+    public void add(Message msg) {
+
+        SQLiteDatabase mDB = this.getWritableDatabase();
+        ContentValues val = new ContentValues();
+        val.put(KEY_LOGIN, msg.getSender());
+        val.put(KEY_FRIENDLOGIN, msg.getReceiver());
+        val.put(KEY_MESSAGE, msg.getMessage());
+        val.put(KEY_DATE, msg.getTime());
+        mDB.insert(DatabaseHandler2.TABLE_CHAT, null, val);
+
+
+        mDB.close();
+    }
+
+    public ArrayList<Message> Conversation(String sender, String receiver) {
+
+        SQLiteDatabase mDB = this.getWritableDatabase();
+        String bubble = "select * from " + TABLE_CHAT
+                + " where ( Login = \"" + sender + "\" or Login = \"" + receiver + "\")" +
+                " and ( FriendLogin = \"" + sender + "\" or FriendLogin = \"" + receiver + "\");";
+
+        Cursor cursor = mDB.rawQuery(bubble, new String[]{});
+
+        ArrayList<Message> list = new ArrayList<Message>();
+
+        if (cursor != null)
+            cursor.moveToFirst();
+
+            do {
+
+                Message message = new Message();
+
+                message.setSender(cursor.getString(0));
+                message.setReceiver(cursor.getString(1));
+                message.setMessage(cursor.getString(2));
+                message.setTime(cursor.getString(3));
+                list.add(message);
+            }
+            while (cursor.moveToNext());
+        cursor.close();
+        mDB.close();
+        return list;
+
+    }
 }

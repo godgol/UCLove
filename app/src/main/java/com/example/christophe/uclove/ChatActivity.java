@@ -3,6 +3,7 @@ package com.example.christophe.uclove;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.StringDef;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -18,36 +19,36 @@ import java.util.List;
 /**
  * Created by Thomas on 05/05/2016.
  */
-public class ChatActivity extends Activity {
+public class ChatActivity extends AppCompatActivity {
 
     ListView listView;
-    List<String> messages;
-    ArrayAdapter<String> messageAdapter;
-    DBChat dbChat;
-    Message m1,m2;
+    //List<Message> messages;
+    ArrayAdapter<Message> messageAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chat_main);
+        DatabaseHandler2 mDB = new DatabaseHandler2(this);
 
         listView = (ListView)findViewById(R.id.ListView);
-        messages = new ArrayList<String>();
+        // messages = new ArrayList<Message>();
 
-        m1 = new Message("12:03","salut", "Joselavida", CurrentUser.current_user);
-        m2 = new Message("13:17","Enchanté, comment va tu ?", CurrentUser.current_user, "Joselavida");
-        messages.add(m1.getSender() + ": " + m1.getMessage());
-        messages.add(m2.getSender() + ": " + m2.getMessage());
 
-        /*dbChat = new DBChat(this);
-        dbChat.open();
-        ArrayList<Message> msgList = dbChat.Conversation(CurrentUser.current_user, CurrentUser.current_chat);
-        dbChat.close();
-*/
 
-        messageAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
-                android.R.id.text1, messages);
+        final ArrayList<Message> msgList = mDB.Conversation(CurrentUser.current_user, CurrentUser.current_chat);
+
+        mDB.closeDB();
+
+        /*for(int i = 0; i<messages.size(); i++){
+
+            Message conversation = messages.get(i);
+            messages.add(conversation);
+        }*/
+
+        messageAdapter = new ArrayAdapter<Message>(ChatActivity.this, android.R.layout.simple_list_item_1,
+                android.R.id.text1, msgList);
         listView.setAdapter(messageAdapter);
 
         final EditText editMessage = (EditText)findViewById(R.id.chat);
@@ -57,18 +58,22 @@ public class ChatActivity extends Activity {
             public void onClick(View v) {
                 String msg = editMessage.getText().toString();
                 String date = new SimpleDateFormat("HH:mm").format(Calendar.getInstance().getTime());
+                Message m = new Message(date, msg, CurrentUser.current_chat, CurrentUser.current_user);
                 if (msg.length() > 0) {
 
                     editMessage.setText("");
-
-                    Message message = new Message();
-                    message.setMessage(msg);
-                    message.setSender(CurrentUser.current_user);
-                    message.setReceiver("Jojelavida");
-                    message.setTime(date);
+                    msgList.add(m);
+                    //msgList.add(msg);
+                    //msgList.add("");
 
 
-                    messageAdapter.add(message.getSender()+": "+message.getMessage());
+                    DatabaseHandler2 mDB2 = new DatabaseHandler2(ChatActivity.this);
+                    mDB2.add(m);
+                    mDB2.closeDB();
+
+
+                    messageAdapter = new ArrayAdapter<Message>(ChatActivity.this, android.R.layout.simple_list_item_1,
+                            android.R.id.text1, msgList);
                     listView.setAdapter(messageAdapter);
 
                 }
