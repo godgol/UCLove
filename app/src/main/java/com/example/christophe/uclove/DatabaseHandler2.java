@@ -94,23 +94,23 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
 
     // GALLERY table create statement
     private static final String CREATE_TABLE_GALLERY = "CREATE TABLE "
-            + TABLE_GALLERY + "(" + KEY_LOGIN + " TEXT PRIMARY KEY," + KEY_PICTUREID
+            + TABLE_GALLERY + "(" + KEY_LOGIN + " TEXT," + KEY_PICTUREID
             + " INTEGER," + KEY_PROFILEBINARY + " BOOLEAN" + ");";
 
     // CHAT table create statement
     private static final String CREATE_TABLE_CHAT = "CREATE TABLE "
-            + TABLE_CHAT+ "(" + KEY_LOGIN + " TEXT PRIMARY KEY," + KEY_FRIENDLOGIN
-            + " TEXT," + KEY_MESSAGE + " TEXT" + KEY_DATE + " DATETIME" + ");";
+            + TABLE_CHAT+ " (" + KEY_LOGIN + " TEXT," + KEY_FRIENDLOGIN
+            + " TEXT," + KEY_MESSAGE + " TEXT," + KEY_DATE + " TEXT" + ");";
 
     // CALENDAR table create statement
     private static final String CREATE_TABLE_CALENDAR = "CREATE TABLE "
             + TABLE_CALENDAR + "(" + KEY_LOGIN + " TEXT PRIMARY KEY," + KEY_DATE
-            + "DATETIME" + ");";
+            + "TEXT" + ");";
 
     // RENDEZVOUS table create statement
     private static final String CREATE_TABLE_RENDEZVOUS= "CREATE TABLE "
             + TABLE_RENDEZVOUS + "(" + KEY_LOGIN + " TEXT PRIMARY KEY," + KEY_FRIENDLOGIN
-            + " TEXT," + KEY_DATE + " DATETIME" + KEY_LOCATION + " TEXT" + KEY_ANSWER
+            + " TEXT," + KEY_DATE + " TEXT" + KEY_LOCATION + " TEXT" + KEY_ANSWER
             + " BOOLEAN" + ");";
 
 
@@ -604,7 +604,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         }while(c.moveToNext());
 
         c.close();
-
+/*
         //Get all friends that added you
         Cursor c2 = db.query("FriendList", new String[]{"Login"}, "FriendLogin=?", new String[]{login}, null, null, null, null);
 
@@ -617,7 +617,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         }while(c2.moveToNext());
 
         c2.close();
-
+*/
         db.close();
 
         return array;
