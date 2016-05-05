@@ -29,7 +29,7 @@ public class MsgChooseFriend extends AppCompatActivity{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_friends);
+        setContentView(R.layout.chat);
 
         list = (ListView) findViewById(R.id.friendlist);
 
