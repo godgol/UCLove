@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -51,13 +52,13 @@ public class ChatActivity extends Activity {
                 android.R.id.text1, messages);
         listView.setAdapter(messageAdapter);
 
-        final EditText editMessage = (EditText)findViewById(R.id.message);
-        Button send = (Button)findViewById(R.id.send);
+        final EditText editMessage = (EditText)findViewById(R.id.chat);
+        Button send = (Button)findViewById(R.id.btn);
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String msg = editMessage.getText().toString();
-                String date = new SimpleDateFormat("HH:mm").format(getTime);
+                String date = new SimpleDateFormat("HH:mm").format(Calendar.getInstance().getTime());
                 if (msg.length() > 0) {
 
                     editMessage.setText("");
