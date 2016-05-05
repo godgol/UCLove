@@ -50,15 +50,18 @@ public class ChatActivity extends AppCompatActivity {
 
         mDB.closeDB();
 
+        if (messages != null) {
+
         /*for(int i = 0; i<messages.size(); i++){
 
             Message conversation = messages.get(i);
             messages.add(conversation);
         }*/
 
-        messageAdapter = new ArrayAdapter<String>(ChatActivity.this, android.R.layout.simple_list_item_1,
-                android.R.id.text1, messages);
-        listView.setAdapter(messageAdapter);
+            messageAdapter = new ArrayAdapter<String>(ChatActivity.this, android.R.layout.simple_list_item_1,
+                    android.R.id.text1, messages);
+            listView.setAdapter(messageAdapter);
+        }
 
         final EditText editMessage = (EditText)findViewById(R.id.chat);
         Button send = (Button)findViewById(R.id.btn);
@@ -75,7 +78,7 @@ public class ChatActivity extends AppCompatActivity {
                     //msgList.add(msg);
                     //msgList.add("");
 
-                    messages.add(msgList.get(msgList.size()).getSender()+": "+msgList.get(msgList.size()).getMessage());
+                    messages.add(msgList.get(msgList.size()-1).getSender()+": "+msgList.get(msgList.size()-1).getMessage());
 
 
                     DatabaseHandler2 mDB2 = new DatabaseHandler2(ChatActivity.this);
