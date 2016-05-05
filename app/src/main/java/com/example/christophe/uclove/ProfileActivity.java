@@ -15,7 +15,7 @@ import android.content.Intent;
 import android.widget.Toast;
 
 
-/*public class ProfileActivity extends AppCompatActivity{
+public class ProfileActivity extends AppCompatActivity{
     private RadioGroup groupGender = null;
     private EditText age;
     private RadioGroup groupHairs = null;
@@ -160,4 +160,4 @@ import android.widget.Toast;
         });
 
     }
-}*/
+}
