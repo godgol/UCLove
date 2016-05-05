@@ -67,11 +67,19 @@ public class MyListActivity  extends AppCompatActivity {
                 return false;
             }
         });
-        friends.setOnClickListener(new View.OnClickListener() {
+
+        friends.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MyListActivity.this, FriendsActivity.class);
-                startActivity(i);
+            public boolean onTouch(View v, MotionEvent  event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    Intent i = new Intent(MyListActivity.this, FriendsActivity.class);
+                    startActivity(i);
+                    return true;
+                }
+                else{
+                    friends.setBackgroundColor(getResources().getColor(R.color.lightred));
+                }
+                return false;
             }
         });
 

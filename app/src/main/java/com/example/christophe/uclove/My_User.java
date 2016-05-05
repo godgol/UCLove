@@ -55,7 +55,9 @@ public class My_User extends Profile{
         }
     }
 
-    public void Change_Login(){}
+    public void Change_Login(){
+
+    }
 
     public void Change_Password(){}
 
