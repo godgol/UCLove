@@ -520,7 +520,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
 
         Cursor c = db.query("FriendList", new String[]{"FriendLogin"}, "Login=?", new String[]{login}, null, null, null, null);
 
-        String array[] = new String[c.getCount()];
+        String[] array = new String[c.getCount()];
         int i = 0;
 
         if (c != null)

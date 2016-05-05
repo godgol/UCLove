@@ -45,7 +45,7 @@ public class FriendsActivity extends AppCompatActivity{
 
         String[] addlist = {"No Friends"};
         //String[] name = {};
-        DatabaseHandler2 db = new DatabaseHandler2(FriendsActivity.this);
+        DatabaseHandler2 db = new DatabaseHandler2(this);
 
         addlist = db.getFriendList("'Jojelavida'");
 

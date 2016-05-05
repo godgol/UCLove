@@ -19,13 +19,12 @@ public class ProfileActivity extends AppCompatActivity{
     private RadioGroup groupGender = null;
     private EditText age;
     private RadioGroup groupHairs = null;
-    private RadioGroup groupEyes = null;
+    private RadioGroup groupEye = null;
     private EditText location = null;
     private RadioGroup groupInclination = null;
     private Button gallery = null;
     private Button ageOk = null;
     private Button locationOk = null;
-    private String login = CurrentUser.current_user;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +33,7 @@ public class ProfileActivity extends AppCompatActivity{
         location = (EditText)findViewById(R.id.location);
         groupGender = (RadioGroup) findViewById(R.id.groupGender);
         groupHairs = (RadioGroup) findViewById(R.id.groupHairs);
-        groupEyes = (RadioGroup) findViewById(R.id.groupEyes);
+        groupEye = (RadioGroup) findViewById(R.id.groupEye);
         groupInclination = (RadioGroup) findViewById(R.id.groupInclination);
         age = (EditText)findViewById(R.id.age);
         gallery = (Button)findViewById(R.id.gallery);
@@ -44,110 +43,70 @@ public class ProfileActivity extends AppCompatActivity{
         groupGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId){
-                DatabaseHandler2 db = new DatabaseHandler2(ProfileActivity.this);
                 switch(checkedId)
                 {
                     case R.id.male:
-                        db.updateGender(login,"male");
                         break;
                     case R.id.female:
-                        db.updateGender(login,"female");
                         break;
                 }
-                db.closeDB();
             }
         });
         groupHairs.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId){
-                DatabaseHandler2 db = new DatabaseHandler2(ProfileActivity.this);
                 switch(checkedId)
                 {
-                    case R.id.brownHairs:
-                        db.updateHair(login,"brown");
+                    case R.id.brownHair:
                         break;
-                    case R.id.blackHairs:
-                        db.updateHair(login,"black");
+                    case R.id.blackHair:
                         break;
-                    case R.id.blondHairs:
-                        db.updateHair(login,"blond");
+                    case R.id.blondHair:
                         break;
-                    case R.id.redHairs:
-                        db.updateHair(login,"red");
+                    case R.id.redHair:
                         break;
                 }
-                db.closeDB();
             }
         });
-        groupEyes.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        groupEye.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId){
-                DatabaseHandler2 db = new DatabaseHandler2(ProfileActivity.this);
                 switch(checkedId)
                 {
-                    case R.id.brownEyes:
-                        db.updateEyes(login,"brown");
+                    case R.id.brownEye:
                         break;
-                    case R.id.blueEyes:
-                        db.updateEyes(login,"blue");
-                        break;
-                    case R.id.greenEyes:
-                        db.updateEyes(login,"green");
+                    case R.id.blueEye:
                         break;
                 }
-                db.closeDB();
             }
         });
         groupInclination.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId){
-                DatabaseHandler2 db = new DatabaseHandler2(ProfileActivity.this);
                 switch(checkedId)
                 {
                     case R.id.hetero:
-                        db.updatePreferences(login,"hetero");
                         break;
                     case R.id.homo:
-                        db.updatePreferences(login,"homo");
                         break;
                     case R.id.bi:
-                        db.updatePreferences(login,"bi");
                         break;
                 }
-                db.closeDB();
             }
         });
         locationOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 String loc = location.getText().toString();
-                if(loc==""){
-                    Toast.makeText(ProfileActivity.this,"Please, enter your location.",Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    DatabaseHandler2 db = new DatabaseHandler2(ProfileActivity.this);
-                    db.updateLocation(login,loc);
-                    db.closeDB();
-                }
             }
         });
         ageOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 String str = age.getText().toString();
-                if(str==""){
-                    Toast.makeText(ProfileActivity.this,"Please, enter your age.",Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    int userAge = Integer.valueOf(str);
-                    if(userAge<13){
-                        Toast.makeText(ProfileActivity.this,"You're too young for using this application !",Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        DatabaseHandler2 db = new DatabaseHandler2(ProfileActivity.this);
-                        db.updateAge(login,ageUser);
-                        db.closeDB();
-                    }
+                int userAge = Integer.valueOf(str);
+                if(userAge<13){
+                    Toast.makeText(ProfileActivity.this,"You're too young for using this application !", Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -1,5 +1,6 @@
 package com.example.christophe.uclove;
 
+import android.database.sqlite.SQLiteQuery;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -38,9 +39,9 @@ public class PeopleActivity extends AppCompatActivity {
         loc = (TextView) findViewById(R.id.location);
         ag = (TextView) findViewById(R.id.age);
         ey = (TextView) findViewById(R.id.eyes);
-        pre = (TextView) findViewById(R.id.preferences);
-        log = (TextView) findViewById(R.id.profile);
-        random = (ImageButton) findViewById(R.id.random);
+       // pre = (TextView) findViewById(R.id.preferences);
+       // log = (TextView) findViewById(R.id.profile);
+       // random = (ImageButton) findViewById(R.id.random);
 
         DatabaseHandler2 db = new DatabaseHandler2(PeopleActivity.this);
 
@@ -58,6 +59,11 @@ public class PeopleActivity extends AppCompatActivity {
             @Override
             public void onClick(View arg0) {
 
+                DatabaseHandler2 db2 = new DatabaseHandler2(PeopleActivity.this);
+
+
+
+                db2.closeDB();
             }
         });
 
