@@ -6,6 +6,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Christophe on 27.04.2016.
  */
@@ -285,61 +289,214 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         db.execSQL("UPDATE Profile SET Language = " + newLanguage + " WHERE Login = " + login + ";");
     }
 
-
     //Reading Profile attributes
-    /*public String readPassword(String login){
-        private String res;
-
+    public String readPassword(String login) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = db.query("Profile", new String[] {"Login","Password"},"Login=?",new String[] {login},null, null, null, null);
+
+        Cursor c = db.query("Profile", new String[] {"Password"},"Login=?",new String[] {login},null, null, null, null);
 
         if (c != null)
             c.moveToFirst();
-        Profile pro = new Profile(c.getString(c.getColumnIndex("Login")),c.getString(c.getColumnIndex("Password")));
+
+        String password = c.getString(c.getColumnIndex("Password"));
 
         c.close();
         db.close();
 
-
-        return res;
+        return password;
     }
 
+    public String readFamilyName(String login) {
+        SQLiteDatabase db = this.getReadableDatabase();
 
-    public void updateFamilyName(String login, String newFN){
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE Profile SET FamilyName = " + newFN + " WHERE Login = " + login + ";");
+        Cursor c = db.query("Profile", new String[]{"FamilyName"}, "Login=?", new String[]{login}, null, null, null, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+        String fn = c.getString(c.getColumnIndex("FamilyName"));
+
+        c.close();
+        db.close();
+
+        return fn;
     }
-    public void updateName(String login, String newName){
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE Profile SET Name = " + newName + " WHERE Login = " + login + ";");
+
+    public String readName(String login) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.query("Profile", new String[]{"Name"}, "Login=?", new String[]{login}, null, null, null, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+        String name = c.getString(c.getColumnIndex("Name"));
+
+        c.close();
+        db.close();
+
+        return name;
     }
-    public void updateAge(String login, int newAge){
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE Profile SET Age = " + newAge + " WHERE Login = " + login + ";");
+
+    public int readAge(String login) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.query("Profile", new String[]{"Age"}, "Login=?", new String[]{login}, null, null, null, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+        int age = c.getInt(c.getColumnIndex("Name"));
+
+        c.close();
+        db.close();
+
+        return age;
     }
-    public void updateGender(String login, String newGender){
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE Profile SET Gender = " + newGender + " WHERE Login = " + login + ";");
+
+    public String readGender(String login) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.query("Profile", new String[]{"Gender"}, "Login=?", new String[]{login}, null, null, null, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+        String gender = c.getString(c.getColumnIndex("Gender"));
+
+        c.close();
+        db.close();
+
+        return gender;
     }
-    public void updateLocation(String login, String newLocation){
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE Profile SET Location = " + newLocation + " WHERE Login = " + login + ";");
+
+    public String readLocation(String login) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.query("Profile", new String[]{"Location"}, "Login=?", new String[]{login}, null, null, null, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+        String location = c.getString(c.getColumnIndex("Location"));
+
+        c.close();
+        db.close();
+
+        return location;
     }
-    public void updateHair(String login, String newHair){
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE Profile SET Hair = " + newHair + " WHERE Login = " + login + ";");
+
+    public String readHair(String login) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.query("Profile", new String[]{"Hair"}, "Login=?", new String[]{login}, null, null, null, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+        String hair = c.getString(c.getColumnIndex("Hair"));
+
+        c.close();
+        db.close();
+
+        return hair;
     }
-    public void updateEyes(String login, String newEyes){
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE Profile SET Eyes = " + newEyes + " WHERE Login = " + login + ";");
+
+    public String readEyes(String login) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.query("Profile", new String[]{"Eyes"}, "Login=?", new String[]{login}, null, null, null, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+        String eyes = c.getString(c.getColumnIndex("Eyes"));
+
+        c.close();
+        db.close();
+
+        return eyes;
     }
-    public void updatePreferences(String login, String newPreferences){
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE Profile SET Preferences = " + newPreferences + " WHERE Login = " + login + ";");
+
+    public String readPreferences(String login) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.query("Profile", new String[]{"Preferences"}, "Login=?", new String[]{login}, null, null, null, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+        String preferences = c.getString(c.getColumnIndex("Preferences"));
+
+        c.close();
+        db.close();
+
+        return preferences;
     }
-    public void updateLanguage(String login, String newLanguage){
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE Profile SET Language = " + newLanguage + " WHERE Login = " + login + ";");
+
+    public String readLanguage(String login) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.query("Profile", new String[]{"Language"}, "Login=?", new String[]{login}, null, null, null, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+        String language = c.getString(c.getColumnIndex("Language"));
+
+        c.close();
+        db.close();
+
+        return language;
     }
-*/
+
+
+    /*
+    * Creating a Friend
+    */
+    public void createFriend(String login, String FriendLogin) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_LOGIN, login);
+        values.put(KEY_FRIENDLOGIN, FriendLogin);
+
+        // insert row
+        db.insert(TABLE_FRIENDLIST, null, values);
+        db.close();
+    }
+
+    //Deleting a friend
+    public void DeleteFriend(String FriendLogin) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        db.delete(TABLE_FRIENDLIST, KEY_FRIENDLOGIN + " = ?", new String[]{FriendLogin});
+
+        db.close(); // Closing database connection
+    }
+
+    //Reading FriendList attributes
+    public List<String> getFriendList(String login) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.query("FriendList", new String[]{"FriendLogin"}, "Login=?", new String[]{login}, null, null, null, null);
+
+        List<String> list = new ArrayList<String>();
+        //String array[] = new String[c.getCount()];
+        int i = 0;
+
+        if (c != null)
+            c.moveToFirst();
+        while (!c.isAfterLast()) {
+            list.add(c.getString(c.getColumnIndex("FriendLogin")));
+            i++;
+            c.moveToNext();
+        }
+
+        c.close();
+        db.close();
+
+        return list;
+    }
 }
