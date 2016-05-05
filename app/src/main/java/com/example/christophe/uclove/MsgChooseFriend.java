@@ -19,11 +19,10 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 /**
- * Created by antoine on 03/05/16.
+ * Created by thomas on 03/05/16.
  */
 public class MsgChooseFriend extends AppCompatActivity{
     ListView liste = null;
-    private Button friendbutton;
     public List<String> addlist;
     TextView friends;
     @Override
