@@ -43,7 +43,7 @@ public class MsgChooseFriend extends Activity {
             User_Friend user_friend = frdList.get(i);
             String sender = user_friend.getLogin1();
             String receiver = user_friend.getLogin2();
-            if (sender.equals(logged_user))
+            if (sender.equals(CurrentUser.current_user))
                 logins.add(receiver);
             else
                 logins.add(sender);
@@ -57,10 +57,10 @@ public class MsgChooseFriend extends Activity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
             @Override
-            public void onItemClick(AdapterView<?> parent, int pos, View view, long id){
-                Controler.chat = logins.get(pos);
+            public void onItemClick(AdapterView<?> parent, View view, int pos, long id){
+                CurrentUser.current_chat = logins.get(pos);
 
-                Intent i = new Intent (MsgChooseFriend.this, Chat.class);
+                Intent i = new Intent (MsgChooseFriend.this, ChatActivity.class);
                 startActivity(i);
 
             }
