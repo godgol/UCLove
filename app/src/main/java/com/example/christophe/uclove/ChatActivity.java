@@ -39,11 +39,14 @@ public class ChatActivity extends AppCompatActivity {
 
         messages = new ArrayList<String>();
 
-        msgList = mDB.Conversation(CurrentUser.current_user, CurrentUser.current_chat);
-        for(int i = 0; i< msgList.size(); i++){
+        if(mDB.Conversation(CurrentUser.current_user, CurrentUser.current_chat) != null) {
+            msgList = mDB.Conversation(CurrentUser.current_user, CurrentUser.current_chat);
 
-            messages.add(msgList.get(i).getSender()+": "+msgList.get(i).getMessage());
+            for (int i = 0; i < msgList.size(); i++) {
 
+                messages.add(msgList.get(i).getSender() + ": " + msgList.get(i).getMessage());
+
+            }
         }
 
 
