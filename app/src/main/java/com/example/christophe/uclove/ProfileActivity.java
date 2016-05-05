@@ -12,9 +12,10 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.content.Intent;
+import android.widget.Toast;
 
 
-public class ProfileActivity extends AppCompatActivity{
+/*public class ProfileActivity extends AppCompatActivity{
     private RadioGroup groupGender = null;
     private EditText age;
     private RadioGroup groupHairs = null;
@@ -144,4 +145,4 @@ public class ProfileActivity extends AppCompatActivity{
         });
 
     }
-}
+}*/
