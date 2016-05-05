@@ -36,6 +36,8 @@ public class MsgChooseFriend extends Activity {
         frd = new DatabaseHandler2(this);
         String[] frdList = frd.getFriendList(CurrentUser.current_user);
 
+        System.out.println("avant la for");
+
 
         for(int i = 0; i<frdList.length; i++){
 
@@ -46,6 +48,7 @@ public class MsgChooseFriend extends Activity {
                 logins.add(receiver);
             else
                 logins.add(sender);
+            System.out.println("Itération"+i);
 
         }
 
