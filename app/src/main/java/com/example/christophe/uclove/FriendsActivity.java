@@ -31,7 +31,7 @@ public class FriendsActivity extends AppCompatActivity{
 
         liste = (ListView) findViewById(R.id.friendlist);
 
-        List<String> exemple;
+        List<String> exemple = new ArrayList<>();
 
         //exemple.add("Friend 1");
 
@@ -44,7 +44,8 @@ public class FriendsActivity extends AppCompatActivity{
         String[] name = {};
         DatabaseHandler2 db = new DatabaseHandler2(FriendsActivity.this);
 
-        exemple = db.getFriendList("'Jojelavida'");
+        exemple.addAll(db.getFriendList("'Jojelavida'"));
+        //exemple = db.getFriendList("'Jojelavida'");
 
         /*for(int i = 0; i<exemple.length; i++){
             //fn[i] = db.readFamilyName(exemple[i]);
