@@ -24,6 +24,7 @@ public class ChatActivity extends AppCompatActivity {
     ListView listView;
     //List<Message> messages;
     ArrayAdapter<Message> messageAdapter;
+    ArrayList<Message> msgList;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -37,7 +38,7 @@ public class ChatActivity extends AppCompatActivity {
 
 
 
-        final ArrayList<Message> msgList = mDB.Conversation(CurrentUser.current_user, CurrentUser.current_chat);
+        msgList = mDB.Conversation(CurrentUser.current_user, CurrentUser.current_chat);
 
         mDB.closeDB();
 
