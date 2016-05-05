@@ -22,9 +22,10 @@ import java.util.List;
 public class ChatActivity extends AppCompatActivity {
 
     ListView listView;
-    //List<Message> messages;
-    ArrayAdapter<Message> messageAdapter;
+    List<String> messages;
+    ArrayAdapter<String> messageAdapter;
     ArrayList<Message> msgList;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -34,11 +35,18 @@ public class ChatActivity extends AppCompatActivity {
         DatabaseHandler2 mDB = new DatabaseHandler2(this);
 
         listView = (ListView)findViewById(R.id.ListView);
-        // messages = new ArrayList<Message>();
 
 
+        messages = new ArrayList<String>();
 
         msgList = mDB.Conversation(CurrentUser.current_user, CurrentUser.current_chat);
+        for(int i = 0; i< msgList.size(); i++){
+
+            messages.add(msgList.get(i).getSender()+": "+msgList.get(i).getMessage());
+
+        }
+
+
 
         mDB.closeDB();
 
@@ -48,8 +56,8 @@ public class ChatActivity extends AppCompatActivity {
             messages.add(conversation);
         }*/
 
-        messageAdapter = new ArrayAdapter<Message>(ChatActivity.this, android.R.layout.simple_list_item_1,
-                android.R.id.text1, msgList);
+        messageAdapter = new ArrayAdapter<String>(ChatActivity.this, android.R.layout.simple_list_item_1,
+                android.R.id.text1, messages);
         listView.setAdapter(messageAdapter);
 
         final EditText editMessage = (EditText)findViewById(R.id.chat);
@@ -67,14 +75,16 @@ public class ChatActivity extends AppCompatActivity {
                     //msgList.add(msg);
                     //msgList.add("");
 
+                    messages.add(msgList.get(msgList.size()).getSender()+": "+msgList.get(msgList.size()).getMessage());
+
 
                     DatabaseHandler2 mDB2 = new DatabaseHandler2(ChatActivity.this);
                     mDB2.add(m);
                     mDB2.closeDB();
 
 
-                    messageAdapter = new ArrayAdapter<Message>(ChatActivity.this, android.R.layout.simple_list_item_1,
-                            android.R.id.text1, msgList);
+                    messageAdapter = new ArrayAdapter<String>(ChatActivity.this, android.R.layout.simple_list_item_1,
+                            android.R.id.text1, messages);
                     listView.setAdapter(messageAdapter);
 
                 }
