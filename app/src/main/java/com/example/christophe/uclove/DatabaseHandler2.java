@@ -648,7 +648,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         if (c != null)
             c.moveToFirst();
 
-        String profBin = c.getString(c.getColumnIndex("Language"));
+        String profBin = c.getString(c.getColumnIndex("ProfileBinary"));
 
         c.close();
         db.close();
@@ -657,10 +657,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
     }
 
     /* TODO Methods to write
-    * // GALLERY Table - column names
-    private static final String KEY_PICTUREID = "PictureID";
-    private static final String KEY_PROFILEBINARY = "ProfileBinary";
-
+    *
     // CHAT Table - column names
     private static final String KEY_MESSAGE = "Message";
     private static final String KEY_DATE = "Date";
@@ -670,5 +667,6 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
 
     // RENDEZVOUS Table - column names
     // Uses Login, FriendLogin, Date, Location, Answer
+    *
     * */
 }
