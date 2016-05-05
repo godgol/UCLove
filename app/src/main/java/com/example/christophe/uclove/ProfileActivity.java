@@ -1,5 +1,6 @@
 package com.example.christophe.uclove;
 
+import android.support.v7.app.AppCompatActivity;
 import android.view.View.OnTouchListener;
 import android.view.View.OnClickListener;
 import android.app.Activity;
@@ -11,32 +12,33 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.content.Intent;
-import android.widget.Toast;
 
 
-public class ProfileActivity extends Activity {
-    public RadioGroup groupGender;
-    public EditText age;
-    public RadioGroup groupHairs;
-    public RadioGroup groupEyes;
-    public EditText location;
-    public RadioGroup groupInclination;
-    public Button gallery;
-    public Button ageOk;
-    public Button locationOk;
+public class ProfileActivity extends AppCompatActivity{
+    private RadioGroup groupGender = null;
+    private EditText age;
+    private RadioGroup groupHairs = null;
+    private RadioGroup groupEye = null;
+    private EditText location = null;
+    private RadioGroup groupInclination = null;
+    private Button gallery = null;
+    private Button ageOk = null;
+    private Button locationOk = null;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_content);
+
         location = (EditText)findViewById(R.id.location);
         groupGender = (RadioGroup) findViewById(R.id.groupGender);
         groupHairs = (RadioGroup) findViewById(R.id.groupHairs);
-        groupEyes = (RadioGroup) findViewById(R.id.groupEyes);
+        groupEye = (RadioGroup) findViewById(R.id.groupEye);
         groupInclination = (RadioGroup) findViewById(R.id.groupInclination);
         age = (EditText)findViewById(R.id.age);
         gallery = (Button)findViewById(R.id.gallery);
         ageOk = (Button)findViewById(R.id.ageOk);
         locationOk = (Button)findViewById(R.id.locationOk);
+
         groupGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId){
@@ -54,29 +56,28 @@ public class ProfileActivity extends Activity {
             public void onCheckedChanged(RadioGroup group, int checkedId){
                 switch(checkedId)
                 {
-                    case R.id.brownHairs:
+                    case R.id.brownHair:
                         break;
-                    case R.id.blackHairs:
+                    case R.id.blackHair:
                         break;
-                    case R.id.blondHairs:
+                    case R.id.blondHair:
                         break;
-                    case R.id.redHairs:
+                    case R.id.redHair:
                         break;
                     case R.id.bald:
                         break;
                 }
             }
         });
-        groupEyes.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        groupEye.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId){
                 switch(checkedId)
                 {
-                    case R.id.brownEyes:
+                    case R.id.brownEye:
                         break;
-                    case R.id.blueEyes:
+                    case R.id.blueEye:
                         break;
-                    case R.id.greenEyes:
                 }
             }
         });
@@ -104,15 +105,7 @@ public class ProfileActivity extends Activity {
             @Override
             public void onClick(View arg0) {
                 String str = location.getText().toString();
-                try{
-                    int userAge = Integer.parseInt(str);
-                    if(userAge<13) {
-                        Toast.makeText(getBaseContext(), "You're too young for using this application !", Toast.LENGTH_SHORT).show();
-                    }
-                }
-                catch(NumberFormatException e){
-                    Toast.makeText(getBaseContext(),"Please enter a number !",Toast.LENGTH_SHORT).show();
-                }
+                int userAge = Integer.parseInt(str);
             }
         });
         gallery.setOnClickListener(new View.OnClickListener() {
