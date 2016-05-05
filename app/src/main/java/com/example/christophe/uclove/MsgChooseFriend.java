@@ -46,7 +46,17 @@ public class MsgChooseFriend extends AppCompatActivity{
         addlist = new ArrayList<>();
         //String[] name = {};
         DatabaseHandler2 db = new DatabaseHandler2(this);
+
+
         addlist = db.getFriendList(CurrentUser.current_user);
+
+        for (int i = 0; i<addlist.size();i++){
+
+            if (!db.FriendWithMsg(CurrentUser.current_user, addlist.get(i)) ){
+
+                addlist.remove(i);
+            }
+        }
 
 
         /*for(int i=0; i<addlist.size(); i++)
