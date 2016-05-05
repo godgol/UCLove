@@ -600,10 +600,10 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
             c.moveToFirst();
 
         List<String> array = new ArrayList<>();
-        while(c.moveToNext()){
+        do{
             String uname = c.getString(c.getColumnIndex("FriendLogin"));
             array.add(uname);
-        }
+        }while(c.moveToNext());
 
         c.close();
         db.close();
