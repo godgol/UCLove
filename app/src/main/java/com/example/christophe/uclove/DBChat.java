@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
  * Created by Thomas on 05/05/2016.
  */
-/*
+
 public class DBChat extends DBHandler {
 
     public DBChat(Context context) {
@@ -53,4 +53,3 @@ public class DBChat extends DBHandler {
 
     }
 }
-*/

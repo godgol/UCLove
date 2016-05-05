@@ -39,7 +39,7 @@ public class ChatActivity extends Activity {
         ArrayList<Message> msgList = dbChat.Conversation(CurrentUser.current_user, CurrentUser.current_chat);
         dbChat.close();
 
-        for(int i = 0; i<msgList; i++){
+        for(int i = 0; i<msgList.size(); i++){
 
             Message conversation = msgList.get(i);
             messages.add(conversation.getSender() + "                    " + conversation.getTime());
