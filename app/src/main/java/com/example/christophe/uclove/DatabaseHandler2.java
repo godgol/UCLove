@@ -170,6 +170,44 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         db.execSQL("INSERT INTO RequestList VALUES (\"beth\",\"vladimirkorsacof\",\"False\");");
         db.execSQL("INSERT INTO RequestList VALUES (\"loladu93\",\"vladimirkorsacof\",\"False\");");
 
+        /* TODO TEST IF IT WORKS
+        //Populating the Calendar Table
+        db.execSQL("INSERT INTO Calendar VALUES (\"PaulDuChateu\",\"2016-03-25\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"PaulDuChateu\",\"2016-04-15\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"PaulDuChateu\",\"2016-03-26\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"beth\",\"2016-03-26\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"beth\",\"2016-03-27\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"Jojelavida\",\"2016-05-15\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"Jojelavida\",\"2016-05-22\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"foreverrebel\",\"2016-05-23\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"katesmith\",\"2016-05-23\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"katesmith\",\"2016-05-24\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"sisterlover\",\"2016-05-24\");");
+
+        //Populating the Gallery Table
+        db.execSQL("INSERT INTO Gallery VALUES (\"PaulDuChateu\",\"01-0001\",\"TRUE\");");
+        db.execSQL("INSERT INTO Gallery VALUES (\"PaulDuChateu\",\"01-0002\",\"FALSE\");");
+        db.execSQL("INSERT INTO Gallery VALUES (\"PaulDuChateu\",\"01-0003\",\"FALSE\");");
+        db.execSQL("INSERT INTO Gallery VALUES (\"Jojelavida\",\"02-0001\",\"FALSE\");");
+        db.execSQL("INSERT INTO Gallery VALUES (\"Jojelavida\",\"02-0002\",\"TRUE\");");
+        db.execSQL("INSERT INTO Gallery VALUES (\"Jojelavida\",\"02-0003\",\"FALSE\");");
+        db.execSQL("INSERT INTO Gallery VALUES (\"foreverrebel\",\"10-0001\",\"TRUE\");");
+        db.execSQL("INSERT INTO Gallery VALUES (\"foreverrebel\",\"10-0002\",\"FALSE\");");
+
+        //Popluating the Chat Table
+        db.execSQL("INSERT INTO Chat VALUES (\"PaulDuChateu\",\"beth\",\"Hey Beth! Montre tes fesses.\",\"2016-02-25 09:00:00\");");
+        db.execSQL("INSERT INTO Chat VALUES (\"beth\",\"PaulDuChateau\",\"Hey Paul! Non...J'ai 86 ans.\",\"2016-02-25 09:30:00\");");
+        db.execSQL("INSERT INTO Chat VALUES (\"Jojelavida\",\"foreverrebel\",\"HI\",\"2016-03-15 23:32:22\");");
+        db.execSQL("INSERT INTO Chat VALUES (\"Jojelavida\",\"foreverrebel\",\"HI?\",\"2016-03-15 23:32:50\");");
+        db.execSQL("INSERT INTO Chat VALUES (\"Jojelavida\",\"foreverrebel\",\"You there?\",\"2016-03-15 23:33:00\");");
+        db.execSQL("INSERT INTO Chat VALUES (\"Jojelavida\",\"foreverrebel\",\"I like your Pix...\",\"2016-03-15 23:34:00\");");
+        db.execSQL("INSERT INTO Chat VALUES (\"Jojelavida\",\"foreverrebel\",\"Boyfriend?\",\"2016-03-15 23:35:00\");");
+
+        //Populating the Rendezvous Table
+        db.execSQL("INSERT INTO Rendezvous VALUES (\"PaulDuChateu\",\"beth\",\"2016-03-26\",\"Beerbar\",\"TRUE\");");
+        db.execSQL("INSERT INTO Rendezvous VALUES (\"katesmith\",\"sisterlover\",\"2016-05-24\",\"Bravos Bank\",\"FALSE\");");
+        */
+
         System.out.println("On Create String8");
     }
 
@@ -476,7 +514,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         db.close(); // Closing database connection
     }
 
-    //Reading FriendList attributes
+    //Getting FriendList of a user
     public List<String> getFriendList(String login) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -484,14 +522,17 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
 
         List<String> list = new ArrayList<String>();
         //String array[] = new String[c.getCount()];
-        int i = 0;
+        //int i = 0;
 
         if (c != null)
             c.moveToFirst();
-        while (!c.isAfterLast()) {
+        /*while (!c.isAfterLast()) {
             list.add(c.getString(c.getColumnIndex("FriendLogin")));
             i++;
             c.moveToNext();
+        }*/
+        while (c.moveToNext()) {
+            list.add(c.getString(c.getColumnIndex("FriendLogin")));
         }
 
         c.close();
@@ -499,4 +540,135 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
 
         return list;
     }
+
+
+    /*
+    * Creating a Request
+    */
+    public void createRequest(String login, String RequestLogin) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_LOGIN, login);
+        values.put(KEY_REQUESTLOGIN, RequestLogin);
+        values.put(KEY_ANSWER, "False");
+
+        // insert row
+        db.insert(TABLE_REQUESTLIST, null, values);
+        db.close();
+    }
+
+    //Deleting a Request
+    public void DeleteRequest(String RequestLogin) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        db.delete(TABLE_REQUESTLIST, KEY_REQUESTLOGIN + " = ?", new String[]{RequestLogin});
+
+        db.close(); // Closing database connection
+    }
+
+    //Getting RequestList of a user
+    public List<String> getRequestList(String login) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.query("RequestList", new String[]{"RequestLogin"}, "Login=?", new String[]{login}, null, null, null, null);
+
+        List<String> list = new ArrayList<String>();
+        //String array[] = new String[c.getCount()];
+        //int i = 0;
+
+        if (c != null)
+            c.moveToFirst();
+        /*while (!c.isAfterLast()) {
+            list.add(c.getString(c.getColumnIndex("FriendLogin")));
+            i++;
+            c.moveToNext();
+        }*/
+        while (c.moveToNext()) {
+            list.add(c.getString(c.getColumnIndex("RequestLogin")));
+        }
+
+        c.close();
+        db.close();
+
+        return list;
+    }
+
+    //TODO Test if it works
+    /*
+    * Adding a Pic
+    */
+    public void addPic(String login, String PicID) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_LOGIN, login);
+        values.put(KEY_PICTUREID, PicID);
+        values.put(KEY_PROFILEBINARY, "FALSE");
+
+        // insert row
+        db.insert(TABLE_GALLERY, null, values);
+        db.close();
+    }
+
+    //Deleting a Picture
+    public void DeletePicture(String PicID) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        db.delete(TABLE_GALLERY, KEY_PICTUREID + " = ?", new String[]{PicID});
+
+        db.close(); // Closing database connection
+    }
+
+    public List<String> readPictureID(String login) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.query("Gallery", new String[]{"PictureID"}, "Login=?", new String[]{login}, null, null, null, null);
+
+        List<String> list = new ArrayList<String>();
+
+        if (c != null)
+            c.moveToFirst();
+
+
+        while (c.moveToNext()) {
+            list.add(c.getString(c.getColumnIndex("RequestLogin")));
+        }
+        c.close();
+        db.close();
+
+        return list;
+    }
+
+    public String readPicBin(String login, String PicID) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.query("Gallery", new String[]{"ProfileBinary"}, "PicID=? AND Login=?", new String[]{PicID, login}, null, null, null, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+        String profBin = c.getString(c.getColumnIndex("Language"));
+
+        c.close();
+        db.close();
+
+        return profBin;
+    }
+
+    /* TODO Methods to write
+    * // GALLERY Table - column names
+    private static final String KEY_PICTUREID = "PictureID";
+    private static final String KEY_PROFILEBINARY = "ProfileBinary";
+
+    // CHAT Table - column names
+    private static final String KEY_MESSAGE = "Message";
+    private static final String KEY_DATE = "Date";
+
+    //CALENDAR Table - column names
+    //Uses Login and Date
+
+    // RENDEZVOUS Table - column names
+    // Uses Login, FriendLogin, Date, Location, Answer
+    * */
 }
