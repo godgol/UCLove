@@ -1,8 +1,11 @@
 package com.example.christophe.uclove;
+
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -12,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class GalleryActivity extends Activity {
+public class GalleryActivity extends AppCompatActivity {
     Integer[] pics = {
             R.drawable.firendpic,R.drawable.rose
     };
@@ -22,16 +25,16 @@ public class GalleryActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_gallery);
 
-        Gallery gallery = (Gallery)findViewById(R.id.gallery);
-        gallery.setAdapter(new ImageAdapter(this));
+        Gallery gal = (Gallery) findViewById(R.id.gallery);
+        gal.setAdapter(new ImageAdapter(this));
 
-        profilePic = (ImageView)findViewById(R.id.ImageView01);
-        gallery.setOnItemClickListener(new OnItemClickListener() {
+        profilePic = (ImageView)findViewById(R.id.profilePic);
+        gal.setOnItemClickListener(new OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 Toast.makeText(getBaseContext(),"Define as profile picture",Toast.LENGTH_SHORT).show();
-                imageView.setImageResource(pics[arg2]);
+                profilePic.setImageResource(pics[arg2]);
             }
         });
 
