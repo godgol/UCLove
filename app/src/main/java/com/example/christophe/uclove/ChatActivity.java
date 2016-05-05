@@ -37,8 +37,8 @@ public class ChatActivity extends Activity {
 
         m1 = new Message("12:03","salut", "Joselavida", CurrentUser.current_user);
         m2 = new Message("13:17","Enchanté, comment va tu ?", CurrentUser.current_user, "Joselavida");
-        messages.add(m1.getMessage());
-        messages.add(m2.getMessage());
+        messages.add(m1.getSender() + ": " + m1.getMessage());
+        messages.add(m2.getSender() + ": " + m2.getMessage());
 
         /*dbChat = new DBChat(this);
         dbChat.open();
@@ -68,7 +68,7 @@ public class ChatActivity extends Activity {
                     message.setTime(date);
 
 
-                    messageAdapter.add(message.getMessage());
+                    messageAdapter.add(message.getSender()+": "+message.getMessage());
                     listView.setAdapter(messageAdapter);
 
                 }
