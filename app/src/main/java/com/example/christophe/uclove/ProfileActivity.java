@@ -18,12 +18,13 @@ public class ProfileActivity extends AppCompatActivity{
     private RadioGroup groupGender = null;
     private EditText age;
     private RadioGroup groupHairs = null;
-    private RadioGroup groupEye = null;
+    private RadioGroup groupEyes = null;
     private EditText location = null;
     private RadioGroup groupInclination = null;
     private Button gallery = null;
     private Button ageOk = null;
     private Button locationOk = null;
+    private String login = CurrentUser.current_user;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +33,7 @@ public class ProfileActivity extends AppCompatActivity{
         location = (EditText)findViewById(R.id.location);
         groupGender = (RadioGroup) findViewById(R.id.groupGender);
         groupHairs = (RadioGroup) findViewById(R.id.groupHairs);
-        groupEye = (RadioGroup) findViewById(R.id.groupEye);
+        groupEyes = (RadioGroup) findViewById(R.id.groupEyes);
         groupInclination = (RadioGroup) findViewById(R.id.groupInclination);
         age = (EditText)findViewById(R.id.age);
         gallery = (Button)findViewById(R.id.gallery);
@@ -44,10 +45,14 @@ public class ProfileActivity extends AppCompatActivity{
             public void onCheckedChanged(RadioGroup group, int checkedId){
                 switch(checkedId)
                 {
+                    DatabaseHandler2 db = new DatabaseHandler2(ProfileActivity.this);
                     case R.id.male:
+                        db.updateGender(login,"male");
                         break;
                     case R.id.female:
+                        db.updateGender(login,"female");
                         break;
+                    db.closeDB();
                 }
             }
         });
@@ -56,26 +61,39 @@ public class ProfileActivity extends AppCompatActivity{
             public void onCheckedChanged(RadioGroup group, int checkedId){
                 switch(checkedId)
                 {
-                    case R.id.brownHair:
+                    DatabaseHandler2 db = new DatabaseHandler2(ProfileActivity.this);
+                    case R.id.brownHairs:
+                        db.updateHair(login,"brown");
                         break;
-                    case R.id.blackHair:
+                    case R.id.blackHairs:
+                        db.updateHair(login,"black");
                         break;
-                    case R.id.blondHair:
+                    case R.id.blondHairs:
+                        db.updateHair(login,"blond");
                         break;
-                    case R.id.redHair:
+                    case R.id.redHairs:
+                        db.updateHair(login,"red");
                         break;
+                    db.closeDB();
                 }
             }
         });
-        groupEye.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        groupEyes.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId){
                 switch(checkedId)
                 {
-                    case R.id.brownEye:
+                    DatabaseHandler2 db = new DatabaseHandler2(ProfileActivity.this);
+                    case R.id.brownEyes:
+                        db.updateEyes(login,"brown");
                         break;
-                    case R.id.blueEye:
+                    case R.id.blueEyes:
+                        db.updateEyes(login,"blue");
                         break;
+                    case R.id.greenEyes:
+                        db.updateEyes(login,"green");
+                        break;
+                    db.closeDB();
                 }
             }
         });
@@ -84,12 +102,17 @@ public class ProfileActivity extends AppCompatActivity{
             public void onCheckedChanged(RadioGroup group, int checkedId){
                 switch(checkedId)
                 {
+                    DatabaseHandler2 db = new DatabaseHandler2(ProfileActivity.this);
                     case R.id.hetero:
+                        db.updatePreferences(login,"hetero");
                         break;
                     case R.id.homo:
+                        db.updatePreferences(login,"homo");
                         break;
                     case R.id.bi:
+                        db.updatePreferences(login,"bi");
                         break;
+                    db.closeDB();
                 }
             }
         });
@@ -107,6 +130,9 @@ public class ProfileActivity extends AppCompatActivity{
                 if(userAge<13){
                     Toast.makeText(ProfileActivity.this,"You're too young for using this application !",Toast.LENGTH_SHORT).show();
                 }
+                DatabaseHandler2 db = new DatabaseHandler2(ProfileActivity.this);
+                db.updateAge(login,ageUser);
+                db.closeDB();
             }
         });
         gallery.setOnClickListener(new View.OnClickListener() {
