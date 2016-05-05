@@ -623,6 +623,26 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         return array;
     }
 
+    public boolean FriendWithMsg(String login, String friendLogin) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        boolean empty = true;
+        Cursor c = db.query("Chat", new String[]{"Message"}, "Login=? AND FriendLogin=?", new String[]{login,friendLogin}, null, null, null, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+
+        if(c.getCount()!=0){
+           empty=false;
+        }
+
+        c.close();
+        db.close();
+
+        return empty;
+    }
+
     public List<String> getAllLogins(){
         SQLiteDatabase db = this.getReadableDatabase();
 
