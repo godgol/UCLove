@@ -1,76 +1,93 @@
 package com.example.christophe.uclove;
-
-import android.app.Activity;
-import android.content.Intent;
-import android.content.res.Resources;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.ListActivity;
+import android.os.Bundle;
+import android.provider.Contacts;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.content.Intent;
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 /**
- * Created by Thomas on 05/05/2016.
+ * Created by thomas on 03/05/16.
  */
-public class MsgChooseFriend extends Activity {
+public class MsgChooseFriend extends AppCompatActivity{
+    ListView list = null;
+    private Button friendbutton;
 
-    ListView listView;
-    ArrayAdapter<String> friendList;
-    List<String> logins;
-    DatabaseHandler2 frd;
-    User_Friend user_friend;
-
+    TextView friends;
     @Override
-    public void onCreate(Bundle savedInstanceState){
-
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.chat);
+        setContentView(R.layout.content_friends);
 
-        listView = (ListView) findViewById(R.id.friendList);
-        logins = new ArrayList<String>();
-        List<String> frdList = new ArrayList<String>();
+        list = (ListView) findViewById(R.id.friendlist);
 
-        frd = new DatabaseHandler2(this);
-         frdList = frd.getFriendList(CurrentUser.current_user);
-
-        System.out.println("avant la for");
+        List<String> exemple = new ArrayList<String>();
 
 
-        for(int i = 0; i<frdList.size(); i++){
+        exemple.add("Friend 1");
 
-            user_friend =  new User_Friend(frd.getProfile(frdList.get(i)));
-            String sender = CurrentUser.current_user;
-            String receiver = user_friend.getLogin();
-            if (sender.equals(CurrentUser.current_user))
-                logins.add(receiver);
-            else
-                logins.add(sender);
-            System.out.println("Itération"+i);
+        exemple.add("Friend 2");
 
+        exemple.add("Friend 3");
+
+
+        String[] addlist = {"No Friends"};
+        //String[] name = {};
+        DatabaseHandler2 db = new DatabaseHandler2(this);
+
+        addlist = db.getFriendList("'Jojelavida'");
+
+        for(int i=0; i<addlist.length; i++)
+        {
+            exemple.add(addlist[i]);
         }
 
-        friendList = new ArrayAdapter<String>(MsgChooseFriend.this, android.R.layout.simple_list_item_1,
-                android.R.id.text1, logins);
-        listView.setAdapter(friendList);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
+        db.closeDB();
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, exemple);
+        list.setAdapter(adapter);
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int pos, long id){
-                CurrentUser.current_chat = logins.get(pos);
+            public void onItemClick(AdapterView<?> adapterView,
+                                    View view,
+                                    int position,
+                                    long id) {
 
-                Intent i = new Intent (MsgChooseFriend.this, ChatActivity.class);
+                Intent i = new Intent(MsgChooseFriend.this, ChatActivity.class);
                 startActivity(i);
-
             }
-
         });
 
 
+        friends = (TextView) findViewById(R.id.textView);
+        friends.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    Intent i2 = new Intent(MsgChooseFriend.this, LoginActivity.class);
+                    startActivity(i2);
+                    return true;
+                }
+                else{
+                    friends.setBackgroundColor(getResources().getColor(R.color.lightred));
+                }
+                return false;
+            }
+        });
     }
-
 }
