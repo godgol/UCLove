@@ -31,7 +31,7 @@ public class MsgChooseFriend extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chat);
 
-        list = (ListView) findViewById(R.id.friendlist);
+        list = (ListView) findViewById(R.id.friendList);
 
         List<String> exemple = new ArrayList<String>();
 
