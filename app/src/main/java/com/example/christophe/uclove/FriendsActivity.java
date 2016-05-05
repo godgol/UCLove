@@ -20,8 +20,8 @@ import android.widget.ListView;
  * Created by antoine on 03/05/16.
  */
 public class FriendsActivity extends AppCompatActivity{
-    //ListView liste = null;
-    //private Button friendbutton;
+    ListView liste = null;
+    private Button friendbutton;
 
     TextView friends;
     @Override
@@ -29,15 +29,29 @@ public class FriendsActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_friends);
 
-        /*liste = (ListView) findViewById(R.id.friendlist);
+        liste = (ListView) findViewById(R.id.friendlist);
 
-        List<String> exemple = new ArrayList<String>();
+        List<String> exemple;
 
-        exemple.add("Friend 1");
+        //exemple.add("Friend 1");
 
-        exemple.add("Friend 2");
+        //exemple.add("Friend 2");
 
-        exemple.add("Friend 3");
+        //exemple.add("Friend 3");
+
+
+        //String[] fn = {"No Friends"};
+        String[] name = {};
+        DatabaseHandler2 db = new DatabaseHandler2(FriendsActivity.this);
+
+        exemple = db.getFriendList("'Jojelavida'");
+
+        /*for(int i = 0; i<exemple.length; i++){
+            //fn[i] = db.readFamilyName(exemple[i]);
+            name[i] = db.readName(exemple[i]);
+        }*/
+
+        db.closeDB();
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, exemple);
         liste.setAdapter(adapter);
@@ -53,15 +67,15 @@ public class FriendsActivity extends AppCompatActivity{
                 startActivity(i);
             }
         });
-        */
+
 
         friends = (TextView) findViewById(R.id.textView);
         friends.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_UP) {
-                    Intent i = new Intent(FriendsActivity.this, LoginActivity.class);
-                    startActivity(i);
+                    Intent i2 = new Intent(FriendsActivity.this, LoginActivity.class);
+                    startActivity(i2);
                     return true;
                 }
                 else{
