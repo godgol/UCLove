@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -520,7 +521,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
 
         Cursor c = db.query("FriendList", new String[]{"FriendLogin"}, "Login=?", new String[]{login}, null, null, null, null);
 
-        String array[] = new String[c.getCount()];
+        String[] array = new String[c.getCount()];
         int i = 0;
 
         if (c != null)
@@ -539,6 +540,35 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         db.close();
 
         return array;
+    }
+
+    public String[] getNonFriendList(String login){
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.query("Profile", new String[]{"Login"}, null, null, null, null, null, null); //Get all Logins
+        String[] allLogin = new String[c.getCount()];
+        String[] nonFriends = {};
+
+        int i = 0;
+
+        if (c != null)
+            c.moveToFirst();
+        while (c.moveToNext()) {
+            allLogin[i] = c.getString(c.getColumnIndex("Login"));
+            i++;
+        }
+        c.close();
+
+        String[] friends = getFriendList(login);
+
+
+       for(int j = 0; j<allLogin.length; j++){
+           if(!Arrays.asList(friends).contains(allLogin[j])){
+                //TODO Add to nonFriends Array
+           }
+        }
+
+        return nonFriends;
     }
 
 

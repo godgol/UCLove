@@ -66,9 +66,7 @@
             android:textSize="22dp"
             android:clickable="true"
             android:paddingLeft="15px"
-            android:paddingRight="15px"
-            android:id="@+id/T3"/>
-
+            android:paddingRight="15px"/>
     </LinearLayout>
 
     <LinearLayout
@@ -125,8 +123,7 @@
         <ImageView
             android:layout_width="80px"
             android:layout_height="80px"
-            android:id="@+id/PicB6"
-            />
+            android:id="@+id/PicB6"/>
             android:src="@drawable/ic_action_inbox"/>
         <TextView
             android:layout_width="wrap_content"
@@ -136,9 +133,7 @@
             android:textSize="22dp"
             android:clickable="true"
             android:paddingLeft="15px"
-            android:paddingRight="15px"
-            android:id="@+id/T6"/>
-        />
+            android:paddingRight="15px"/>
     </LinearLayout>
 
     <LinearLayout

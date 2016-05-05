@@ -22,4 +22,5 @@
     <string name="inclination">Préference</string>
     <string name="profile_activity">Profile activity</string>
     <string name="gallery_activity">Gallery Activité</string>
+    <string name="people_activity">People</string>
 </resources>

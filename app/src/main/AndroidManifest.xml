@@ -48,6 +48,10 @@
             android:name=".GalleryActivity"
             android:label="@string/gallery_activity">
         </activity>
+        <activity
+            android:name=".PeopleActivity"
+            android:label="@string/people_activity">
+        </activity>
 
     </application>
 
