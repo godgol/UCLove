@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Created by Thomas on 05/05/2016.
  */
-public class MsgChooseFriend extends Activity {
+/*public class MsgChooseFriend extends Activity {
 
     ListView listView;
     ArrayAdapter<String> friendList;
@@ -71,3 +71,4 @@ public class MsgChooseFriend extends Activity {
     }
 
 }
+*/

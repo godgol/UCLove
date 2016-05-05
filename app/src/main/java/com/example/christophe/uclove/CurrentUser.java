@@ -6,4 +6,5 @@ package com.example.christophe.uclove;
 public class CurrentUser {
 
     public static String current_user;
+    public static String current_chat;
 }

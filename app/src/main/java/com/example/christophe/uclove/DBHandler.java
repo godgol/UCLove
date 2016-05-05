@@ -10,7 +10,7 @@ public abstract class DBHandler {
 
     protected final static int VERSION = 1;
 
-    protected final static String Nom = "database.db";
+    protected final static String Nom = "database.sqlite";
 
     protected SQLiteDatabase mDB = null;
     protected DBHelper helper = null;
