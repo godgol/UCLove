@@ -102,8 +102,11 @@ public class ProfileActivity extends AppCompatActivity{
         ageOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                String str = location.getText().toString();
-                int userAge = Integer.parseInt(str);
+                String str = age.getText().toString();
+                int userAge = Integer.valueOf(str);
+                if(userAge<13){
+                    Toast.makeText(ProfileActivity.this,"You're too young for using this application !",Toast.LENGTH_SHORT).show();
+                }
             }
         });
         gallery.setOnClickListener(new View.OnClickListener() {
