@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/filter_by"
+            android:text="Filter by:"
             android:textSize="40px"
             android:paddingRight="20px"/>
         <EditText
@@ -22,11 +22,11 @@
             android:layout_height="wrap_content"
             android:id="@+id/editText"
             android:background="@color/lightred"
-            android:hint="@string/value"/>
+            android:hint="value"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/for_key"
+            android:text="for"
             android:textSize="40px"
             android:paddingLeft="20px"
             android:paddingRight="20px"/>
@@ -36,7 +36,7 @@
             android:id="@+id/editText2"
             android:background="@color/lightred"
             android:paddingRight="20px"
-            android:hint="@string/keyword" />
+            android:hint="keyword" />
     </LinearLayout>
 
     <TextView
@@ -46,7 +46,7 @@
         android:layout_below="@id/lol"
         android:layout_centerHorizontal="true"
         android:paddingTop="100px"
-        android:text="@string/random_Search"
+        android:text="Random Search :"
         android:textSize="40px"
         android:paddingRight="20px"/>
 
@@ -58,9 +58,9 @@
             android:maxWidth="100dp"
             android:layout_toRightOf="@id/lol2"
             android:layout_alignBottom="@id/lol2"
-            android:clickable="true"/>
-    android:src="@drawable/ic_action_playback_repeat"
-
+            android:clickable="true"
+            android:src="@drawable/ic_action_playback_repeat"
+            android:id="@+id/random"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -74,20 +74,21 @@
         <ImageView
             android:layout_width="100px"
             android:layout_height="100px"
-            android:clickable="true"/>
-        android:src="@drawable/ic_action_heart"
-
+            android:clickable="true"
+            android:src="@drawable/ic_action_heart"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/default_Profil"
+            android:text="Default Profil"
             android:textSize="60px"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:id="@+id/profile"/>
         <ImageView
             android:layout_width="100px"
             android:layout_height="100px"
-            android:clickable="true"/>
-        android:src="@drawable/ic_action_undo"
+            android:clickable="true"
+            android:src="@drawable/ic_action_undo"/>
+
 
     </LinearLayout>
 
@@ -111,20 +112,23 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/gender"
-            android:textSize="40px"/>
+            android:text="Gender"
+            android:textSize="40px"
+            android:id="@+id/gender"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/hair"
+            android:text="Hair"
             android:textSize="40px"
-            android:paddingTop="20px"/>
+            android:paddingTop="20px"
+            android:id="@+id/hair"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/location"
+            android:text="Location"
             android:textSize="40px"
-            android:paddingTop="20px"/>
+            android:paddingTop="20px"
+            android:id="@+id/location"/>
     </LinearLayout>
 
     <LinearLayout
@@ -140,19 +144,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Age"
-            android:textSize="40px"/>
+            android:textSize="40px"
+            android:id="@+id/age"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/eyes"
+            android:text="Eyes"
             android:textSize="40px"
-            android:paddingTop="20px"/>
+            android:paddingTop="20px"
+            android:id="@+id/eyes"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/preferences"
+            android:text="Preferences"
             android:textSize="40px"
-            android:paddingTop="20px"/>
+            android:paddingTop="20px"
+            android:id="@+id/preferences"/>
     </LinearLayout>
 
 </RelativeLayout>

@@ -15,6 +15,7 @@ import android.widget.TextView;
 public class PeopleActivity extends AppCompatActivity{
 
     public String login = CurrentUser.current_user;
+    //public String login = "Jojelavida";
     public TextView log;
     public TextView gen;
     public TextView h;
@@ -40,7 +41,7 @@ public class PeopleActivity extends AppCompatActivity{
 
         DatabaseHandler2 db = new DatabaseHandler2(PeopleActivity.this);
 
-        log.setText(CurrentUser.current_user);
+        log.setText(login);
         loc.setText(db.readLocation(login));
         gen.setText(db.readGender(login));
         h.setText(db.readHair(login));

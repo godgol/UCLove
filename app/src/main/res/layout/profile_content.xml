@@ -20,23 +20,22 @@
             android:id="@+id/groupGender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checkedButton="@+id/male"
             android:orientation="horizontal"
             android:paddingLeft="20px"
             android:paddingTop="20px"
-        >
+            >
             <RadioButton
                 android:id="@+id/male"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Male"
-            />
+                />
             <RadioButton
                 android:id="@+id/female"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Female"
-            />
+                />
         </RadioGroup>
     </LinearLayout>
     <LinearLayout
@@ -51,7 +50,7 @@
             android:text="Ok"
             android:paddingLeft="20px"
             android:paddingTop="20px"
-        />
+            />
         <EditText
             android:id="@+id/age"
             android:layout_width="fill_parent"
@@ -59,7 +58,7 @@
             android:hint="Age :"
             android:inputType="numberDecimal"
             android:paddingTop="20px"
-        />
+            />
     </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
@@ -87,25 +86,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Brown"
-            />
+                />
             <RadioButton
                 android:id="@+id/blackHairs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Black"
-            />
+                />
             <RadioButton
                 android:id="@+id/blondHairs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Blond"
-            />
+                />
             <RadioButton
                 android:id="@+id/redHairs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Red"
-            />
+                />
         </RadioGroup>
     </LinearLayout>
     <LinearLayout
@@ -119,7 +118,7 @@
             android:text="Eyes :"
             android:paddingLeft="20px"
             android:paddingTop="20px"
-        />
+            />
         <RadioGroup
             android:id="@+id/groupEyes"
             android:layout_width="wrap_content"
@@ -128,7 +127,7 @@
             android:orientation="horizontal"
             android:paddingLeft="20px"
             android:paddingTop="20px"
-                >
+            >
             <RadioButton
                 android:id="@+id/brownEyes"
                 android:layout_width="wrap_content"
@@ -161,7 +160,7 @@
             android:text="Ok"
             android:paddingLeft="20px"
             android:paddingTop="20px"
-        />
+            />
         <EditText
             android:id="@+id/location"
             android:layout_width="fill_parent"
@@ -169,7 +168,7 @@
             android:hint="Location"
             android:inputType="text"
             android:paddingTop="20px"
-        />
+            />
     </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
@@ -222,6 +221,6 @@
             android:layout_height="wrap_content"
             android:text="Gallery"
             android:paddingTop="20px"
-        />
+            />
     </LinearLayout>
 </LinearLayout>

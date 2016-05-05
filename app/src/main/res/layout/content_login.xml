@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/PwInput"
         android:layout_centerHorizontal="true"
-        android:text="@string/Login"/>
+        android:text="Login"/>
 
     <TextView
         android:layout_width="wrap_content"
