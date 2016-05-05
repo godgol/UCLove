@@ -53,6 +53,16 @@
             android:label="@string/people_activity">
         </activity>
 
+        <activity
+            android:name=".MsgChooseFriend"
+            android:label="Choose Friend">
+        </activity>
+
+        <activity
+            android:name=".ChatActivity"
+            android:label="Chat">
+        </activity>
+
     </application>
 
 </manifest>
