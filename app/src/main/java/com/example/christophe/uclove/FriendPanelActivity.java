@@ -22,7 +22,7 @@ import org.w3c.dom.Text;
 /**
  * Created by antoine on 04/05/16.
  */
-public class FriendPanelActivity extends Activity {
+public class FriendPanelActivity extends AppCompatActivity{
 
     //@Override
     TextView genre_value = null;
@@ -31,6 +31,7 @@ public class FriendPanelActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.content_friendpanel);
+
         genre_value =  (TextView) findViewById(R.id.gender_value);
         genre_value.setText("Singe"); // Avec la base de donnée on irait dans la array list de user, chercher un friend et faire friend.getGender();
 

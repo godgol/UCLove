@@ -22,6 +22,7 @@ public class MyListActivity  extends AppCompatActivity {
     public TextView preferences;
     String login ;
     public TextView friends;
+    public TextView meet;
 
 
 //    @Override
@@ -49,6 +50,7 @@ public class MyListActivity  extends AppCompatActivity {
         profile = (TextView) findViewById(R.id.T1);
         preferences = (TextView) findViewById(R.id.T2);
         friends = (TextView) findViewById(R.id.T4);
+        meet = (TextView) findViewById(R.id.T5);
 
 
         profile.setOnTouchListener(new View.OnTouchListener() {
@@ -78,6 +80,21 @@ public class MyListActivity  extends AppCompatActivity {
                 }
                 else{
                     friends.setBackgroundColor(getResources().getColor(R.color.lightred));
+                }
+                return false;
+            }
+        });
+
+        meet.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent  event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    Intent i = new Intent(MyListActivity.this, GalleryActivity.class);
+                    startActivity(i);
+                    return true;
+                }
+                else{
+                    meet.setBackgroundColor(getResources().getColor(R.color.lightred));
                 }
                 return false;
             }
