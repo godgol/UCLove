@@ -285,47 +285,103 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
     //Updating Profile attributes
     public void updateLogin(String login, String newLogin){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE Profile SET Login = " + newLogin + " WHERE Login = " + login + ";");
+        //db.execSQL("UPDATE Profile SET Login = " + newLogin + " WHERE Login = " + login + ";");
+        ContentValues newValues = new ContentValues();
+        newValues.put("Login", newLogin);
+
+        String[] args = new String[]{login};
+        db.update("Profile", newValues, "name=?", args);
     }
     public void updatePassword(String login, String newPassword){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE Profile SET Password = " + newPassword + " WHERE Login = " + login + ";");
+        //db.execSQL("UPDATE Profile SET Password = " + newPassword + " WHERE Login = " + login + ";");
+        ContentValues newValues = new ContentValues();
+        newValues.put("Password", newPassword);
+
+        String[] args = new String[]{login};
+        db.update("Profile", newValues, "name=?", args);
     }
     public void updateFamilyName(String login, String newFN){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE Profile SET FamilyName = " + newFN + " WHERE Login = " + login + ";");
+        //db.execSQL("UPDATE Profile SET FamilyName = " + newFN + " WHERE Login = " + login + ";");
+        ContentValues newValues = new ContentValues();
+        newValues.put("FamilyName", newFN);
+
+        String[] args = new String[]{login};
+        db.update("Profile", newValues, "name=?", args);
     }
     public void updateName(String login, String newName){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE Profile SET Name = " + newName + " WHERE Login = " + login + ";");
+        //db.execSQL("UPDATE Profile SET Name = " + newName + " WHERE Login = " + login + ";");
+        ContentValues newValues = new ContentValues();
+        newValues.put("Name", newName);
+
+        String[] args = new String[]{login};
+        db.update("Profile", newValues, "name=?", args);
     }
     public void updateAge(String login, int newAge){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE Profile SET Age = " + newAge + " WHERE Login = " + login + ";");
+        //db.execSQL("UPDATE Profile SET Age = " + newAge + " WHERE Login = " + login + ";");
+        ContentValues newValues = new ContentValues();
+        newValues.put("Age", newAge);
+
+        String[] args = new String[]{login};
+        db.update("Profile", newValues, "name=?", args);
     }
     public void updateGender(String login, String newGender){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE Profile SET Gender = " + newGender + " WHERE Login = " + login + ";");
+        //db.execSQL("UPDATE Profile SET Gender = " + newGender + " WHERE Login = " + login + ";");
+        ContentValues newValues = new ContentValues();
+        newValues.put("Gender", newGender);
+
+        String[] args = new String[]{login};
+        db.update("Profile", newValues, "name=?", args);
+
     }
     public void updateLocation(String login, String newLocation){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE Profile SET Location = " + newLocation + " WHERE Login = " + login + ";");
+        //db.execSQL("UPDATE Profile SET Location = " + newLocation + " WHERE Login = " + login + ";");
+        ContentValues newValues = new ContentValues();
+        newValues.put("Location", newLocation);
+
+        String[] args = new String[]{login};
+        db.update("Profile", newValues, "name=?", args);
     }
     public void updateHair(String login, String newHair){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE Profile SET Hair = " + newHair + " WHERE Login = " + login + ";");
+        //db.execSQL("UPDATE Profile SET Hair = " + newHair + " WHERE Login = " + login + ";");
+        ContentValues newValues = new ContentValues();
+        newValues.put("Hair", newHair);
+
+        String[] args = new String[]{login};
+        db.update("Profile", newValues, "name=?", args);
     }
     public void updateEyes(String login, String newEyes){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE Profile SET Eyes = " + newEyes + " WHERE Login = " + login + ";");
+        //db.execSQL("UPDATE Profile SET Eyes = " + newEyes + " WHERE Login = " + login + ";");
+        ContentValues newValues = new ContentValues();
+        newValues.put("Eyes", newEyes);
+
+        String[] args = new String[]{login};
+        db.update("Profile", newValues, "name=?", args);
     }
     public void updatePreferences(String login, String newPreferences){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE Profile SET Preferences = " + newPreferences + " WHERE Login = " + login + ";");
+        //db.execSQL("UPDATE Profile SET Preferences = " + newPreferences + " WHERE Login = " + login + ";");
+        ContentValues newValues = new ContentValues();
+        newValues.put("Preferences", newPreferences);
+
+        String[] args = new String[]{login};
+        db.update("Profile", newValues, "name=?", args);
     }
     public void updateLanguage(String login, String newLanguage){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE Profile SET Language = " + newLanguage + " WHERE Login = " + login + ";");
+        //db.execSQL("UPDATE Profile SET Language = " + newLanguage + " WHERE Login = " + login + ";");
+        ContentValues newValues = new ContentValues();
+        newValues.put("Language", newLanguage);
+
+        String[] args = new String[]{login};
+        db.update("Profile", newValues, "name=?", args);
     }
 
     //Reading Profile attributes
@@ -516,24 +572,21 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
     }
 
     //Getting FriendList of a user
-    public String[] getFriendList(String login) {
+    public List<String> getFriendList(String login) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor c = db.query("FriendList", new String[]{"FriendLogin"}, "Login=?", new String[]{login}, null, null, null, null);
 
-        String[] array = new String[c.getCount()];
-        int i = 0;
+        //String[] array = new String[c.getCount()];
+        //int i = 0;
 
         if (c != null)
             c.moveToFirst();
-        /*while (!c.isAfterLast()) {
-            list.add(c.getString(c.getColumnIndex("FriendLogin")));
-            i++;
-            c.moveToNext();
-        }*/
-        while (c.moveToNext()) {
-            array[i] = c.getString(c.getColumnIndex("FriendLogin"));
-            i++;
+
+        List<String> array = new ArrayList<>();
+        while(c.moveToNext()){
+            String uname = c.getString(c.getColumnIndex("FriendLogin"));
+            array.add(uname);
         }
 
         c.close();
@@ -559,15 +612,15 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         }
         c.close();
 
-        String[] friends = getFriendList(login);
+       // String[] friends = getFriendList(login);
 
-
+/*
        for(int j = 0; j<allLogin.length; j++){
            if(!Arrays.asList(friends).contains(allLogin[j])){
                 //TODO Add to nonFriends Array
            }
         }
-
+*/
         return nonFriends;
     }
 
