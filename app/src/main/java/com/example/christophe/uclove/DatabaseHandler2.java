@@ -196,13 +196,13 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         db.execSQL("INSERT INTO Gallery VALUES (\"foreverrebel\",\"10-0002\",\"FALSE\");");
 
         //Popluating the Chat Table*/
-        db.execSQL("INSERT INTO Chat VALUES (\"PaulDuChateu\",\"beth\",\"Hey Beth! Montre tes fesses.\",\"2016-02-25 09:00:00\");");
-        db.execSQL("INSERT INTO Chat VALUES (\"beth\",\"PaulDuChateau\",\"Hey Paul! Non...J'ai 86 ans.\",\"2016-02-25 09:30:00\");");
-        db.execSQL("INSERT INTO Chat VALUES (\"Jojelavida\",\"foreverrebel\",\"HI\",\"2016-03-15 23:32:22\");");
-        db.execSQL("INSERT INTO Chat VALUES (\"Jojelavida\",\"foreverrebel\",\"HI?\",\"2016-03-15 23:32:50\");");
-        db.execSQL("INSERT INTO Chat VALUES (\"Jojelavida\",\"foreverrebel\",\"You there?\",\"2016-03-15 23:33:00\");");
-        db.execSQL("INSERT INTO Chat VALUES (\"Jojelavida\",\"foreverrebel\",\"I like your Pix...\",\"2016-03-15 23:34:00\");");
-        db.execSQL("INSERT INTO Chat VALUES (\"Jojelavida\",\"foreverrebel\",\"Boyfriend?\",\"2016-03-15 23:35:00\");");
+        db.execSQL("INSERT INTO Chat VALUES (\"PaulDuChateu\",\"beth\",\"Hey Beth! Montre tes fesses.\",\"09:00\");");
+        db.execSQL("INSERT INTO Chat VALUES (\"beth\",\"PaulDuChateau\",\"Hey Paul! Non...J'ai 86 ans.\",\"09:30\");");
+        db.execSQL("INSERT INTO Chat VALUES (\"Jojelavida\",\"foreverrebel\",\"HI\",\"23:32\");");
+        db.execSQL("INSERT INTO Chat VALUES (\"Jojelavida\",\"foreverrebel\",\"HI?\",\"23:32\");");
+        db.execSQL("INSERT INTO Chat VALUES (\"Jojelavida\",\"foreverrebel\",\"You there?\",\"23:33\");");
+        db.execSQL("INSERT INTO Chat VALUES (\"Jojelavida\",\"foreverrebel\",\"I like your Pix...\",\"23:34\");");
+        db.execSQL("INSERT INTO Chat VALUES (\"Jojelavida\",\"foreverrebel\",\"Boyfriend?\",\"23:35\");");
           /*
         //Populating the Rendezvous Table
         db.execSQL("INSERT INTO Rendezvous VALUES (\"PaulDuChateu\",\"beth\",\"2016-03-26\",\"Beerbar\",\"TRUE\");");
@@ -793,7 +793,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         val.put(KEY_FRIENDLOGIN, msg.getReceiver());
         val.put(KEY_MESSAGE, msg.getMessage());
         val.put(KEY_DATE, msg.getTime());
-        mDB.insert(DatabaseHandler2.TABLE_CHAT, null, val);
+        mDB.insert(TABLE_CHAT, null, val);
 
 
         mDB.close();
