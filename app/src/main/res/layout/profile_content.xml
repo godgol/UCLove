@@ -77,7 +77,7 @@
             android:id="@+id/groupHairs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checkedButton="@+id/brownHair"
+            android:checkedButton="@+id/brownHairs"
             android:orientation="horizontal"
             android:paddingLeft="20px"
             android:paddingTop="20px"
