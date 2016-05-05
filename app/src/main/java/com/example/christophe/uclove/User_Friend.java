@@ -11,8 +11,9 @@ import com.example.christophe.uclove.Profile;
 public class User_Friend extends Profile {
 
 
+
     ArrayList messagerie = new ArrayList(); //liste des messages
-    public User_Friend(User_Lambda lambda)//constructeur qui prends en argument un userlambda
+    public User_Friend(User_Lambda lambda)//constructeur qui prend en argument un user_lambda
     {
     super(lambda.getLogin(), lambda.getFamilyName(), lambda.getName(), lambda.getAge(), lambda.getGender(), lambda.getHair(),
             lambda.getEyes(), lambda.getLocation(), lambda.getPreferences(), lambda.getPassword(), lambda.getLanguages());
@@ -22,8 +23,6 @@ public class User_Friend extends Profile {
 
     }
 
-    public void Add_Message(String message, My_User myuser) {
-       // messagerie.add(new Message(ZoneDateTime.now(),message,this, myuser) );TODO Gerer l'erreur
-    }
+
 
 }

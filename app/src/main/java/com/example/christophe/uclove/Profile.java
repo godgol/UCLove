@@ -15,8 +15,8 @@ public class Profile {
 
     //protected variables
     protected String Login;
-    protected String FamilyName;
-    protected String Name;
+    protected static String FamilyName;
+    protected static String Name;
     protected int Age;
     protected String Gender;
     protected String Hair;
@@ -25,7 +25,7 @@ public class Profile {
     protected String Preferences;
     protected String Password;
     protected String Languages;
-    protected ArrayList AlPictures;
+    protected ArrayList AllPictures;
 
     // Empty constructor
     public Profile() {
@@ -52,7 +52,7 @@ public class Profile {
         this.Preferences = preferences;
         this.Password = pw;
         this.Languages = languages;
-        this.AlPictures = new ArrayList();
+        this.AllPictures = new ArrayList();
     }
 
     // getting Login
@@ -70,7 +70,7 @@ public class Profile {
         return this.FamilyName;
     }
 
-    // setting FamiylName
+    // setting FamilyName
     public void setFamilyName(String FN) {
         this.FamilyName = FN;
     }
@@ -137,7 +137,7 @@ public class Profile {
    // public void addPic(Picture pic, int i) {this.AlPictures.add(i, pic);} TODO Décommenter quand la classe Picture existera
 
     //Remove picture i from ArrayList
-    public void remPic(int i) {this.AlPictures.remove(i);}
+    public void remPic(int i) {this.AllPictures.remove(i);}
 
     //Get picture i from ArrayList
    // public Picture getPic(int i) {this.AlPictures.get(i);} TODO Décommenter quand la classe existera
