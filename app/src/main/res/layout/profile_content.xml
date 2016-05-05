@@ -57,7 +57,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:hint="Age :"
-            android:inputType="text"
+            android:inputType="numberDecimal"
             android:paddingTop="20px"
         />
     </LinearLayout>
@@ -105,12 +105,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Red"
-            />
-            <RadioButton
-                android:id="@+id/bald"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bald"
             />
         </RadioGroup>
     </LinearLayout>
