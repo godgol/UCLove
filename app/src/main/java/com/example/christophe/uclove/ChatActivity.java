@@ -21,8 +21,8 @@ import java.util.List;
 public class ChatActivity extends Activity {
 
     ListView listView;
-    List<Message> messages;
-    ArrayAdapter<Message> messageAdapter;
+    List<String> messages;
+    ArrayAdapter<String> messageAdapter;
     DBChat dbChat;
     Message m1,m2;
 
@@ -33,12 +33,12 @@ public class ChatActivity extends Activity {
         setContentView(R.layout.chat_main);
 
         listView = (ListView)findViewById(R.id.ListView);
-        messages = new ArrayList<Message>();
+        messages = new ArrayList<String>();
 
         m1 = new Message("12:03","salut", "Joselavida", CurrentUser.current_user);
         m2 = new Message("13:17","Enchanté, comment va tu ?", CurrentUser.current_user, "Joselavida");
-        messages.add(m1);
-        messages.add(m2);
+        messages.add(m1.getMessage());
+        messages.add(m2.getMessage());
 
         /*dbChat = new DBChat(this);
         dbChat.open();
@@ -46,7 +46,7 @@ public class ChatActivity extends Activity {
         dbChat.close();
 */
 
-        messageAdapter = new ArrayAdapter<Message>(this, android.R.layout.simple_list_item_1,
+        messageAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
                 android.R.id.text1, messages);
         listView.setAdapter(messageAdapter);
 
@@ -68,7 +68,7 @@ public class ChatActivity extends Activity {
                     message.setTime(date);
 
 
-                    messageAdapter.add(message);
+                    messageAdapter.add(message.getMessage());
                     listView.setAdapter(messageAdapter);
 
                 }
