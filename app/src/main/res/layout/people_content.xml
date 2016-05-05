@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="20px"
+        android:id="@+id/lol">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Filter by:"
+            android:textSize="40px"
+            android:paddingRight="20px"/>
+        <EditText
+            android:layout_width="200px"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText"
+            android:background="@color/lightred"
+            android:hint="value"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="for"
+            android:textSize="40px"
+            android:paddingLeft="20px"
+            android:paddingRight="20px"/>
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText2"
+            android:background="@color/lightred"
+            android:paddingRight="20px"
+            android:hint="keyword" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lol2"
+        android:layout_below="@id/lol"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="100px"
+        android:text="Random Search :"
+        android:textSize="40px"
+        android:paddingRight="20px"/>
+
+    <ImageButton
+            android:layout_width="100px"
+            android:layout_height="100px"
+            android:scaleType="fitXY"
+            android:maxHeight="100dp"
+            android:maxWidth="100dp"
+            android:layout_toRightOf="@id/lol2"
+            android:layout_alignBottom="@id/lol2"
+            android:src="@drawable/ic_action_playback_repeat"
+            android:clickable="true"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lol2"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="50px"
+        android:id="@+id/lol3">
+
+        <ImageView
+            android:layout_width="100px"
+            android:layout_height="100px"
+            android:src="@drawable/ic_action_heart"
+            android:clickable="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Default Profil"
+            android:textSize="60px"
+            android:layout_gravity="center"/>
+        <ImageView
+            android:layout_width="100px"
+            android:layout_height="100px"
+            android:src="@drawable/ic_action_undo"
+            android:clickable="true"/>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lol3"
+        android:src="@drawable/firendpic"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/lol4"/>
+
+    <LinearLayout
+        android:layout_width="380px"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lol4"
+        android:layout_gravity="left"
+        android:orientation="vertical"
+        android:id="@+id/lol5"
+        android:paddingTop="50px"
+        android:paddingLeft="50px">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender"
+            android:textSize="40px"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hair"
+            android:textSize="40px"
+            android:paddingTop="20px"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location"
+            android:textSize="40px"
+            android:paddingTop="20px"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="380px"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lol4"
+        android:layout_alignParentRight="true"
+        android:gravity="right"
+        android:orientation="vertical"
+        android:paddingTop="50px"
+        android:paddingRight="50px">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Age"
+            android:textSize="40px"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Eyes"
+            android:textSize="40px"
+            android:paddingTop="20px"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Preferences"
+            android:textSize="40px"
+            android:paddingTop="20px"/>
+    </LinearLayout>
+
+</RelativeLayout>
