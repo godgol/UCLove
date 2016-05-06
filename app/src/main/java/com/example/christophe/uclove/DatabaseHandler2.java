@@ -602,7 +602,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         }while(c.moveToNext());
 
         c.close();
-/*
+
         //Get all friends that added you
         Cursor c2 = db.query("FriendList", new String[]{"Login"}, "FriendLogin=?", new String[]{login}, null, null, null, null);
 
@@ -615,7 +615,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         }while(c2.moveToNext());
 
         c2.close();
-*/
+
         db.close();
 
         return array;
@@ -853,7 +853,8 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
                 rdv.setSender(cursor.getString(0));
                 rdv.setReceiver(cursor.getString(1));
                 rdv.setDate(cursor.getString(2));
-                rdv.setEtat(cursor.getString(3));
+                rdv.setLocation(cursor.getString(3));
+                rdv.setEtat(cursor.getString(4));
 
                 list.add(rdv);
             }while(cursor.moveToNext());
@@ -871,6 +872,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         val.put(KEY_FRIENDLOGIN, rdv.getReceiver());
         val.put(KEY_DATE, rdv.getDate());
         val.put(KEY_ANSWER, rdv.getEtat());
+        val.put(KEY_LOCATION, rdv.getLocation());
 
         mDB.insert(TABLE_RENDEZVOUS, null, val);
 
