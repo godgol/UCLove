@@ -30,6 +30,8 @@ public class PeopleActivity extends AppCompatActivity {
     public TextView pre;
     public ImageButton random;
     public ImageButton next;
+    public ImageButton like;
+    public ImageButton nolike;
     int i = 0;
     List<String> array = new ArrayList<>();
 
@@ -46,6 +48,8 @@ public class PeopleActivity extends AppCompatActivity {
         pre = (TextView) findViewById(R.id.preferences);
         log = (TextView) findViewById(R.id.profile);
         random = (ImageButton) findViewById(R.id.random);
+        like = (ImageButton) findViewById(R.id.like);
+        nolike = (ImageButton) findViewById(R.id.nolike);
 
         DatabaseHandler2 db = new DatabaseHandler2(PeopleActivity.this);
 
@@ -80,19 +84,39 @@ public class PeopleActivity extends AppCompatActivity {
                     pre.setText(db2.readPreferences(login));
 
                     db2.closeDB();
-                }
-                else{
-                    //if((array.size()-i)>0) {
-                        i = i + 1;
-                        login = array.get(i);
-                    /*}
-                    else{
-                        Toast.makeText(PeopleActivity.this, "No more people left!", Toast.LENGTH_SHORT).show();
-                    }*/
+                } else {
+                    changeUserLamda(login);
                 }
                 return true;
             }
         });
+
+        like.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseHandler2 db3 = new DatabaseHandler2(PeopleActivity.this);
+
+                db3.createRequest(current,login);
+
+                changeUserLamda(login);
+
+                log.setText(login);
+                loc.setText(db3.readLocation(login));
+                gen.setText(db3.readGender(login));
+                h.setText(db3.readHair(login));
+                ag.setText(String.valueOf(db3.readAge(login)));
+                ey.setText(db3.readEyes(login));
+                pre.setText(db3.readPreferences(login));
+
+                db3.closeDB();
+            }
+        });
+    }
+
+    public void changeUserLamda(String login){
+        i = i + 1;
+        login = array.get(i);
+    }
 
 
 
