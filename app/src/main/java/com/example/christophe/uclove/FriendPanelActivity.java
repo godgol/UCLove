@@ -25,8 +25,6 @@ import org.w3c.dom.Text;
  */
 public class FriendPanelActivity extends AppCompatActivity {
 
-
-
     TextView login_value = null;
     TextView age_value= null;
     TextView hair_value = null;
@@ -34,11 +32,13 @@ public class FriendPanelActivity extends AppCompatActivity {
     TextView location_value = null;
     TextView inclination_value = null;
     String friend;
+    Button rdv;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_friendpanel);
+        rdv=(Button)findViewById(rdv);
         Bundle extras = getIntent().getExtras();
         if(extras!=null)
         {
@@ -64,7 +64,13 @@ public class FriendPanelActivity extends AppCompatActivity {
         inclination_value.setText(db.readPreferences(friend));
 
         db.closeDB();
-
-
+        rdv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                Intent i = new Intent(FriendPanelActivity.this, RDVActivity.class);
+                i.putExtra("friend",friend);
+                startActivity(i);
+            }
+        });
     }
 }
