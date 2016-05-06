@@ -22,7 +22,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/editText"
             android:background="@color/lightred"
-            android:hint="value"/>
+            android:hint="value"
+            android:singleLine="true"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,7 +37,8 @@
             android:id="@+id/editText2"
             android:background="@color/lightred"
             android:paddingRight="20px"
-            android:hint="keyword" />
+            android:hint="keyword"
+            android:singleLine="true"/>
     </LinearLayout>
 
     <TextView
@@ -75,7 +77,8 @@
             android:layout_width="100px"
             android:layout_height="100px"
             android:clickable="true"
-            android:src="@drawable/ic_action_heart"/>
+            android:src="@drawable/ic_action_heart"
+            android:id="@+id/like"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -87,19 +90,13 @@
             android:layout_width="100px"
             android:layout_height="100px"
             android:clickable="true"
-            android:src="@drawable/ic_action_trash"/>
+            android:src="@drawable/ic_action_trash"
+            android:id="@+id/nolike"/>
 
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:orientation="horizontal"
-        android:layout_below="@id/lol3"
-        android:id="@+id/lol6"
-        android:paddingLeft="20px">
+
         <ImageView
             android:layout_width="550px"
             android:layout_height="350px"
@@ -108,6 +105,7 @@
             android:layout_centerHorizontal="true"
             android:id="@+id/lol4"
             android:paddingLeft="50px"/>
+        <!--
         <ImageButton
             android:layout_width="160px"
             android:layout_height="160px"
@@ -115,13 +113,13 @@
             android:layout_gravity="center"
             android:clickable="true"
             android:scaleType="fitXY"
-            android:id="@+id/next"/>
-    </LinearLayout>
+            android:id="@+id/next"/>-->
+
 
     <LinearLayout
         android:layout_width="380px"
         android:layout_height="wrap_content"
-        android:layout_below="@id/lol6"
+        android:layout_below="@id/lol4"
         android:layout_gravity="left"
         android:orientation="vertical"
         android:id="@+id/lol5"
@@ -152,7 +150,7 @@
     <LinearLayout
         android:layout_width="380px"
         android:layout_height="wrap_content"
-        android:layout_below="@id/lol6"
+        android:layout_below="@id/lol4"
         android:layout_alignParentRight="true"
         android:gravity="right"
         android:orientation="vertical"
