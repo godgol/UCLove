@@ -15,6 +15,7 @@ import android.widget.Toast;
 import android.content.Intent;
 
 public class RDVActivity extends AppCompatActivity{
+    //Initialiser les variables
     Bundle extras = getIntent().getExtras();
     public Button validate;
     public DatePicker date;
@@ -50,6 +51,7 @@ public class RDVActivity extends AppCompatActivity{
         placeOk = (Button) findViewById(R.id.placeOk);
         place = (EditText)findViewById(R.id.place);
 
+        //Boutton accepter la Date
         okDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
@@ -63,6 +65,7 @@ public class RDVActivity extends AppCompatActivity{
             }
         });
 
+        //Boutton accepter l'heure
         okTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
@@ -71,6 +74,7 @@ public class RDVActivity extends AppCompatActivity{
             }
         });
 
+        //Boutton accepter le lieu
         placeOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
@@ -79,6 +83,7 @@ public class RDVActivity extends AppCompatActivity{
             }
         });
 
+        //Boutton valider
         validate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {

@@ -23,6 +23,7 @@ public class NameActivity extends Activity {
         name = (EditText) findViewById(R.id.name);
         nameOk = (Button) findViewById(R.id.nameOk);
 
+        //Boutton pour valider le nom de famille
         nameOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {

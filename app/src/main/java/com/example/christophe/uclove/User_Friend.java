@@ -8,8 +8,9 @@ import com.example.christophe.uclove.Profile;
 /**
  * Created by Guillaume on 29-04-16.
  */
-public class User_Friend extends Profile {
 
+//Classe UML
+public class User_Friend extends Profile {
 
 
     ArrayList messagerie = new ArrayList(); //liste des messages

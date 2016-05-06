@@ -16,6 +16,11 @@ import android.content.Intent;
 
 import org.w3c.dom.Text;
 
+/*
+MENU DE L'APPLICATION
+ */
+
+
 public class MyListActivity  extends AppCompatActivity {
     public TextView profile;
     Profile update = new Profile();
@@ -48,6 +53,7 @@ public class MyListActivity  extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_menu);
 
+        //Lier les bouttons à leur layout
         System.out.println("TestList1");
         profile = (TextView) findViewById(R.id.T1);
         request = (TextView) findViewById(R.id.T7);
@@ -57,6 +63,7 @@ public class MyListActivity  extends AppCompatActivity {
         messages = (TextView) findViewById(R.id.T6);
 
 
+        //Boutton Profile
         profile.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -75,6 +82,7 @@ public class MyListActivity  extends AppCompatActivity {
             }
         });
 
+        //Boutton messages
         messages.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -93,6 +101,7 @@ public class MyListActivity  extends AppCompatActivity {
             }
         });
 
+        //Boutton people
         people.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent  event) {
@@ -110,6 +119,7 @@ public class MyListActivity  extends AppCompatActivity {
             }
         });
 
+        //Bouton friends
         friends.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent  event) {
@@ -126,6 +136,7 @@ public class MyListActivity  extends AppCompatActivity {
             }
         });
 
+        //Boutton Meet
         meet.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent  event) {
@@ -142,6 +153,7 @@ public class MyListActivity  extends AppCompatActivity {
             }
         });
 
+        //Boutton Request
         request.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {

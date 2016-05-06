@@ -3,11 +3,13 @@ package com.example.christophe.uclove;
 import java.security.Timestamp;
 
 //package java.sql;
+//Classe UML
 
 public class Date_Dispo {
     public String date;
     public String user;
 
+    //Constructeur
     public Date_Dispo(){
 
     }
@@ -17,6 +19,7 @@ public class Date_Dispo {
         this.user = user;
     }
 
+    //Getters and Setters
     public String getDate(){
         return this.date;
     }

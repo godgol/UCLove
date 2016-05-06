@@ -1,6 +1,7 @@
 package com.example.christophe.uclove;
 import java.security.Timestamp;
 
+//Classe UMl
 public class RDV {
     public String date;
     public String sender;
@@ -8,6 +9,7 @@ public class RDV {
     public String etat;
     public String location;
 
+    //Constructeur
     public RDV(){
 
     }
@@ -19,6 +21,8 @@ public class RDV {
         this.etat = etat;
         this.location = location;
     }
+
+    //Getters et Setters
     public String toString(){return "Rendez vous avec " + this.receiver + "le" + this.date;}
 
     public String getEtat() {

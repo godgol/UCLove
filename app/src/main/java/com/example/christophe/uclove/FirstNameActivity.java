@@ -18,6 +18,7 @@ public class FirstNameActivity extends Activity {
         firstName = (EditText) findViewById(R.id.firstName);
         firstNameOk = (Button) findViewById(R.id.firstNameOk);
 
+        //Boutton pour valider le prénom
         firstNameOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {

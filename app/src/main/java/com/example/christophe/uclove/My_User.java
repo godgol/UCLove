@@ -10,6 +10,14 @@ import java.util.List;
 import java.util.ListIterator;
 
 import com.example.christophe.uclove.Picture;
+/*
+* C'était prévu d'utiliser cette classe pour récupérer toutes les informations pertinentes de la base de données.
+* Au final on a privilégié de passer directement à la base de données dans les activités
+*
+* Cette classe n'est donc pas utile pour notre application et reflète seulement notr volonté de l'utiliser
+* dans un temps ultérieur.*/
+
+
 
 /*
  * Created by antoine on 30/04/16.

@@ -44,6 +44,8 @@ public class FriendPanelActivity extends AppCompatActivity {
         {
              friend = extras.getString("friend");
         }
+
+        //Récupérer informations personnelles de la BD
         DatabaseHandler2 db = new DatabaseHandler2(FriendPanelActivity.this);
         login_value =  (TextView) findViewById(R.id.name_value);
         login_value.setText(friend);
@@ -64,6 +66,8 @@ public class FriendPanelActivity extends AppCompatActivity {
         inclination_value.setText(db.readPreferences(friend));
 
         db.closeDB();
+
+        //Boutton pour faire une demande de RDV
         rdv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {

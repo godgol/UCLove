@@ -23,6 +23,7 @@ public class LocationActivity extends Activity {
         location = (EditText) findViewById(R.id.location);
         locationOk = (Button) findViewById(R.id.LocationOk);
 
+        //Boutton pour valider la location dans les informations personnelles
         locationOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {

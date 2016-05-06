@@ -20,6 +20,7 @@ public class LoginActivity extends AppCompatActivity {
     public EditText pw_edit;
     public Profile useracc;
 
+    //Activity qui permet de se connecter à son profil
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
         pw_edit = (EditText) findViewById(R.id.PwInput);
         loginButton = (Button) findViewById(R.id.LoginButton);
 
+        //Boutton Login
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
@@ -38,6 +40,7 @@ public class LoginActivity extends AppCompatActivity {
                 System.out.println("I'm here before");
 
 
+                //Récupérer le login et le mot de passe qui correspond
                 DatabaseHandler2 db = new DatabaseHandler2(LoginActivity.this);
 
                 System.out.println("I'm here after");
@@ -53,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
                     System.out.println("I'm here 3");
                 }
                 else{
-                    login_status.setText("Wrong Password");
+                    login_status.setText("Wrong Password"); //Afficher un texte si le mot de passe est incorrect
                     System.out.println("I'm here 4");
                 }
 

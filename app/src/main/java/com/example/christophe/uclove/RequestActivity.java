@@ -34,9 +34,12 @@ public class RequestActivity extends AppCompatActivity {
         addlist.add("Requêtes entrantes");
         addlist.add("Requêtes sortantes");
 
+        //Afficher la liste des deux éléments
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, addlist);
         liste.setAdapter(adapter);
 
+
+        //2 Bouttons pour passer à la liste des requêtes
         final List<String> finalAddlist = addlist;
         liste.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

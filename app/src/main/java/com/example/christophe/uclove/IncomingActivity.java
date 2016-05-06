@@ -11,6 +11,7 @@ public class IncomingActivity extends AppCompatActivity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.incoming_content);
+        //L'activité qui devrait afficher les requêtes entrantes
 
     }
 }

@@ -25,6 +25,7 @@ public class Calendar_activity extends AppCompatActivity {
         initializeCalendar();
     }
 
+    //Initialiser le calendrier
     public void initializeCalendar() {
         calendar = (CalendarView) findViewById(R.id.calendar);
 
@@ -37,6 +38,7 @@ public class Calendar_activity extends AppCompatActivity {
 
 
 
+        //Créer un listener qui écoute les changements faits par l'utilisateur
         //sets the listener to be notified upon selected date change.
         calendar.setOnDateChangeListener(new OnDateChangeListener() {
             //show the selected date as a toast

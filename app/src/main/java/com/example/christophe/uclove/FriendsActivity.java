@@ -46,6 +46,7 @@ public class FriendsActivity extends AppCompatActivity{
 
         List<String> addlist = new ArrayList<>();
         //String[] name = {};
+        //Récupérer la liste d'amis de la base de données
         DatabaseHandler2 db = new DatabaseHandler2(this);
         addlist = db.getFriendList(CurrentUser.current_user);
 
@@ -59,9 +60,11 @@ public class FriendsActivity extends AppCompatActivity{
 
 
 
+        //Afficher la liste dans l'activité
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, addlist);
         liste.setAdapter(adapter);
 
+        //ALler voir les informations de l'ami
         final List<String> finalAddlist = addlist;
         liste.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -79,6 +82,7 @@ public class FriendsActivity extends AppCompatActivity{
         });
 
 
+        //Retourner au Login
         friends = (TextView) findViewById(R.id.textView);
         friends.setOnTouchListener(new View.OnTouchListener() {
             @Override

@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_main);
 //        currentSelection = (TextView) findViewById(R.id.current_selection);
+
+        //Afficher le boutton ENTRER AU PARADIS
         selectItemButton = (Button) findViewById(R.id.button_enter);
         selectItemButton.setOnClickListener(new View.OnClickListener(){
             @Override

@@ -28,6 +28,7 @@ public class AddChatActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.newChaters);
         nonChat = new ArrayList<>();
         //String[] name = {};
+        //Récupérer amis sans conversation en cours de la BD
         DatabaseHandler2 db = new DatabaseHandler2(this);
 
 
@@ -42,6 +43,7 @@ public class AddChatActivity extends AppCompatActivity {
         }
         db.closeDB();
 
+        //Afficher la liste
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, nonChat);
         listView.setAdapter(adapter);
 

@@ -25,6 +25,7 @@ import java.lang.String;
 /**
  * Created by antoine on 06/05/16.
  */
+
 public class rdv_activity extends AppCompatActivity {
     String year;
     String month;
@@ -41,6 +42,7 @@ public class rdv_activity extends AppCompatActivity {
         liste = (ListView) findViewById(R.id.rdv_list);
 
 
+        //Recevoir les extras de l'intent
         Bundle extras = getIntent().getExtras();
         if(extras != null)
         {
@@ -48,6 +50,8 @@ public class rdv_activity extends AppCompatActivity {
             month = extras.getString("month");
             day = extras.getString("day");
         }
+
+        //Recevoir les RDV de la BD
         DatabaseHandler2 db = new DatabaseHandler2(rdv_activity.this);
         List<RDV> rdv = db.getRDV(current);
         System.out.println("fin db");
@@ -88,6 +92,8 @@ public class rdv_activity extends AppCompatActivity {
 
             db.closeDB();
             System.out.println("Test2");
+
+            //Afficher le RDV comme liste
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, rdv_string);
             liste.setAdapter(adapter);
         }

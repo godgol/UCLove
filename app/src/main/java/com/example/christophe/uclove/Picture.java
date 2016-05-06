@@ -4,17 +4,21 @@ package com.example.christophe.uclove;
  * Created by antoine on 02/05/16.
  */
 
+//Classe UML
 public class Picture {
     public String I_D;
     public String File;
     public boolean Profile;
 
+    //Constructeur
     public Picture (String I_D, String File, boolean Profile){
 
         this.I_D= I_D;
         this.File = File;
         this.Profile = Profile;
     }
+
+    //Getters et Setters
     public String getI_D(){return this.I_D;}
 
     public void setI_D(String newi){

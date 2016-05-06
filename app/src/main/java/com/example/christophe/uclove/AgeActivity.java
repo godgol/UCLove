@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.content.Intent;
 import android.widget.Toast;
 import android.widget.EditText;
-public class AgeActivity extends Activity{
+public class AgeActivity extends AppCompatActivity{
     public EditText age;
     public Button ageOk;
     public String login = CurrentUser.current_user;
@@ -22,6 +22,7 @@ public class AgeActivity extends Activity{
         age = (EditText) findViewById(R.id.age);
         ageOk = (Button) findViewById(R.id.ageOk);
 
+        //Boutton valider age
         ageOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {

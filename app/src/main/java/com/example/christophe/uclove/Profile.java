@@ -11,6 +11,8 @@ import java.util.ListIterator;
 /*
  * Created by Christophe on 27.04.2016.
  */
+
+//Classe UML
 public class Profile {
 
     //protected variables

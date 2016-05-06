@@ -3,6 +3,7 @@ package com.example.christophe.uclove;
 import java.lang.String;
 import java.util.Date;
 
+//Classe UML
 /**
  * Created by Guillaume on 01-05-16.
  * Modified by Thomas on 04-05-2016.
@@ -14,6 +15,7 @@ public class Message {
     private String sender;
     private String receiver;
 
+    //Constructeur vide et complet
     public Message()
     {
 
@@ -27,6 +29,7 @@ public class Message {
 
     }
 
+    //Getters et Setters
     public String getMessage() {
         return message;
     }

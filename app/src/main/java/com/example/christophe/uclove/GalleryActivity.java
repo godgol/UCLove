@@ -29,6 +29,7 @@ public class GalleryActivity extends AppCompatActivity {
         Gallery gal = (Gallery) findViewById(R.id.gallery);
         gal.setAdapter(new ImageAdapter(this));
 
+        //Recevoir des informations du boolean ProfileBinary
         profilePic = (ImageView)findViewById(R.id.profilePic);
         gal.setOnItemClickListener(new OnItemClickListener() {
 
@@ -42,6 +43,7 @@ public class GalleryActivity extends AppCompatActivity {
     }
 
 
+    //Gallery photo dynamique
     public class ImageAdapter extends BaseAdapter {
 
         private Context ctx;

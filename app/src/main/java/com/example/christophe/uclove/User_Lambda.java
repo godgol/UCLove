@@ -19,15 +19,18 @@ import android.app.ListActivity;
         /**
  * Created by Guillaume on 29-04-16.
  */
+        //Classe UML
 public class User_Lambda extends Profile{
 
 public boolean Denied;
 
+            //Constructeur
  public User_Lambda (String log, String FN, String name, int age, String gender, String hair,
                      String eyes, String location, String preferences, String pw, String languages)
  {
         super(log,FN,name,age,gender,hair,eyes,location,preferences,pw,languages);
         this.Denied = false;
  }
+            //Méthode pour deny le user
  public void Deny(){this.Denied = true;}
  }

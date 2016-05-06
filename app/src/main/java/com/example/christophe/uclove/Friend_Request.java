@@ -1,16 +1,19 @@
 package com.example.christophe.uclove;
 
+//Classe UML
 public class Friend_Request {
     public String sender;
     public String receiver;
     public String etat;
 
+    //Constructeur
     public Friend_Request(String sender, String receiver, String etat){
         this.sender = sender;
         this.receiver = receiver;
         this.etat = etat;
     }
 
+    //Getters and Setters
     public void setSender(String sender) {
         this.sender = sender;
     }

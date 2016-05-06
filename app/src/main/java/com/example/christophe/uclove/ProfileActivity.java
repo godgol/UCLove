@@ -12,6 +12,8 @@ import android.widget.RadioGroup;
 import android.content.Intent;
 import android.widget.TextView;
 
+//Modifier les informations personnelles de l'utilisateur
+
 
 public class ProfileActivity extends AppCompatActivity{
     public RadioGroup groupGender;
@@ -49,6 +51,8 @@ public class ProfileActivity extends AppCompatActivity{
         firstName = (TextView) findViewById(R.id.firstName);
         name = (TextView) findViewById(R.id.name);
 
+        //Récupérer les informations personnelles
+        //Modifier les TextView et RadioBoutton en fonction de ces informations
         DatabaseHandler2 db = new DatabaseHandler2(ProfileActivity.this);
 
         String gen = db.readGender(login);
@@ -98,6 +102,8 @@ public class ProfileActivity extends AppCompatActivity{
         name.setText(db.readFamilyName(login));
 
         db.closeDB();
+
+        //Listeners qui permettent de modifier la base de données lorsqu'on change l'information
         groupGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId){

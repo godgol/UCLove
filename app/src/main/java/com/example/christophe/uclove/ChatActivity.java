@@ -32,6 +32,8 @@ public class ChatActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chat_main);
+
+        //Récupérer les messages de la BD
         DatabaseHandler2 mDB = new DatabaseHandler2(this);
 
         listView = (ListView)findViewById(R.id.ListView);
@@ -52,6 +54,7 @@ public class ChatActivity extends AppCompatActivity {
             mDB.closeDB();
         }
 
+        //Afficher les messages
         if (messages != null) {
 
         /*for(int i = 0; i<messages.size(); i++){
@@ -65,11 +68,12 @@ public class ChatActivity extends AppCompatActivity {
             listView.setAdapter(messageAdapter);
         }
 
+        //EditText pour envoyer les messages et les stocker dans la BD
         final EditText editMessage = (EditText)findViewById(R.id.chat);
         Button send = (Button)findViewById(R.id.btn);
         send.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //Click pour envoyer le message
                 String msg = editMessage.getText().toString();
                 String date = new SimpleDateFormat("HH:mm").format(Calendar.getInstance().getTime());
                 Message m = new Message(date, msg, CurrentUser.current_chat, CurrentUser.current_user);

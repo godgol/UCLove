@@ -23,6 +23,7 @@ import android.widget.ListView;
  * Created by thomas on 03/05/16.
  * modified
  */
+//Activité qui permet de choisir entre les conversations avec les amis
 public class MsgChooseFriend extends AppCompatActivity{
     ListView liste = null;
     public List<String> addlist;
@@ -46,6 +47,7 @@ public class MsgChooseFriend extends AppCompatActivity{
 
         addlist = new ArrayList<>();
         //String[] name = {};
+        //Récupérer la liste d'amis avec lequels l'utilisateur a déjà eu une conversations.
         DatabaseHandler2 db = new DatabaseHandler2(this);
 
 
@@ -67,6 +69,7 @@ public class MsgChooseFriend extends AppCompatActivity{
 
         db.closeDB();
 
+        //Afficher cette liste
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, addlist);
         liste.setAdapter(adapter);
 
@@ -84,6 +87,7 @@ public class MsgChooseFriend extends AppCompatActivity{
         });
 
 
+        //Boutton qui permet de lancer une nouvelle conversation avec des amis
         addChat = (ImageButton) findViewById(R.id.newChat);
         addChat.setOnTouchListener(new View.OnTouchListener() {
             @Override

@@ -12,5 +12,8 @@ public class OutgoingActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.outgoing_content);
 
+        //cette classe était prévu pour afficher toutes les requêtes sortantes de l'utilisateur, c.à.d.
+        //toutes les requêtes qu'il a envoyé en likant un utilisateur dans l'Activité People
+
     }
 }
