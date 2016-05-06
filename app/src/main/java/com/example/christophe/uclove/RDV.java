@@ -6,16 +6,18 @@ public class RDV {
     public String sender;
     public String receiver;
     public String etat;
+    public String location;
 
     public RDV(){
 
     }
 
-    public  RDV (String date, String sender, String receiver, String etat){
+    public  RDV (String date, String sender, String receiver, String etat, String location){
         this.date = date;
         this.sender = sender;
         this.receiver = receiver;
         this.etat = etat;
+        this.location = location;
     }
 
     public String getEtat() {
@@ -48,6 +50,14 @@ public class RDV {
 
     public void setSender(String sender) {
         this.sender = sender;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
 }
