@@ -47,11 +47,10 @@ public class ChatActivity extends AppCompatActivity {
                 messages.add(msgList.get(i).getSender() + ": " + msgList.get(i).getMessage());
 
             }
+
+
+            mDB.closeDB();
         }
-
-
-
-        mDB.closeDB();
 
         if (messages != null) {
 
