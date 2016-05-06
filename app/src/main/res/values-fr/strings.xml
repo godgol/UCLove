@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
+
     <resources>
         <string name="app_name">UCLove</string>
         <string name="hello_world">Hello World!</string>
@@ -78,4 +77,3 @@
         <string name="rdv_activity">RDV</string>
 
     </resources>
-</resources>
