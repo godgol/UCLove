@@ -26,15 +26,14 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Date :"
-            android:paddingTop="20px"
             android:paddingRight="20px"
+            android:paddingTop="20px"
+            android:paddingLeft="20px"
             />
         <DatePicker
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
             android:startYear="2016"
             android:endYear="2032"
             android:paddingTop="20px"
@@ -56,23 +55,19 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/time"
-            android:paddingTop="20px"
-            android:paddingRight="20px"
             />
-        <TimePicker
+        <EditText
             android:id="@+id/time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:paddingTop="20px"
+            android:hint="@string/t"
+            android:inputType="text"
             />
         <Button
             android:id="@+id/okTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ok"
-            android:paddingTop="20px"
             />
     </LinearLayout>
     <LinearLayout
@@ -86,22 +81,13 @@
             android:layout_height="wrap_content"
             android:text="Ok"
             android:paddingLeft="20px"
-            android:paddingTop="20px"
             />
         <EditText
             android:id="@+id/place"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:hint="@string/place"
-            android:paddingTop="20px"
             android:inputType="text"
             />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-
     </LinearLayout>
 </LinearLayout>

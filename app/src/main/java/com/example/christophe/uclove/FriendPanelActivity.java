@@ -38,7 +38,7 @@ public class FriendPanelActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_friendpanel);
-        rdv=(Button)findViewById(rdv);
+        rdv=(Button)findViewById(R.id.rdv);
         Bundle extras = getIntent().getExtras();
         if(extras!=null)
         {

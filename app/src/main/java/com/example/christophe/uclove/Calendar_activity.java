@@ -1,5 +1,6 @@
 package com.example.christophe.uclove;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.CalendarView;
@@ -42,6 +43,11 @@ public class Calendar_activity extends AppCompatActivity {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int day) {
                 Toast.makeText(getApplicationContext(), day + "/" + month + "/" + year, Toast.LENGTH_LONG).show();
+                Intent i = new Intent(Calendar_activity.this,rdv_activity.class);
+                i.putExtra("year", year);
+                i.putExtra("month", month);
+                i.putExtra("day", day);
+                startActivity(i);
             }
         });
     }

@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.DatePicker;
-import android.widget.TimePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.content.Intent;
@@ -19,7 +18,7 @@ public class RDVActivity extends AppCompatActivity{
     public Button validate;
     public DatePicker date;
     public Button okDate;
-    public TimePicker time;
+    public EditText time;
     public Button okTime;
     public Button placeOk;
     public EditText place;
@@ -32,8 +31,7 @@ public class RDVActivity extends AppCompatActivity{
     private String day;
     private String month;
     private String year;
-    private String hour;
-    private String minute;
+    private String t;
     private String loc;
     String friend;
 
@@ -46,7 +44,7 @@ public class RDVActivity extends AppCompatActivity{
         validate = (Button)findViewById(R.id.validate);
         date = (DatePicker) findViewById(R.id.date);
         okDate = (Button)findViewById(R.id.okDate);
-        time = (TimePicker) findViewById(R.id.time);
+        time = (EditText) findViewById(R.id.time);
         okTime = (Button) findViewById(R.id.okTime);
         placeOk = (Button) findViewById(R.id.placeOk);
         place = (EditText)findViewById(R.id.place);
@@ -67,10 +65,7 @@ public class RDVActivity extends AppCompatActivity{
         okTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                int h = time.getHour();
-                hour = Integer.toString(h);
-                int m = time.getMinute();
-                minute = Integer.toString(m);
+                t = time.getText().toString();
                 timeChecked = true;
             }
         });
@@ -86,15 +81,16 @@ public class RDVActivity extends AppCompatActivity{
         validate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                if(dateChecked==true && timeChecked==true && placeChecked==true){ // si l'utilisateur a fourni toutes les infos necessaires
+                if(dateChecked && timeChecked && placeChecked){ // si l'utilisateur a fourni toutes les infos necessaires
+                    Bundle extras = getIntent().getExtras();
                     friend = extras.getString("friend");
                     RDV rdv = new RDV();
                     rdv.setSender(login);
                     rdv.setReceiver(friend);
-                    rdv.setDate(year + "-" + month + "-" + day + " " + hour + ":" + minute);
+                    rdv.setDate(year + "-" + month + "-" + day + " " + t);
                     rdv.setEtat("true");
                     rdv.setLocation(loc);
-                    DataBaseHandler2 db = new DataBaseHandler2(RDVActivity.this);
+                    DatabaseHandler2 db = new DatabaseHandler2(RDVActivity.this);
                     db.createRDV(rdv);
                     db.closeDB();
                 }
