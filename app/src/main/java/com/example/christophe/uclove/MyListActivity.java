@@ -61,6 +61,7 @@ public class MyListActivity  extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_UP) {
+                    profile.setBackgroundColor(getResources().getColor(R.color.white));
                     System.out.println("TestList2");
                     Intent intent = new Intent(MyListActivity.this, ProfileActivity.class);
                     startActivity(intent);
@@ -78,6 +79,7 @@ public class MyListActivity  extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_UP) {
+                    messages.setBackgroundColor(getResources().getColor(R.color.white));
                     System.out.println("TestList2");
                     Intent intent = new Intent(MyListActivity.this, MsgChooseFriend.class);
                     startActivity(intent);
@@ -95,6 +97,7 @@ public class MyListActivity  extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent  event) {
                 if (event.getAction() == MotionEvent.ACTION_UP) {
+                    people.setBackgroundColor(getResources().getColor(R.color.white));
                     people.setBackgroundColor(getResources().getColor(R.color.lightred));
                     Intent i = new Intent(MyListActivity.this, PeopleActivity.class);
                     startActivity(i);
@@ -111,6 +114,7 @@ public class MyListActivity  extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent  event) {
                 if (event.getAction() == MotionEvent.ACTION_UP) {
+                    friends.setBackgroundColor(getResources().getColor(R.color.white));
                     Intent i = new Intent(MyListActivity.this, FriendsActivity.class);
                     startActivity(i);
                     return true;
@@ -126,6 +130,7 @@ public class MyListActivity  extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent  event) {
                 if (event.getAction() == MotionEvent.ACTION_UP) {
+                    meet.setBackgroundColor(getResources().getColor(R.color.white));
                     Intent i = new Intent(MyListActivity.this, Calendar_activity.class);
                     startActivity(i);
                     return true;
