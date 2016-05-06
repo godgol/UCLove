@@ -85,7 +85,8 @@ public class PeopleActivity extends AppCompatActivity {
 
                     db2.closeDB();
                 } else {
-                    changeUserLamda(login);
+                    i = i + 1;
+                    login = array.get(i);
                 }
                 return true;
             }
@@ -98,7 +99,8 @@ public class PeopleActivity extends AppCompatActivity {
 
                 db3.createRequest(current,login);
 
-                changeUserLamda(login);
+                i = i + 1;
+                login = array.get(i);
 
                 log.setText(login);
                 loc.setText(db3.readLocation(login));
@@ -113,13 +115,4 @@ public class PeopleActivity extends AppCompatActivity {
         });
     }
 
-    public void changeUserLamda(String login){
-        i = i + 1;
-        login = array.get(i);
-    }
-
-
-
-
-    }
 }
