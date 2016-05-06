@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.content.Intent;
 import android.app.Activity;
@@ -25,7 +26,7 @@ import android.widget.ListView;
 public class MsgChooseFriend extends AppCompatActivity{
     ListView liste = null;
     public List<String> addlist;
-    TextView friends;
+    ImageButton addChat;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,19 +84,20 @@ public class MsgChooseFriend extends AppCompatActivity{
         });
 
 
-        friends = (TextView) findViewById(R.id.textView);
-        friends.setOnTouchListener(new View.OnTouchListener() {
+        addChat = (ImageButton) findViewById(R.id.newChat);
+        addChat.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_UP) {
-                    Intent i2 = new Intent(MsgChooseFriend.this, LoginActivity.class);
+                    Intent i2 = new Intent(MsgChooseFriend.this, AddChatActivity.class);
                     startActivity(i2);
                     return true;
                 } else {
-                    friends.setBackgroundColor(getResources().getColor(R.color.lightred));
+                    addChat.setBackgroundColor(getResources().getColor(R.color.lightred));
                 }
                 return false;
             }
         });
+
     }
 }

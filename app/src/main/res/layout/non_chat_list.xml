@@ -4,22 +4,11 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <ImageButton
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginBottom="20dp"
-        android:id="@+id/newChat"
-        android:src="@drawable/user_plus"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:clickable="true"
-
-        />
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/friendList"
+        android:id="@+id/newChaters"
         android:textSize="22sp"
         android:clickable="true"
         android:scrollbars="vertical"

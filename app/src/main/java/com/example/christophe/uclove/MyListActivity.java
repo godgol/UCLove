@@ -62,7 +62,7 @@ public class MyListActivity  extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_UP) {
                     System.out.println("TestList2");
-                    Intent intent = new Intent(MyListActivity.this, LoginActivity.class);
+                    Intent intent = new Intent(MyListActivity.this, ProfileActivity.class);
                     startActivity(intent);
                     System.out.println("TestList3");
                     return true;
@@ -126,7 +126,7 @@ public class MyListActivity  extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent  event) {
                 if (event.getAction() == MotionEvent.ACTION_UP) {
-                    Intent i = new Intent(MyListActivity.this, ProfileActivity.class);
+                    Intent i = new Intent(MyListActivity.this, Calendar_activity.class);
                     startActivity(i);
                     return true;
                 }
@@ -137,7 +137,7 @@ public class MyListActivity  extends AppCompatActivity {
             }
         });
 
-        preferences.setOnTouchListener(new View.OnTouchListener() {
+        /*preferences.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 DatabaseHandler2 db2 = new DatabaseHandler2(MyListActivity.this);
@@ -149,7 +149,7 @@ public class MyListActivity  extends AppCompatActivity {
                     login = update.getLogin();
                     if(login.equals("PaulDuChateau")) {
                         System.out.println("lol3");
-                        Intent intent2 = new Intent(MyListActivity.this, LoginActivity.class);
+                        Intent intent2 = new Intent(MyListActivity.this, .class);
                         startActivity(intent2);
                         System.out.println("lol4");
                     }
@@ -161,6 +161,7 @@ public class MyListActivity  extends AppCompatActivity {
                 return false;
             }
         });
+        */
     }
 }
 
