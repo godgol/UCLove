@@ -102,9 +102,9 @@
         android:paddingLeft="20px">
         <ImageView
             android:layout_width="550px"
-            android:layout_height="wrap_content"
+            android:layout_height="350px"
             android:layout_below="@id/lol3"
-            android:src="@drawable/firendpic"
+            android:src="@drawable/basicpic"
             android:layout_centerHorizontal="true"
             android:id="@+id/lol4"
             android:paddingLeft="50px"/>
