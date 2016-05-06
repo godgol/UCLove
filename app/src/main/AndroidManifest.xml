@@ -82,7 +82,25 @@
             android:name=".Calendar_activity"
             android:label="@string/calendar_activity">
         </activity>
+        <activity
+            android:name=".RequestActivity"
+            android:label="@string/request_activity">
+        </activity>
 
+        <activity
+            android:name=".IncomingActivity"
+            android:label="@string/incoming_activity">
+        </activity>
+
+        <activity
+            android:name=".OutgoingActivity"
+            android:label="@string/outgoing_activity">
+        </activity>
+
+        <activity
+            android:name=".RDVActivity"
+            android:label="@string/rdvactivity">
+        </activity>
 
     </application>
 

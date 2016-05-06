@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/requestlist"
+        android:textSize="22dp"
+        android:clickable="true"/>
+    <ImageButton
+        android:layout_width="150px"
+        android:layout_height="150px"
+        android:id="@+id/requestback"
+        android:src="@drawable/ic_action_undo"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:clickable="true"/>
+
+</RelativeLayout>
