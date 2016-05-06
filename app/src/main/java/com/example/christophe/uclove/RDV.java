@@ -19,6 +19,7 @@ public class RDV {
         this.etat = etat;
         this.location = location;
     }
+    public String toString(){return "Rendez vous avec " + this.receiver + "le" + this.date;}
 
     public String getEtat() {
         return etat;

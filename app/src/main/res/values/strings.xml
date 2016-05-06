@@ -64,4 +64,8 @@
     <string name="name">Pseudo</string>
     <string name="rdv">Rendez-vous</string>
     <string name="calendar_activity">Calendrier</string>
+    <string name="rdv_activity">Rendez vous</string>
+    <string name="validate">Valider</string>
+    <string name="time">Temps</string>
+    <string name="place">Lieu</string>
 </resources>
