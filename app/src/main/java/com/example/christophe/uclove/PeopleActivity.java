@@ -9,6 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +19,8 @@ import java.util.List;
  */
 public class PeopleActivity extends AppCompatActivity {
 
-    public String login = CurrentUser.current_user;
-    //public String login = "Jojelavida";
+    public String current = CurrentUser.current_user;
+    public String login;
     public TextView log;
     public TextView gen;
     public TextView h;
@@ -28,7 +29,7 @@ public class PeopleActivity extends AppCompatActivity {
     public TextView ey;
     public TextView pre;
     public ImageButton random;
-    ImageButton next;
+    public ImageButton next;
     int i = 0;
     List<String> array = new ArrayList<>();
 
@@ -48,7 +49,7 @@ public class PeopleActivity extends AppCompatActivity {
 
         DatabaseHandler2 db = new DatabaseHandler2(PeopleActivity.this);
 
-        array = db.getNonFriendList(login);
+        array = db.getNonFriendList(current);
 
         login = array.get(i);
 
@@ -62,7 +63,7 @@ public class PeopleActivity extends AppCompatActivity {
 
         db.closeDB();
 
-        //TODO Button ne marche pas
+        //TODO Button ne marche qu'une seule fois
         next = (ImageButton) findViewById(R.id.next);
         next.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -81,8 +82,13 @@ public class PeopleActivity extends AppCompatActivity {
                     db2.closeDB();
                 }
                 else{
-                    i = i + 1;
-                    login = array.get(i);
+                    //if(array.size()-i>0) {
+                        i = i + 1;
+                        login = array.get(i);
+                    /*}
+                    else{
+                        Toast.makeText(PeopleActivity.this, "No more people left!", Toast.LENGTH_SHORT).show();
+                    }*/
                 }
                 return true;
             }
