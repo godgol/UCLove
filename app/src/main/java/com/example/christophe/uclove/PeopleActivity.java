@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,17 +30,18 @@ public class PeopleActivity extends AppCompatActivity {
     public TextView ey;
     public TextView pre;
     public ImageButton random;
-    public ImageButton next;
-    public ImageButton like;
-    public ImageButton nolike;
+    public ImageView like;
+    public ImageView nolike;
     int i = 0;
     List<String> array = new ArrayList<>();
+    //List<String> arrayDeleted = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.people_content);
 
+        //initialiser les TextView et les ImageButton
         gen = (TextView) findViewById(R.id.gender);
         h = (TextView) findViewById(R.id.hair);
         loc = (TextView) findViewById(R.id.location);
@@ -48,12 +50,26 @@ public class PeopleActivity extends AppCompatActivity {
         pre = (TextView) findViewById(R.id.preferences);
         log = (TextView) findViewById(R.id.profile);
         random = (ImageButton) findViewById(R.id.random);
-        like = (ImageButton) findViewById(R.id.like);
-        nolike = (ImageButton) findViewById(R.id.nolike);
+        like = (ImageView) findViewById(R.id.like);
+        nolike = (ImageView) findViewById(R.id.nolike);
 
         DatabaseHandler2 db = new DatabaseHandler2(PeopleActivity.this);
 
+        System.out.println("TEst");
         array = db.getNonFriendList(current);
+
+        /* Ce bout de code permettrait de supprimer tous les non-amis qui ont déjà recu une
+        requête auparavant qui a été denied.
+        //Déselectionner ceux qui ont l'état Request None
+        for(int j = 0; j<array.size(); j++){
+            if(db.getEtatRequest(current,array.get(j)).equals("None")){
+                arrayDeleted.add(array.get(j));
+                System.out.println("TEst"+j);
+            }
+        }
+        System.out.println("TEst après");*/
+
+        //Adapter les Textview pour le premier user non amis du current user.
 
         login = array.get(i);
 
@@ -67,37 +83,36 @@ public class PeopleActivity extends AppCompatActivity {
 
         db.closeDB();
 
-        //TODO Button ne marche qu'une seule fois
-        next = (ImageButton) findViewById(R.id.next);
-        next.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_UP) {
-                    DatabaseHandler2 db2 = new DatabaseHandler2(PeopleActivity.this);
-
-                    log.setText(login);
-                    loc.setText(db2.readLocation(login));
-                    gen.setText(db2.readGender(login));
-                    h.setText(db2.readHair(login));
-                    ag.setText(String.valueOf(db2.readAge(login)));
-                    ey.setText(db2.readEyes(login));
-                    pre.setText(db2.readPreferences(login));
-
-                    db2.closeDB();
-                } else {
-                    i = i + 1;
-                    login = array.get(i);
-                }
-                return true;
-            }
-        });
-
+        //Envoyer une requête et créer celle-ci dans la BD et passer à l'utilisateur suivant.
         like.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DatabaseHandler2 db3 = new DatabaseHandler2(PeopleActivity.this);
 
-                db3.createRequest(current,login);
+                db3.createRequest(current, login, "true");
+
+                i = i + 1;
+                login = array.get(i);
+
+                log.setText(login);
+                loc.setText(db3.readLocation(login));
+                gen.setText(db3.readGender(login));
+                h.setText(db3.readHair(login));
+                ag.setText(String.valueOf(db3.readAge(login)));
+                ey.setText(db3.readEyes(login));
+                pre.setText(db3.readPreferences(login));
+
+                db3.closeDB();
+            }
+        });
+
+        //Deny le user et mettre l'état de la requête à FALSE--Ensuite passer au prochain user.
+        nolike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseHandler2 db3 = new DatabaseHandler2(PeopleActivity.this);
+
+                db3.createRequest(current,login,"false");
 
                 i = i + 1;
                 login = array.get(i);
