@@ -644,11 +644,11 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         return empty;
     }
 
-    public List<String> getAllLogins(){
+    public List<String> getAllLogins(String login){
         SQLiteDatabase db = this.getReadableDatabase();
 
         List<String> list = new ArrayList<>();
-        Cursor c = db.query("Profile", new String[]{"Login"}, null, null, null, null, null, null); //Get all Logins
+        Cursor c = db.query("Profile", new String[]{"Login"}, "Login !=?", new String[] {login}, null, null, null, null); //Get all Logins but ours
 
         int i = 0;
         if (c != null)
@@ -668,7 +668,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getReadableDatabase();
 
         List<String> nonFriends = new ArrayList<>();
-        List<String> logs = getAllLogins();
+        List<String> logs = getAllLogins(login);
         List<String> friends = getFriendList(login);
 
        for(int j = 0; j<logs.size(); j++){
