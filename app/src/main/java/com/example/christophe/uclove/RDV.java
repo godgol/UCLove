@@ -2,11 +2,16 @@ package com.example.christophe.uclove;
 import java.security.Timestamp;
 
 public class RDV {
-    public Timestamp date;
+    public String date;
     public String sender;
     public String receiver;
     public String etat;
-    public  RDV (Timestamp date, String sender, String receiver, String etat){
+
+    public RDV(){
+
+    }
+
+    public  RDV (String date, String sender, String receiver, String etat){
         this.date = date;
         this.sender = sender;
         this.receiver = receiver;
@@ -25,11 +30,11 @@ public class RDV {
         return sender;
     }
 
-    public Timestamp getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Timestamp date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
