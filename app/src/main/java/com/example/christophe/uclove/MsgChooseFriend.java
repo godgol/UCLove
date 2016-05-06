@@ -53,7 +53,7 @@ public class MsgChooseFriend extends AppCompatActivity{
 
         for (int i = 0; i<addlist.size();i++){
 
-            if (!db.FriendWithMsg(CurrentUser.current_user, addlist.get(i)) ){
+            if (db.FriendWithMsg(CurrentUser.current_user, addlist.get(i)) ){
 
                 addlist.remove(i);
             }
