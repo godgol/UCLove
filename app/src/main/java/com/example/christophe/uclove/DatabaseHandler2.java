@@ -137,7 +137,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
 
         //Populating Profile table
         db.execSQL("INSERT INTO Profile VALUES(\"Jojelavida\",\"Joje\",\"Lavida\",\"24\",\"Male\",\"Black\",\"\",\"Madrid\",\"Hetero\",\"azerty54\",\"Spanish\");");
-        db.execSQL("INSERT INTO Profile VALUES(\"PaulDuChateu\",\"DuChateau\",\"Paul\",\"32\",\"Male\",\"Brown\",\"Blue\",\"Berlin\",\"Hetero\",\"azerty\",\"German\");");
+        db.execSQL("INSERT INTO Profile VALUES(\"PaulDuChateau\",\"DuChateau\",\"Paul\",\"32\",\"Male\",\"Brown\",\"Blue\",\"Berlin\",\"Hetero\",\"azerty\",\"German\");");
         db.execSQL("INSERT INTO Profile VALUES(\"vladimirkorsacof\",\"Vladimir\",\"Korsacof\",\"52\",\"Male\",\"Gray\",\"Brown\",\"\",\"Homo\",\"mdpsupergénial\",\"Russian\");");
         db.execSQL("INSERT INTO Profile VALUES(\"katesmith\",\"Kate\",\"Smith\",\"25\",\"Female\",\"Blonde\",\"Blue\",\"London\",\"Hetero\",\"onetwothreefourfive\",\"English\");");
         db.execSQL("INSERT INTO Profile VALUES(\"athenazeus\",\"Zeus\",\"Athena\",\"62\",\"Female\",\"Black\",\"Brown\",\"Athena\",\"Hetero\",\"onetwothreefourfivesixseveneight\",\"English\");");
@@ -149,7 +149,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         db.execSQL("INSERT INTO Profile VALUES(\"l\",\"Organa\",\"Leia\",\"25\",\"Female\",\"Brown\",\"Brown\",\"Casablanca\",\"Hetero\",\"l\",\"English\");");
 
         //Populating the FriendList Table
-        db.execSQL("INSERT INTO FriendList VALUES (\"PaulDuChateu\",\"beth\");");
+        db.execSQL("INSERT INTO FriendList VALUES (\"PaulDuChateau\",\"beth\");");
         db.execSQL("INSERT INTO FriendList VALUES (\"Jojelavida\",\"foreverrebel\");");
         db.execSQL("INSERT INTO FriendLIst VALUES (\"loladu93\",\"Jojelavida\");");
         db.execSQL("INSERT INTO FriendList VALUES (\"katesmith\",\"sisterlover\");");
@@ -158,23 +158,23 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         db.execSQL("INSERT INTO FriendList VALUES (\"Jojelavida\",\"katesmith\");");
 
         //Populating the RequestList Table
-        db.execSQL("INSERT INTO RequestList VALUES (\"PaulDuChateu\",\"beth\",\"True\");");
-        db.execSQL("INSERT INTO RequestList VALUES (\"PaulDuChateu\",\"obamanation\",\"False\");");
+        db.execSQL("INSERT INTO RequestList VALUES (\"PaulDuChateau\",\"beth\",\"True\");");
+        db.execSQL("INSERT INTO RequestList VALUES (\"PaulDuChateau\",\"obamanation\",\"False\");");
         db.execSQL("INSERT INTO RequestList VALUES (\"Jojelavida\",\"beth\",\"False\");");
         db.execSQL("INSERT INTO RequestList VALUES (\"Jojelavida\",\"foreverrebel\",\"True\");");
-        db.execSQL("INSERT INTO RequestList VALUES (\"katesmith\",\"PaulDuChateu\",\"False\");");
+        db.execSQL("INSERT INTO RequestList VALUES (\"katesmith\",\"PaulDuChateau\",\"False\");");
         db.execSQL("INSERT INTO RequestList VALUES (\"loladu93\",\"Jojelavida\",\"True\");");
         db.execSQL("INSERT INTO RequestList VALUES (\"beth\",\"obamanation\",\"True\");");
         db.execSQL("INSERT INTO RequestList VALUES (\"athenazeus\",\"sisterlover\",\"True\");");
         db.execSQL("INSERT INTO RequestList VALUES (\"Jojelavida\",\"katesmith\",\"True\");");
-        db.execSQL("INSERT INTO RequestList VALUES (\"PaulDuChateu\",\"vladimirkorsacof\",\"False\");");
+        db.execSQL("INSERT INTO RequestList VALUES (\"PaulDuChateau\",\"vladimirkorsacof\",\"False\");");
         db.execSQL("INSERT INTO RequestList VALUES (\"beth\",\"vladimirkorsacof\",\"False\");");
         db.execSQL("INSERT INTO RequestList VALUES (\"loladu93\",\"vladimirkorsacof\",\"False\");");
 
         //Populating the Calendar Table
-        db.execSQL("INSERT INTO Calendar VALUES (\"PaulDuChateu\",\"2016-03-25 12:00\");");
-        db.execSQL("INSERT INTO Calendar VALUES (\"PaulDuChateu\",\"2016-04-15 15:00\");");
-        db.execSQL("INSERT INTO Calendar VALUES (\"PaulDuChateu\",\"2016-03-26 21:00\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"PaulDuChateau\",\"2016-03-25 12:00\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"PaulDuChateau\",\"2016-04-15 15:00\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"PaulDuChateau\",\"2016-03-26 21:00\");");
         db.execSQL("INSERT INTO Calendar VALUES (\"beth\",\"2016-03-26 21:00\");");
         db.execSQL("INSERT INTO Calendar VALUES (\"beth\",\"2016-03-27 15:00\");");
         db.execSQL("INSERT INTO Calendar VALUES (\"Jojelavida\",\"2016-05-15 16:00\");");
@@ -185,9 +185,9 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         db.execSQL("INSERT INTO Calendar VALUES (\"sisterlover\",\"2016-05-24 16:00\");");
 
         //Populating the Gallery Table
-        db.execSQL("INSERT INTO Gallery VALUES (\"PaulDuChateu\",\"01-0001\",\"TRUE\");");
-        db.execSQL("INSERT INTO Gallery VALUES (\"PaulDuChateu\",\"01-0002\",\"FALSE\");");
-        db.execSQL("INSERT INTO Gallery VALUES (\"PaulDuChateu\",\"01-0003\",\"FALSE\");");
+        db.execSQL("INSERT INTO Gallery VALUES (\"PaulDuChateau\",\"01-0001\",\"TRUE\");");
+        db.execSQL("INSERT INTO Gallery VALUES (\"PaulDuChateau\",\"01-0002\",\"FALSE\");");
+        db.execSQL("INSERT INTO Gallery VALUES (\"PaulDuChateau\",\"01-0003\",\"FALSE\");");
         db.execSQL("INSERT INTO Gallery VALUES (\"Jojelavida\",\"02-0001\",\"FALSE\");");
         db.execSQL("INSERT INTO Gallery VALUES (\"Jojelavida\",\"02-0002\",\"TRUE\");");
         db.execSQL("INSERT INTO Gallery VALUES (\"Jojelavida\",\"02-0003\",\"FALSE\");");
@@ -195,7 +195,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         db.execSQL("INSERT INTO Gallery VALUES (\"foreverrebel\",\"10-0002\",\"FALSE\");");
 
         //Popluating the Chat Table*/
-        db.execSQL("INSERT INTO Chat VALUES (\"PaulDuChateu\",\"beth\",\"Hey Beth! Montre tes fesses.\",\"09:00\");");
+        db.execSQL("INSERT INTO Chat VALUES (\"PaulDuChateau\",\"beth\",\"Hey Beth! Montre tes fesses.\",\"09:00\");");
         db.execSQL("INSERT INTO Chat VALUES (\"beth\",\"PaulDuChateau\",\"Hey Paul! Non...J'ai 86 ans.\",\"09:30\");");
         db.execSQL("INSERT INTO Chat VALUES (\"Jojelavida\",\"foreverrebel\",\"HI\",\"23:32\");");
         db.execSQL("INSERT INTO Chat VALUES (\"Jojelavida\",\"foreverrebel\",\"HI?\",\"23:32\");");
@@ -204,7 +204,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         db.execSQL("INSERT INTO Chat VALUES (\"Jojelavida\",\"foreverrebel\",\"Boyfriend?\",\"23:35\");");
 
         //Populating the Rendezvous Table
-        db.execSQL("INSERT INTO Rendezvous VALUES (\"PaulDuChateu\",\"beth\",\"2016-03-26 21:00\",\"Beerbar\",\"TRUE\");");
+        db.execSQL("INSERT INTO Rendezvous VALUES (\"PaulDuChateau\",\"beth\",\"2016-03-26 21:00\",\"Beerbar\",\"TRUE\");");
         db.execSQL("INSERT INTO Rendezvous VALUES (\"katesmith\",\"sisterlover\",\"2016-05-24 16:00\",\"Bravos Bank\",\"FALSE\");");
 
 
