@@ -104,14 +104,14 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
 
     // CALENDAR table create statement
     private static final String CREATE_TABLE_CALENDAR = "CREATE TABLE "
-            + TABLE_CALENDAR + "(" + KEY_LOGIN + " TEXT PRIMARY KEY," + KEY_DATE
+            + TABLE_CALENDAR + "(" + KEY_LOGIN + " TEXT," + KEY_DATE
             + "TEXT" + ");";
 
     // RENDEZVOUS table create statement
     private static final String CREATE_TABLE_RENDEZVOUS= "CREATE TABLE "
             + TABLE_RENDEZVOUS + "(" + KEY_LOGIN + " TEXT PRIMARY KEY," + KEY_FRIENDLOGIN
-            + " TEXT," + KEY_DATE + " TEXT" + KEY_LOCATION + " TEXT" + KEY_ANSWER
-            + " BOOLEAN" + ");";
+            + " TEXT," + KEY_DATE + " TEXT," + KEY_LOCATION + " TEXT," + KEY_ANSWER
+            + " TEXT" + ");";
 
 
     public DatabaseHandler2(Context context) {
@@ -171,19 +171,18 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         db.execSQL("INSERT INTO RequestList VALUES (\"beth\",\"vladimirkorsacof\",\"False\");");
         db.execSQL("INSERT INTO RequestList VALUES (\"loladu93\",\"vladimirkorsacof\",\"False\");");
 
-        /* TODO TEST IF IT WORKS
         //Populating the Calendar Table
-        db.execSQL("INSERT INTO Calendar VALUES (\"PaulDuChateu\",\"2016-03-25\");");
-        db.execSQL("INSERT INTO Calendar VALUES (\"PaulDuChateu\",\"2016-04-15\");");
-        db.execSQL("INSERT INTO Calendar VALUES (\"PaulDuChateu\",\"2016-03-26\");");
-        db.execSQL("INSERT INTO Calendar VALUES (\"beth\",\"2016-03-26\");");
-        db.execSQL("INSERT INTO Calendar VALUES (\"beth\",\"2016-03-27\");");
-        db.execSQL("INSERT INTO Calendar VALUES (\"Jojelavida\",\"2016-05-15\");");
-        db.execSQL("INSERT INTO Calendar VALUES (\"Jojelavida\",\"2016-05-22\");");
-        db.execSQL("INSERT INTO Calendar VALUES (\"foreverrebel\",\"2016-05-23\");");
-        db.execSQL("INSERT INTO Calendar VALUES (\"katesmith\",\"2016-05-23\");");
-        db.execSQL("INSERT INTO Calendar VALUES (\"katesmith\",\"2016-05-24\");");
-        db.execSQL("INSERT INTO Calendar VALUES (\"sisterlover\",\"2016-05-24\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"PaulDuChateu\",\"2016-03-25 12:00\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"PaulDuChateu\",\"2016-04-15 15:00\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"PaulDuChateu\",\"2016-03-26 21:00\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"beth\",\"2016-03-26 21:00\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"beth\",\"2016-03-27 15:00\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"Jojelavida\",\"2016-05-15 16:00\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"Jojelavida\",\"2016-05-22 19:00\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"foreverrebel\",\"2016-05-23 20:00\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"katesmith\",\"2016-05-23 20:00\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"katesmith\",\"2016-05-24 16:00\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"sisterlover\",\"2016-05-24 16:00\");");
 
         //Populating the Gallery Table
         db.execSQL("INSERT INTO Gallery VALUES (\"PaulDuChateu\",\"01-0001\",\"TRUE\");");
@@ -203,11 +202,11 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         db.execSQL("INSERT INTO Chat VALUES (\"Jojelavida\",\"foreverrebel\",\"You there?\",\"23:33\");");
         db.execSQL("INSERT INTO Chat VALUES (\"Jojelavida\",\"foreverrebel\",\"I like your Pix...\",\"23:34\");");
         db.execSQL("INSERT INTO Chat VALUES (\"Jojelavida\",\"foreverrebel\",\"Boyfriend?\",\"23:35\");");
-          /*
+
         //Populating the Rendezvous Table
-        db.execSQL("INSERT INTO Rendezvous VALUES (\"PaulDuChateu\",\"beth\",\"2016-03-26\",\"Beerbar\",\"TRUE\");");
-        db.execSQL("INSERT INTO Rendezvous VALUES (\"katesmith\",\"sisterlover\",\"2016-05-24\",\"Bravos Bank\",\"FALSE\");");
-        */
+        db.execSQL("INSERT INTO Rendezvous VALUES (\"PaulDuChateu\",\"beth\",\"2016-03-26 21:00\",\"Beerbar\",\"TRUE\");");
+        db.execSQL("INSERT INTO Rendezvous VALUES (\"katesmith\",\"sisterlover\",\"2016-05-24 16:00\",\"Bravos Bank\",\"FALSE\");");
+
 
         System.out.println("On Create String8");
     }
@@ -335,12 +334,14 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
     }
     public void updateGender(String login, String newGender){
         SQLiteDatabase db = this.getWritableDatabase();
+        //TODO update functions do not work
         db.execSQL("UPDATE Profile SET Gender = " + newGender + " WHERE Login = " + login + ";");
         /*ContentValues newValues = new ContentValues();
         newValues.put("Gender", newGender);
 
         String[] args = new String[]{login};
         db.update("Profile", newValues, "name=?", args);*/
+
         db.close();
 
     }
@@ -849,4 +850,85 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         return list;
 
     }
+
+    public List<RDV> getRDV(String login, String FriendLogin){
+        ArrayList<RDV> list = new ArrayList<>();
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String bubble = "select * from " + TABLE_RENDEZVOUS
+                + " where ( Login = \"" + login + "\" AND FriendLogin = \"" + FriendLogin + "\");";
+
+        Cursor cursor = db.rawQuery(bubble,new String[]{});
+
+        if(cursor.getCount()!=0) {
+            if (cursor != null)
+                cursor.moveToFirst();
+            do {
+                RDV rdv = new RDV();
+
+                rdv.setSender(cursor.getString(0));
+                rdv.setReceiver(cursor.getString(1));
+                rdv.setDate(cursor.getString(2));
+                rdv.setEtat(cursor.getString(3));
+
+                list.add(rdv);
+            }while(cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return list;
+    }
+
+    public void createRDV(RDV rdv){
+        SQLiteDatabase mDB = this.getWritableDatabase();
+
+        ContentValues val = new ContentValues();
+        val.put(KEY_LOGIN, rdv.getSender());
+        val.put(KEY_FRIENDLOGIN, rdv.getReceiver());
+        val.put(KEY_DATE, rdv.getDate());
+        val.put(KEY_ANSWER, rdv.getEtat());
+
+        mDB.insert(TABLE_RENDEZVOUS, null, val);
+
+        mDB.close();
+    }
+
+    public List<Date_Dispo> getDateDispo(String login){
+        ArrayList<Date_Dispo> list = new ArrayList<>();
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String bubble = "select * from " + TABLE_CALENDAR + " whereLogin = \"" + login + "\" ;";
+
+        Cursor cursor = db.rawQuery(bubble,new String[]{});
+
+        if(cursor.getCount()!=0) {
+            if (cursor != null)
+                cursor.moveToFirst();
+            do {
+                Date_Dispo date = new Date_Dispo();
+
+                date.setUser(cursor.getString(0));
+                date.setDate(cursor.getString(1));
+
+                list.add(date);
+            }while(cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return list;
+    }
+
+    public void createDateDispo(Date_Dispo date){
+        SQLiteDatabase mDB = this.getWritableDatabase();
+
+        ContentValues val = new ContentValues();
+        val.put(KEY_LOGIN, date.getUser());
+        val.put(KEY_DATE, date.getDate());
+
+        mDB.insert(TABLE_CALENDAR, null, val);
+
+        mDB.close();
+    }
+
 }
