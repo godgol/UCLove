@@ -602,7 +602,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         }while(c.moveToNext());
 
         c.close();
-
+/*
         //Get all friends that added you
         Cursor c2 = db.query("FriendList", new String[]{"Login"}, "FriendLogin=?", new String[]{login}, null, null, null, null);
 
@@ -615,7 +615,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         }while(c2.moveToNext());
 
         c2.close();
-
+*/
         db.close();
 
         return array;
@@ -834,15 +834,15 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
 
     }
 
-    public List<RDV> getRDV(String login, String FriendLogin){
+    public List<RDV> getRDV(String login){
         ArrayList<RDV> list = new ArrayList<>();
 
         SQLiteDatabase db = this.getWritableDatabase();
 
-        String bubble = "select * from " + TABLE_RENDEZVOUS
-                + " where ( Login = \"" + login + "\" AND FriendLogin = \"" + FriendLogin + "\");";
+        String bubble = "select * from " + TABLE_RENDEZVOUS + " where Login = \"" + login + "\");";
 
-        Cursor cursor = db.rawQuery(bubble,new String[]{});
+        //Cursor cursor = db.rawQuery(bubble,new String[]{});
+        Cursor cursor = db.query("Rendezvous", new String[]{}, "Login=?", new String[]{login}, null, null, null, null);
 
         if(cursor.getCount()!=0) {
             if (cursor != null)
@@ -948,4 +948,10 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         return etat;
     }
 
+    public List<String> getIncomingRequests(String login){
+        SQLiteDatabase db = this.getReadableDatabase();
+        List<String> list = new ArrayList<>();
+
+        return list;
+    }
 }
