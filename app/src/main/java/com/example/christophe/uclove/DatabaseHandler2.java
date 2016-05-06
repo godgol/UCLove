@@ -841,7 +841,8 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
 
         String bubble = "select * from " + TABLE_RENDEZVOUS + " where Login = \"" + login + "\");";
 
-        Cursor cursor = db.rawQuery(bubble,new String[]{});
+        //Cursor cursor = db.rawQuery(bubble,new String[]{});
+        Cursor cursor = db.query("Rendezvous", new String[]{}, "Login=?", new String[]{login}, null, null, null, null);
 
         if(cursor.getCount()!=0) {
             if (cursor != null)
@@ -947,4 +948,10 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         return etat;
     }
 
+    public List<String> getIncomingRequests(String login){
+        SQLiteDatabase db = this.getReadableDatabase();
+        List<String> list = new ArrayList<>();
+
+        return list;
+    }
 }
