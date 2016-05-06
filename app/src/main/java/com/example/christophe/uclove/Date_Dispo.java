@@ -5,20 +5,25 @@ import java.security.Timestamp;
 //package java.sql;
 
 public class Date_Dispo {
-    public Timestamp date;
+    public String date;
     public String user;
-    public Date_Dispo(Timestamp date, String user){
+
+    public Date_Dispo(){
+
+    }
+
+    public Date_Dispo(String date, String user){
         this.date = date;
         this.user = user;
     }
 
-    public Timestamp getDate(){
+    public String getDate(){
         return this.date;
     }
     public String getUser(){
         return this.user;
     }
-    public void setDate(Timestamp date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
