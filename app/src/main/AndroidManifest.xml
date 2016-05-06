@@ -55,13 +55,34 @@
 
         <activity
             android:name=".MsgChooseFriend"
-            android:label="Choose Friend">
+            android:label="@string/choose_friend">
         </activity>
 
         <activity
             android:name=".ChatActivity"
-            android:label="Chat">
+            android:label="@string/chat_activity">
         </activity>
+        <activity
+            android:name=".AgeActivity"
+            android:label="@string/age_activity">
+        </activity>
+        <activity
+             android:name=".NameActivity"
+             android:label="@string/name_activity">
+        </activity>
+        <activity
+            android:name=".FirstNameActivity"
+            android:label="@string/firstname_activity">
+        </activity>
+        <activity
+            android:name=".LocationActivity"
+            android:label="@string/location_activity">
+        </activity>
+        <activity
+            android:name=".Calendar_activity"
+            android:label="@string/calendar_activity">
+        </activity>
+
 
     </application>
 

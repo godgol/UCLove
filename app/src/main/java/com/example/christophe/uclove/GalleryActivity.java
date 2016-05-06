@@ -17,6 +17,7 @@ import android.widget.AdapterView.OnItemClickListener;
 
 public class GalleryActivity extends AppCompatActivity {
     Integer[] pics = {
+            //TODO R.drawable.pic1,R.drawable.pic2,R.drawable.pic3
             R.drawable.firendpic,R.drawable.rose
     };
     ImageView profilePic;
@@ -33,7 +34,7 @@ public class GalleryActivity extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-                Toast.makeText(getBaseContext(),"Define as profile picture",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(),"Defined as profile picture",Toast.LENGTH_SHORT).show();
                 profilePic.setImageResource(pics[arg2]);
             }
         });
