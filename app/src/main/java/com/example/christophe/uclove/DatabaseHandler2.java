@@ -14,7 +14,6 @@ import java.util.List;
 /**
  * Created by Christophe on 27.04.2016.
  */
-
 public class DatabaseHandler2 extends SQLiteOpenHelper{
     // Logcat tag
     private static final String LOG = "DatabaseHandler";
@@ -163,26 +162,27 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         db.execSQL("INSERT INTO RequestList VALUES (\"Jojelavida\",\"beth\",\"False\");");
         db.execSQL("INSERT INTO RequestList VALUES (\"Jojelavida\",\"foreverrebel\",\"True\");");
         db.execSQL("INSERT INTO RequestList VALUES (\"katesmith\",\"PaulDuChateau\",\"False\");");
-        db.execSQL("INSERT INTO RequestList VALUES (\"loladu93\",\"Jojelavida\",\"True\");");
+        db.execSQL("INSERT INTO RequestList VALUES (\"loladu93\",\"Jojelavida\",\"None\");");
         db.execSQL("INSERT INTO RequestList VALUES (\"beth\",\"obamanation\",\"True\");");
         db.execSQL("INSERT INTO RequestList VALUES (\"athenazeus\",\"sisterlover\",\"True\");");
         db.execSQL("INSERT INTO RequestList VALUES (\"Jojelavida\",\"katesmith\",\"True\");");
-        db.execSQL("INSERT INTO RequestList VALUES (\"PaulDuChateau\",\"vladimirkorsacof\",\"False\");");
+        db.execSQL("INSERT INTO RequestList VALUES (\"PaulDuChateau\",\"vladimirkorsacof\",\"None\");");
         db.execSQL("INSERT INTO RequestList VALUES (\"beth\",\"vladimirkorsacof\",\"False\");");
-        db.execSQL("INSERT INTO RequestList VALUES (\"loladu93\",\"vladimirkorsacof\",\"False\");");
+        db.execSQL("INSERT INTO RequestList VALUES (\"loladu93\",\"vladimirkorsacof\",\"None\");");
+        db.execSQL("INSERT INTO RequestList VALUES (\"Jojelavida\",\"PaulDuChateau\",\"None\");");
 
         //Populating the Calendar Table
-        db.execSQL("INSERT INTO Calendar VALUES (\"PaulDuChateau\",\"2016-03-25 12:00\");");
-        db.execSQL("INSERT INTO Calendar VALUES (\"PaulDuChateau\",\"2016-04-15 15:00\");");
-        db.execSQL("INSERT INTO Calendar VALUES (\"PaulDuChateau\",\"2016-03-26 21:00\");");
-        db.execSQL("INSERT INTO Calendar VALUES (\"beth\",\"2016-03-26 21:00\");");
-        db.execSQL("INSERT INTO Calendar VALUES (\"beth\",\"2016-03-27 15:00\");");
-        db.execSQL("INSERT INTO Calendar VALUES (\"Jojelavida\",\"2016-05-15 16:00\");");
-        db.execSQL("INSERT INTO Calendar VALUES (\"Jojelavida\",\"2016-05-22 19:00\");");
-        db.execSQL("INSERT INTO Calendar VALUES (\"foreverrebel\",\"2016-05-23 20:00\");");
-        db.execSQL("INSERT INTO Calendar VALUES (\"katesmith\",\"2016-05-23 20:00\");");
-        db.execSQL("INSERT INTO Calendar VALUES (\"katesmith\",\"2016-05-24 16:00\");");
-        db.execSQL("INSERT INTO Calendar VALUES (\"sisterlover\",\"2016-05-24 16:00\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"PaulDuChateau\",\"2016-3-25 12:00\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"PaulDuChateau\",\"2016-4-15 15:00\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"PaulDuChateau\",\"2016-3-26 21:00\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"beth\",\"2016-3-26 21:00\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"beth\",\"2016-3-27 15:00\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"Jojelavida\",\"2016-5-15 16:00\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"Jojelavida\",\"2016-5-22 19:00\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"foreverrebel\",\"2016-5-23 20:00\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"katesmith\",\"2016-5-23 20:00\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"katesmith\",\"2016-5-24 16:00\");");
+        db.execSQL("INSERT INTO Calendar VALUES (\"sisterlover\",\"2016-5-24 16:00\");");
 
         //Populating the Gallery Table
         db.execSQL("INSERT INTO Gallery VALUES (\"PaulDuChateau\",\"01-0001\",\"TRUE\");");
@@ -204,8 +204,8 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         db.execSQL("INSERT INTO Chat VALUES (\"Jojelavida\",\"foreverrebel\",\"Boyfriend?\",\"23:35\");");
 
         //Populating the Rendezvous Table
-        db.execSQL("INSERT INTO Rendezvous VALUES (\"PaulDuChateau\",\"beth\",\"2016-03-26 21:00\",\"Beerbar\",\"TRUE\");");
-        db.execSQL("INSERT INTO Rendezvous VALUES (\"katesmith\",\"sisterlover\",\"2016-05-24 16:00\",\"Bravos Bank\",\"FALSE\");");
+        db.execSQL("INSERT INTO Rendezvous VALUES (\"PaulDuChateau\",\"beth\",\"2016-3-26 21:00\",\"Beerbar\",\"TRUE\");");
+        db.execSQL("INSERT INTO Rendezvous VALUES (\"katesmith\",\"sisterlover\",\"2016-5-24 16:00\",\"Bravos Bank\",\"FALSE\");");
 
 
         System.out.println("On Create String8");
@@ -290,113 +290,110 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
     }
     public void updatePassword(String login, String newPassword){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE Profile SET Password = " + newPassword + " WHERE Login = " + login + ";");
-        /*ContentValues newValues = new ContentValues();
+        //db.execSQL("UPDATE Profile SET Password = " + newPassword + " WHERE Login = " + login + ";");
+        ContentValues newValues = new ContentValues();
         newValues.put("Password", newPassword);
 
         String[] args = new String[]{login};
-        db.update("Profile", newValues, "name=?", args);*/
+        db.update("Profile", newValues, "Login=?", args);
 
         db.close();
     }
     public void updateFamilyName(String login, String newFN){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE Profile SET FamilyName = " + newFN + " WHERE Login = " + login + ";");
-        /*ContentValues newValues = new ContentValues();
+        //db.execSQL("UPDATE Profile SET FamilyName = " + newFN + " WHERE Login = " + login + ";");
+        ContentValues newValues = new ContentValues();
         newValues.put("FamilyName", newFN);
 
         String[] args = new String[]{login};
-        db.update("Profile", newValues, "name=?", args);*/
+        db.update("Profile", newValues, "Login=?", args);
 
         db.close();
     }
     public void updateName(String login, String newName){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE Profile SET Name = " + newName + " WHERE Login = " + login + ";");
-        /*ContentValues newValues = new ContentValues();
+        //db.execSQL("UPDATE Profile SET Name = " + newName + " WHERE Login = " + login + ";");
+        ContentValues newValues = new ContentValues();
         newValues.put("Name", newName);
 
         String[] args = new String[]{login};
-        db.update("Profile", newValues, "name=?", args);*/
+        db.update("Profile", newValues, "Login=?", args);
 
         db.close();
     }
     public void updateAge(String login, int newAge){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE Profile SET Age = " + newAge + " WHERE Login = " + login + ";");
-        /*ContentValues newValues = new ContentValues();
+        //db.execSQL("UPDATE Profile SET Age = " + newAge + " WHERE Login = " + login + ";");
+        ContentValues newValues = new ContentValues();
         newValues.put("Age", newAge);
 
         String[] args = new String[]{login};
-        db.update("Profile", newValues, "name=?", args);*/
+        db.update("Profile", newValues, "Login=?", args);
 
         db.close();
     }
     public void updateGender(String login, String newGender){
         SQLiteDatabase db = this.getWritableDatabase();
-        //TODO update functions do not work
-        db.execSQL("UPDATE Profile SET Gender = " + newGender + " WHERE Login = " + login + ";");
-        /*ContentValues newValues = new ContentValues();
+        //db.execSQL("UPDATE Profile SET Gender = " + newGender + " WHERE Login = " + login + ";");
+        ContentValues newValues = new ContentValues();
         newValues.put("Gender", newGender);
 
         String[] args = new String[]{login};
-        db.update("Profile", newValues, "name=?", args);*/
-
+        db.update("Profile", newValues, "Login=?", args);
         db.close();
-
     }
     public void updateLocation(String login, String newLocation){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE Profile SET Location = " + newLocation + " WHERE Login = " + login + ";");
-        /*ContentValues newValues = new ContentValues();
+        //db.execSQL("UPDATE Profile SET Location = " + newLocation + " WHERE Login = " + login + ";");
+        ContentValues newValues = new ContentValues();
         newValues.put("Location", newLocation);
 
         String[] args = new String[]{login};
-        db.update("Profile", newValues, "name=?", args);*/
+        db.update("Profile", newValues, "Login=?", args);
 
         db.close();
     }
     public void updateHair(String login, String newHair){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE Profile SET Hair = " + newHair + " WHERE Login = " + login + ";");
-        /*ContentValues newValues = new ContentValues();
+        //db.execSQL("UPDATE Profile SET Hair = " + newHair + " WHERE Login = " + login + ";");
+        ContentValues newValues = new ContentValues();
         newValues.put("Hair", newHair);
 
         String[] args = new String[]{login};
-        db.update("Profile", newValues, "name=?", args);*/
+        db.update("Profile", newValues, "Login=?", args);
 
         db.close();
     }
     public void updateEyes(String login, String newEyes){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE Profile SET Eyes = " + newEyes + " WHERE Login = " + login + ";");
-        /*ContentValues newValues = new ContentValues();
+        //db.execSQL("UPDATE Profile SET Eyes = " + newEyes + " WHERE Login = " + login + ";");
+        ContentValues newValues = new ContentValues();
         newValues.put("Eyes", newEyes);
 
         String[] args = new String[]{login};
-        db.update("Profile", newValues, "name=?", args);*/
+        db.update("Profile", newValues, "Login=?", args);
 
         db.close();
     }
     public void updatePreferences(String login, String newPreferences){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE Profile SET Preferences = " + newPreferences + " WHERE Login = " + login + ";");
-        /*ContentValues newValues = new ContentValues();
+        //db.execSQL("UPDATE Profile SET Preferences = " + newPreferences + " WHERE Login = " + login + ";");
+        ContentValues newValues = new ContentValues();
         newValues.put("Preferences", newPreferences);
 
         String[] args = new String[]{login};
-        db.update("Profile", newValues, "name=?", args);*/
+        db.update("Profile", newValues, "Login=?", args);
 
         db.close();
     }
     public void updateLanguage(String login, String newLanguage){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE Profile SET Language = " + newLanguage + " WHERE Login = " + login + ";");
-        /*ContentValues newValues = new ContentValues();
+        //db.execSQL("UPDATE Profile SET Language = " + newLanguage + " WHERE Login = " + login + ";");
+        ContentValues newValues = new ContentValues();
         newValues.put("Language", newLanguage);
 
         String[] args = new String[]{login};
-        db.update("Profile", newValues, "name=?", args);*/
+        db.update("Profile", newValues, "Login=?", args);
 
         db.close();
     }
@@ -682,13 +679,13 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
     /*
     * Creating a Request
     */
-    public void createRequest(String login, String RequestLogin) {
+    public void createRequest(String login, String RequestLogin, String etat) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(KEY_LOGIN, login);
         values.put(KEY_REQUESTLOGIN, RequestLogin);
-        values.put(KEY_ANSWER, "False");
+        values.put(KEY_ANSWER, etat);
 
         // insert row
         db.insert(TABLE_REQUESTLIST, null, values);
@@ -731,7 +728,6 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         return list;
     }
 
-    //TODO Test if it works
     /*
     * Adding a Pic
     */
@@ -793,19 +789,6 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         return profBin;
     }
 
-    /* TODO Methods to write
-    *
-    // CHAT Table - column names
-    KEY_MESSAGE = "Message";
-    KEY_DATE = "Date";
-
-    //CALENDAR Table - column names
-    //Uses Login and Date
-
-    // RENDEZVOUS Table - column names
-    // Uses Login, FriendLogin, Date, Location, Answer
-    *
-    * */
     public void add(Message msg) {
 
         SQLiteDatabase mDB = this.getWritableDatabase();
@@ -929,6 +912,38 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         mDB.insert(TABLE_CALENDAR, null, val);
 
         mDB.close();
+    }
+
+    public void updateRequestEtat(String login, String FriendLogin, String etat){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues newValues = new ContentValues();
+        newValues.put("Answer", etat);
+
+        String[] args = new String[]{login, FriendLogin};
+        db.update("RequestList", newValues, "Login=? AND RequestLogin=?", args);
+
+
+        db.close();
+    }
+
+    public String getEtatRequest(String login, String FriendLogin){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        System.out.println("Test Update");
+        Cursor c = db.query("RequestList", new String[] {"Answer"},"Login=? AND RequestLogin=?",new String[] {login,FriendLogin},null, null, null, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+        System.out.println("Test Update après");
+        String etat = c.getString(c.getColumnIndex("Answer"));
+
+        System.out.println("Test Update après 2");
+        c.close();
+        db.close();
+
+        return etat;
     }
 
 }
