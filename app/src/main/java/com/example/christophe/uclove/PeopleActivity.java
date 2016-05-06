@@ -82,7 +82,7 @@ public class PeopleActivity extends AppCompatActivity {
                     db2.closeDB();
                 }
                 else{
-                    //if(array.size()-i>0) {
+                    //if((array.size()-i)>0) {
                         i = i + 1;
                         login = array.get(i);
                     /*}
