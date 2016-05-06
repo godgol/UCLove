@@ -112,12 +112,13 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
             + " TEXT," + KEY_DATE + " TEXT," + KEY_LOCATION + " TEXT," + KEY_ANSWER
             + " TEXT" + ");";
 
-
+    //Constructeur
     public DatabaseHandler2(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         System.out.println("In constr");
     }
 
+    //Créer la BD
     @Override
     public void onCreate(SQLiteDatabase db) {
         System.out.println("On Create String First");
@@ -211,6 +212,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         System.out.println("On Create String8");
     }
 
+    //Méthode de mise à jour
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // on upgrade drop older tables
@@ -253,6 +255,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         db.close();
     }
 
+    //Fermer la BD
     public void closeDB() {
         SQLiteDatabase db = this.getReadableDatabase();
         if (db != null && db.isOpen())
@@ -263,11 +266,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
     public Profile getProfile(String login) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-//      String selectQuery = "SELECT * FROM Profile WHERE Login = " + login + ";";
-
         Cursor c = db.query("Profile", new String[] {"Login","Password"},"Login=?",new String[] {login},null, null, null, null);
-//        Cursor c = db.rawQuery(selectQuery, null);
-
 
         if (c != null)
             c.moveToFirst();
@@ -773,6 +772,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         return list;
     }
 
+    //Read le boolean de la photo de profil
     public String readPicBin(String login, String PicID) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -789,6 +789,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         return profBin;
     }
 
+    //Ajouter un message dans la BD
     public void add(Message msg) {
 
         SQLiteDatabase mDB = this.getWritableDatabase();
@@ -803,6 +804,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         mDB.close();
     }
 
+    //Recevoir tous les messages entre deux personnes
     public ArrayList<Message> Conversation(String sender, String receiver) {
 
         SQLiteDatabase mDB = this.getWritableDatabase();
@@ -834,6 +836,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
 
     }
 
+    //Recevoir une liste d'objets RDV de l'utlisateur
     public List<RDV> getRDV(String login){
         ArrayList<RDV> list = new ArrayList<>();
 
@@ -864,6 +867,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         return list;
     }
 
+    //Créer un nouveau RDV
     public void createRDV(RDV rdv){
         SQLiteDatabase mDB = this.getWritableDatabase();
 
@@ -879,6 +883,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         mDB.close();
     }
 
+    //Recevoir les disponibilités des utilisateurs
     public List<Date_Dispo> getDateDispo(String login){
         ArrayList<Date_Dispo> list = new ArrayList<>();
         SQLiteDatabase db = this.getWritableDatabase();
@@ -904,6 +909,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         return list;
     }
 
+    //Créer une nouvelle disponibilité
     public void createDateDispo(Date_Dispo date){
         SQLiteDatabase mDB = this.getWritableDatabase();
 
@@ -916,6 +922,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         mDB.close();
     }
 
+    //Mettre à jour l'état de la requête
     public void updateRequestEtat(String login, String FriendLogin, String etat){
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -929,6 +936,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         db.close();
     }
 
+    //Recevoir l'état de la requête
     public String getEtatRequest(String login, String FriendLogin){
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -948,6 +956,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         return etat;
     }
 
+    //Recevoir tous les requêtes entrantes
     public List<String> getIncomingRequests(String login){
         SQLiteDatabase db = this.getReadableDatabase();
         List<String> list = new ArrayList<>();
