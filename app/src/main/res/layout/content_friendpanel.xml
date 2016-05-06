@@ -3,11 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <TextView
-        android:id="@+id/gender"
+        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/gender"
+        android:text="@string/name"
         android:paddingLeft="20px"
         android:paddingTop="50px"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -19,14 +20,14 @@
         android:text="@string/age"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:paddingLeft="20px"
-        android:layout_alignLeft="@id/gender"
+        android:layout_alignLeft="@id/name"
         android:paddingTop="150px"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/hair"
         android:text="@string/hair"
-        android:layout_alignLeft="@id/gender"
+        android:layout_alignLeft="@id/name"
         android:paddingTop="250px"
         android:paddingLeft="20px"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -34,8 +35,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/eyes"
-        android:text="@string/eyes"
+        android:id="@+id/gender"
+        android:text="@string/gender"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:paddingTop="350px"
         android:paddingLeft="20px"
@@ -71,15 +72,15 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="550px"
-        android:id="@+id/gender_value"
+        android:paddingLeft="450px"
+        android:id="@+id/name_value"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_alignBaseline="@id/gender"
+        android:layout_alignBaseline="@id/name"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="550px"
+        android:paddingLeft="450px"
         android:id="@+id/age_value"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_alignBaseline="@id/age"
@@ -87,7 +88,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="550px"
+        android:paddingLeft="450px"
         android:id="@+id/hair_value"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_alignBaseline="@id/hair"
@@ -95,15 +96,15 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="550px"
-        android:id="@+id/eyes_value"
+        android:paddingLeft="450px"
+        android:id="@+id/gender_value"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_alignBaseline="@id/eyes"
+        android:layout_alignBaseline="@id/gender"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="550px"
+        android:paddingLeft="450px"
         android:id="@+id/location_value"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_alignBaseline="@id/location"
@@ -111,7 +112,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="550px"
+        android:paddingLeft="450px"
         android:id="@+id/inclination_value"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_alignBaseline="@id/inclination"

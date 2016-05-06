@@ -27,34 +27,43 @@ public class FriendPanelActivity extends AppCompatActivity {
 
 
 
-    TextView genre_value = null;
+    TextView login_value = null;
     TextView age_value= null;
     TextView hair_value = null;
-    TextView eyes_value = null;
+    TextView gender_value = null;
     TextView location_value = null;
     TextView inclination_value = null;
+    String friend;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_friendpanel);
-        genre_value =  (TextView) findViewById(R.id.gender_value);
-        genre_value.setText("Singe"); // Avec la base de donnée on irait dans la array list de user, chercher un friend et faire friend.getGender();
+        Bundle extras = getIntent().getExtras();
+        if(extras!=null)
+        {
+             friend = extras.getString("friend");
+        }
+        DatabaseHandler2 db = new DatabaseHandler2(FriendPanelActivity.this);
+        login_value =  (TextView) findViewById(R.id.name_value);
+        login_value.setText(friend);
 
         age_value = (TextView) findViewById(R.id.age_value);
-        age_value.setText("23");
+        age_value.setText(String.valueOf(db.readAge(friend)));
 
         hair_value = (TextView) findViewById(R.id.hair_value);
-        hair_value.setText("Noir");
+        hair_value.setText(db.readHair(friend));
 
-        eyes_value = (TextView) findViewById(R.id.eyes_value);
-        eyes_value.setText("Marron");
+        gender_value = (TextView) findViewById(R.id.gender_value);
+        gender_value.setText(db.readGender(friend));
 
         location_value = (TextView) findViewById(R.id.location_value);
-        location_value.setText("Zimbabwe");
+        location_value.setText(db.readLocation(friend));
 
         inclination_value = (TextView) findViewById(R.id.inclination_value);
-        inclination_value.setText("Ouvert à toute possibilité");
+        inclination_value.setText(db.readPreferences(friend));
+
+        db.closeDB();
 
 
     }

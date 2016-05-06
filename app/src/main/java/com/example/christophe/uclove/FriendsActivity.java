@@ -57,17 +57,23 @@ public class FriendsActivity extends AppCompatActivity{
 
         db.closeDB();
 
+
+
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, addlist);
         liste.setAdapter(adapter);
 
+        final List<String> finalAddlist = addlist;
         liste.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView,
                                     View view,
                                     int position,
-                                    long id) {
+                                    long id ) {
+               String friend = finalAddlist.get((int) id);
+                System.out.println(friend);
 
                 Intent i = new Intent(FriendsActivity.this, FriendPanelActivity.class);
+                i.putExtra("friend", friend);
                 startActivity(i);
             }
         });
