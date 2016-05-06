@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
@@ -68,6 +67,14 @@
         android:id="@+id/friend_pic"
         android:layout_below="@id/inclination"
         android:src="@drawable/firendpic"
+        />
+    <Button
+        android:id="@+id/rdv"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Rendez-vous"
+        android:layout_alignRight="@id/friend_pic"
+        android:layout_below="@id/inclination"
         />
     <TextView
         android:layout_width="wrap_content"
