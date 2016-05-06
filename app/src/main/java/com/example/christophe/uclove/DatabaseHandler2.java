@@ -952,6 +952,8 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getReadableDatabase();
         List<String> list = new ArrayList<>();
 
+        Cursor c = db.query("RequestList", new String[] {},"Login=?",new String[] {login},null, null, null, null);
+
         return list;
     }
 }

@@ -19,7 +19,7 @@ import org.w3c.dom.Text;
 public class MyListActivity  extends AppCompatActivity {
     public TextView profile;
     Profile update = new Profile();
-    public TextView preferences;
+    public TextView request;
     String login ;
     public TextView friends;
     public TextView meet;
@@ -50,7 +50,7 @@ public class MyListActivity  extends AppCompatActivity {
 
         System.out.println("TestList1");
         profile = (TextView) findViewById(R.id.T1);
-        preferences = (TextView) findViewById(R.id.T2);
+        request = (TextView) findViewById(R.id.T7);
         people = (TextView) findViewById(R.id.T3);
         friends = (TextView) findViewById(R.id.T4);
         meet = (TextView) findViewById(R.id.T5);
@@ -142,31 +142,22 @@ public class MyListActivity  extends AppCompatActivity {
             }
         });
 
-        /*preferences.setOnTouchListener(new View.OnTouchListener() {
+        request.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 DatabaseHandler2 db2 = new DatabaseHandler2(MyListActivity.this);
                 if (event.getAction() == MotionEvent.ACTION_UP) {
-                    //db2.updateLogin("PaulduChateu", "PaulDuChateau");
-                    preferences.setBackgroundColor(getResources().getColor(R.color.lightred));
-                    db2.updateLogin("'PaulDuChateu'","'PaulDuChateau'");
-                    update = db2.getProfile("PaulDuChateau");
-                    login = update.getLogin();
-                    if(login.equals("PaulDuChateau")) {
-                        System.out.println("lol3");
-                        Intent intent2 = new Intent(MyListActivity.this, .class);
-                        startActivity(intent2);
-                        System.out.println("lol4");
-                    }
-                    System.out.println("lol5");
+                    request.setBackgroundColor(getResources().getColor(R.color.white));
+                    Intent intent2 = new Intent(MyListActivity.this, RequestActivity.class);
+                    startActivity(intent2);
                     return true;
-                } else {
-                    preferences.setBackgroundColor(getResources().getColor(R.color.lightred));
+                } else{
+                    request.setBackgroundColor(getResources().getColor(R.color.lightred));
                 }
                 return false;
             }
         });
-        */
+
     }
 }
 
