@@ -108,7 +108,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
 
     // RENDEZVOUS table create statement
     private static final String CREATE_TABLE_RENDEZVOUS= "CREATE TABLE "
-            + TABLE_RENDEZVOUS + "(" + KEY_LOGIN + " TEXT PRIMARY KEY," + KEY_FRIENDLOGIN
+            + TABLE_RENDEZVOUS + "(" + KEY_LOGIN + " TEXT," + KEY_FRIENDLOGIN
             + " TEXT," + KEY_DATE + " TEXT," + KEY_LOCATION + " TEXT," + KEY_ANSWER
             + " TEXT" + ");";
 
@@ -194,7 +194,7 @@ public class DatabaseHandler2 extends SQLiteOpenHelper{
         db.execSQL("INSERT INTO Gallery VALUES (\"foreverrebel\",\"10-0001\",\"TRUE\");");
         db.execSQL("INSERT INTO Gallery VALUES (\"foreverrebel\",\"10-0002\",\"FALSE\");");
 
-        //Popluating the Chat Table*/
+        //Popluating the Chat Table
         db.execSQL("INSERT INTO Chat VALUES (\"PaulDuChateau\",\"beth\",\"Hey Beth! Montre tes fesses.\",\"09:00\");");
         db.execSQL("INSERT INTO Chat VALUES (\"beth\",\"PaulDuChateau\",\"Hey Paul! Non...J'ai 86 ans.\",\"09:30\");");
         db.execSQL("INSERT INTO Chat VALUES (\"Jojelavida\",\"foreverrebel\",\"HI\",\"23:32\");");

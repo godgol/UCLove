@@ -15,6 +15,7 @@ import android.widget.Toast;
 import android.content.Intent;
 
 public class RDVActivity extends AppCompatActivity{
+    Bundle extras = getIntent().getExtras();
     public Button validate;
     public DatePicker date;
     public Button okDate;

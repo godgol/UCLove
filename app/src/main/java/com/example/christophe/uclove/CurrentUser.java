@@ -7,4 +7,5 @@ public class CurrentUser{
 
     public static String current_user ="None";
     public static String current_chat ="None";
+    public static String current_friend = "None";
 }

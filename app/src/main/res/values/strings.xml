@@ -64,8 +64,15 @@
     <string name="name">Pseudo</string>
     <string name="rdv">Rendez-vous</string>
     <string name="calendar_activity">Calendrier</string>
-    <string name="rdv_activity">Rendez vous</string>
+    <string name="rdvactivity">Rendez vous</string>
     <string name="validate">Valider</string>
     <string name="time">Temps</string>
     <string name="place">Lieu</string>
+    <string name="request_activity">Requêtes</string>
+    <string name="incoming_activity">Requêtes entrantes</string>
+    <string name="outgoing_activity">Requêtes sortantes</string>
+    <string name="addchatactivity">Add chat</string>
+    <string name="t">hh:mm (ex: 15:8)</string>
+    <string name="rdv_activity">RDV</string>
+
 </resources>
