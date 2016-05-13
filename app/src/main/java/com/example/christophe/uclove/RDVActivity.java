@@ -9,16 +9,15 @@ import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.content.Intent;
 
 public class RDVActivity extends AppCompatActivity{
     //Initialiser les variables
-    Bundle extras = getIntent().getExtras();
+
     public Button validate;
-    public DatePicker date;
+    public EditText date;
     public Button okDate;
     public EditText time;
     public Button okTime;
@@ -30,9 +29,7 @@ public class RDVActivity extends AppCompatActivity{
     private boolean dateChecked = false;
     private boolean timeChecked = false;
     private boolean placeChecked = false;
-    private String day;
-    private String month;
-    private String year;
+    private String d;
     private String t;
     private String loc;
     String friend;
@@ -44,7 +41,7 @@ public class RDVActivity extends AppCompatActivity{
 
         // recuperation des vues
         validate = (Button)findViewById(R.id.validate);
-        date = (DatePicker) findViewById(R.id.date);
+        date = (EditText) findViewById(R.id.date);
         okDate = (Button)findViewById(R.id.okDate);
         time = (EditText) findViewById(R.id.time);
         okTime = (Button) findViewById(R.id.okTime);
@@ -55,12 +52,7 @@ public class RDVActivity extends AppCompatActivity{
         okDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                int d = date.getDayOfMonth();
-                day = Integer.toString(d);
-                int m = date.getMonth();
-                month = Integer.toString(m);
-                int y = date.getYear();
-                year = Integer.toString(y);
+                d = date.getText().toString();
                 dateChecked = true;
             }
         });
@@ -93,7 +85,7 @@ public class RDVActivity extends AppCompatActivity{
                     RDV rdv = new RDV();
                     rdv.setSender(login);
                     rdv.setReceiver(friend);
-                    rdv.setDate(year + "-" + month + "-" + day + " " + t);
+                    rdv.setDate(d + " " + t);
                     rdv.setEtat("true");
                     rdv.setLocation(loc);
                     DatabaseHandler2 db = new DatabaseHandler2(RDVActivity.this);
